@@ -1,0 +1,15 @@
+header{
+    color:tomato;
+    background-color: cornsilk;
+    text-align: center;
+    font-size: larger;
+}
+
+footer{
+    color:cornflowerblue;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
