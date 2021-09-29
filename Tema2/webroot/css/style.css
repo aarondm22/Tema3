@@ -2,8 +2,7 @@ header{
     color:tomato;
     background-color: cornsilk;
     text-align: center;
-    font-size: larger;
-
+    font-size: 2em;
 }
 
 footer{
@@ -14,8 +13,13 @@ footer{
     bottom: 0;
     right: 0;
     left: 0;
+    font-size: 2em;
 }
 
 header .subtitulo{
     font-size: 25px;
+}
+
+main{
+    padding: 50px;
 }

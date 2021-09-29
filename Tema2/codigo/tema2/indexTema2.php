@@ -14,6 +14,9 @@
     </header>
         <main>
             <a href=""></a>
+            <?php
+                phpinfo();
+            ?>
         </main>
     <footer>@copy Aaron de Diego</footer>
 </body>
