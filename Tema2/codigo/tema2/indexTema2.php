@@ -51,7 +51,7 @@
                 MITEXTO;
             ?>
             <h2>Variables</h2>
-            <a href="Variables.php">Hola mundo antiguo</a>
+            <a href="Variables.php">Ir a variables</a>
         </main>
     <footer>®Copy Aaron de Diego</footer>
 </body>
