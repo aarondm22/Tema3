@@ -18,4 +18,8 @@
             echo"</footer>";
     echo"</body>";
     echo"</html>";
+    echo"<a href='indexTema2.php'>";
+        echo"<img src='../../media/volver.svg'>";
+        echo"Volver al Index del Tema 2";
+    echo "</a>";
 ?>

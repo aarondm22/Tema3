@@ -45,6 +45,12 @@
             //Información sobre una variable o varias
             var_dump("aaron", 3.14, 5);
         ?>
+        <br>
+        <br>
+        <a href="indexTema2.php">
+            <img src="../../media/volver.svg">
+            Volver al Index del Tema 2
+        </a>
     </main>
     <footer>©Copy Aaron de Diego</footer>
 </body>

@@ -20,7 +20,7 @@
         $$var = $_GET['pais'];
 
         if(isset($_GET['pais']) && $_GET['pais'] == $es)
-            echo "<h2>Hola</h2>";
+            echo "<h2 style='text-align: center'>Hola</h2>";
         else if(isset($_GET['pais']) && $_GET['pais'] == $en)
             echo "<h2>Hello</h2>";
         else if(isset($_GET['pais']) && $_GET['pais'] == $ho)

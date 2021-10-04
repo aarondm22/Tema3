@@ -13,6 +13,10 @@
         <p id="subtitulo">Variables en php</p>
     </header>
         <main>
+            <a href="indexTema2.php">
+                <img src="../../media/volver.svg">
+                Volver al Index del Tema 2
+            </a>
             <?php
                 echo "<h2>Entero</h2>";
                 //Declaramos una variable
