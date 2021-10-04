@@ -149,6 +149,6 @@
 
             ?>
         </main>
-    <footer>®Copy Aaron de Diego</footer>
+    <footer>©Copy Aaron de Diego</footer>
 </body>
 </html>
