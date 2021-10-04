@@ -21,11 +21,19 @@
                 </li>
                 <br>
                 <li>
-                    <a href="Variables.php">Ejemplos Variables</a>
+                    <a href="Variables.php">Ejemplos Variables y Constantes</a>
                 </li>
                 <br>
                 <li>
                     <a href="eligeidioma.html">Ejercicio Hola Mundo Idiomas</a>
+                </li>
+                <br>
+                <li>
+                    <a href="ambito.php">Ejemplos Ámbito</a>
+                </li>
+                <br>
+                <li>
+                    <a href="incluirFicheros.php">Ejemplos Inclusión de ficheros</a>
                 </li>
                 <br>
                 <li>

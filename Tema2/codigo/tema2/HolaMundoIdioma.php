@@ -11,25 +11,20 @@
     </header>
     <main>
     <?php
-        $es = null;
-        $en = null;
-        $ho = null;
-        $tv = null;
-        $ma = null;
         $var = $_GET['pais'];
-        $$var = $_GET['pais'];
 
-        if(isset($_GET['pais']) && $_GET['pais'] == $es)
-            echo "<h2 style='text-align: center'>Hola</h2>";
-        else if(isset($_GET['pais']) && $_GET['pais'] == $en)
-            echo "<h2>Hello</h2>";
-        else if(isset($_GET['pais']) && $_GET['pais'] == $ho)
-            echo "<h2>Hallo daar</h2>";
-        else if(isset($_GET['pais']) && $_GET['pais'] == $tv)
-            echo "<h2>Talofa</h2>";
-        else if(isset($_GET['pais']) && $_GET['pais'] == $ma)
-            echo "<h2>Здраво таму</h2>";
+        $idiomas_es = "Hola";
+        $idiomas_en = "Hello";
+        $idiomas_ho = "Hallo daar";
+        $idiomas_tv = "Talofa";
+        $idiomas_ma = "Здраво таму";
+
+        //Variable de variable que es la que va a decidir que saludo se va a imprimir
+        $saludo="idiomas_".$var;
+        echo "<h1>".$$saludo."</h1>";
     ?>
+    <br>
+    
     </main>
     <footer>
         ©Aarón de Diego Martín
