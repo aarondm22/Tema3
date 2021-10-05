@@ -15,6 +15,10 @@
                 <img src="../../media/volver.svg">
                 Volver al Index del Tema 2
             </a>
+            <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
+                echo $pagina;?>">
+                Ver codigo <img style="width:35px;"src="../../media/lupa.svg">
+            </a>
             <?php
                 echo "<h1>Entero</h1>";
                 //Declaramos una variable

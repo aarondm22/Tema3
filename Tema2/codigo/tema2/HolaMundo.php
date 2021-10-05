@@ -12,6 +12,7 @@
             echo"</header>";
             echo"<main>";
                 echo"<h1>HOLA MUNDO</h1>";
+                
             echo"</main>";
             echo"<footer>";
                 echo"®Copy Aaron de Diego";

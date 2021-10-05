@@ -37,12 +37,21 @@
                 </li>
                 <br>
                 <li>
+                    <a href="fechas.php">Ejemplos fechas</a>
+                </li>
+                <br>
+                <li>
                     <a href="../../index.html">
                         <img src="../../media/volver.svg">
                         Volver al Temario
                     </a>
                 </li>
             </ul>
+            <br>
+            <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
+                echo $pagina;?>">
+                Ver codigo <img style="width:35px;"src="../../media/lupa.svg">
+            </a>
             
         </main>
     <footer>©Copy Aaron de Diego</footer>

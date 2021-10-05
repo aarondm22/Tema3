@@ -13,7 +13,7 @@
         <main>
             <?php
                 require("saludo.php");
-                include("../../../seguro/misConstantes.php");
+                include("/var/www/seguro/misConstantes.php");
 
                 echo USER;
             ?>
@@ -22,6 +22,11 @@
             <a href="indexTema2.php">
                 <img src="../../media/volver.svg">
                 Volver al Index del Tema 2
+            </a>
+            <br>
+            <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
+                echo $pagina;?>">
+                Ver codigo <img style="width:35px;"src="../../media/lupa.svg">
             </a>
         </main>
     <footer>
