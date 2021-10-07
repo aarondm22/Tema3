@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Resumen Tema 2</title>
+    <link href="./webroot/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Index del Tema 2</h1>
+        <h2 class="subtitulo">Desarrollo Web en Entorno Servidor</h2>
+    </header>
+    <main>
+        <ul>
+            <li>
+                <a href="./codigo/ejercicio1.php">Ejercicio 1:</a><a href="./codigo/ejercicio1.php"> Mostrar diferentes variables como fechas, direcciones ip
+                y nombre de ficheros en php.</a>
+            </li>
+            <br>
+            <li>
+                <a href="./codigo/ejercicio2.php">Ejercicio 2: </a><a href="./codigo/ejercicio1.php"> Mostrar el tipo de variable que se la pasa al usuario desde
+                    una url y que la muestre.
+                </a>
+            </li>
+        </ul>
+        <br>
+        <!--Solo php-->
+        <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
+            echo $pagina;?>">
+            Ver codigo <img style="width:35px;"src="../media/lupa.svg">
+        </a>
+    </main>
+    <footer>©Copy Aaron de Diego</footer>
+</body>
+</html>
