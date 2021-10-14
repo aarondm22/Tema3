@@ -14,11 +14,14 @@
         <h3>a. Muestra el nombre del fichero que se está ejecutando. </h3>
         <?php
             echo "<br>";
+            /*Con la variable superglobal $_SERVER tenemos muchas variables y su valor 
+            en este caso SCRIPT_FILENAME nos da el nombre del fichero */
             echo basename($_SERVER['SCRIPT_FILENAME']);
         ?>
         <h3>b. Muestra la dirección IP del equipo desde el que estás accediendo.</h3>
         <?php
             echo "<br>";
+            //REMOTE_ADDR nos proporciona la ip 
             echo basename($_SERVER['REMOTE_ADDR']);
         ?>
         <h3>c. Muestra el path donde se encuentra el fichero que se está ejecutando. </h3>
@@ -57,14 +60,20 @@
             //Función strtotime con formato yy-mm-dd y con el date() le damos el formato que se nos pide
             $hoy = date('d-m-y h:i:s', time());
             $mañana = strtotime("+ 60 days");
-            echo $mañana;
+            echo date('d/m/Y', $mañana);
         ?>
-
-                    <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
-                        echo $pagina;?>">
-                        Ver codigo <img style="width:35px;"src="../media/lupa.svg">
-                    </a>
-
+        <br>
+        <br>
+        <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
+            echo $pagina;?>">
+            Ver codigo <img style="width:35px;"src="../media/lupa.svg">
+        </a>
+        <br>
+        <br>
+        <a href="../index.html">
+            <img src="../media/volver.svg">
+            Volver al Index del Resumen Tema 2
+        </a>
     </main>
     <footer>
         ©Copy Aaron de Diego

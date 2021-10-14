@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="./webroot/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Index del Tema 3</h1>
+        <h2 class="subtitulo">Desarrollo Web en Entorno Servidor</h2>
+    </header>
+        <main>
+            <ul>
+                <li>
+                    <a href="./codigo/operadoresbucles.php">Operadores y Bucles</a>
+                </li>
+                <br>
+                <li>
+                    <a href="../Tema2/index.html">
+                        <img src="media/volver.svg">
+                        Volver al Temario
+                    </a>
+                </li>
+            </ul>
+            <br>
+            <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
+                echo $pagina;?>">
+                Ver codigo <img style="width:35px;"src="media/lupa.svg">
+            </a>
+        </main>
+    <footer>©Copy Aaron de Diego</footer>
+</body>
+</html>
