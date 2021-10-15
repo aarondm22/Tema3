@@ -41,18 +41,12 @@
                 </li>
                 <br>
                 <li>
-                    <a href="../../index.html">
+                    <a href="../../../index.html">
                         <img src="../../media/volver.svg">
                         Volver al Temario
                     </a>
                 </li>
-            </ul>
-            <br>
-            <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
-                echo $pagina;?>">
-                Ver codigo <img style="width:35px;"src="../../media/lupa.svg">
-            </a>
-            
+            </ul> 
         </main>
     <footer>©Copy Aaron de Diego</footer>
 </body>
