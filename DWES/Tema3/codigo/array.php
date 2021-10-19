@@ -99,7 +99,8 @@
             //Array bidimensional con dos arrays de strings
             $cosas= array(
                 "DAW" => array("PR" => "Programacion", "BD" => "Base de datos", "DWES" => "Desarrollo web en entorno servidor"),
-                "Alumnos" => array("DV" => "David", "IM" => "Ismael", "UR" => "Uriel", "AA" => "Aaron")
+                "DAM" => array("PR" => "Programacion", "SBD" => "Sistemas Gestores Base de datos", "ED" => "Entornos Desarrollo"),
+                "ASIR" => array("ASO" => "Sistemas Operativos", "BD" => "Base de datos", "PLAR" => "Redes")
             );
 
             echo "<pre>";
@@ -108,17 +109,44 @@
 
             //Mostrar la clave "DAW" o "Alumnos" y recorrer cada array mostrando su contenido
             foreach ($cosas as $key => $value) {
-                echo "El ciclo ".$key." tiene las siguientes asignaturas:";
-                if($key=="Alumnos"){
+                if($key=="DAW")
+                    echo "El ciclo ".$key." tiene las siguientes asignaturas:";
+                
+                if($key=="Alumnos")
                     echo "Los alumnos de ".$key." son: ";
-                }
                 echo "<br>";
                 foreach ($value as $clave => $valor) {
-                    echo "La asignatura es ".$valor;
+                    echo "El valor es ".$valor;
                     echo "<br>";
                 }
             }
 
+            //Funciones para recorrer
+            echo "<h3>Funciones para recorrer</h3>";
+            echo "current<br>";
+            print_r(current($cosas));
+            echo "next<br>";
+            //Avanzamos en uno el array solo salen el array DAM Y ASIR
+            print_r(next($cosas));
+            echo "current<br>";
+            print_r(current($cosas));
+            echo "<h3>Recorrer array cosas desde la segunda posicion</h3>";
+            while($cosa = each($cosas)){
+                echo "<pre>";
+                echo "El ciclo es: ".$cosa['key']." y las asignaturas son: ";
+                print_r($cosa['value']);
+                echo "</pre>";
+            }
+
+            //Resetamos para que nos muestre los tres arrays
+            reset($cosas);
+            echo "<h3>Recorrer array cosas desde el principio</h3>";
+            while($cosa = each($cosas)){
+                echo "<pre>";
+                echo "El ciclo es: ".$cosa['key']." y las asignaturas son: ";
+                print_r($cosa['value']);
+                echo "</pre>";
+            }
 
         ?>
         <br>
