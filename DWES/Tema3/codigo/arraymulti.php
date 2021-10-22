@@ -17,12 +17,28 @@
             
             $lados = $_GET["lado"];
 
-            $array = array(
-                array_fill(0, $lados, '1'),
-                array_fill(0, $lados, '1'),
-                array_fill(0, $lados, '1'),
-                array_fill(0, $lados, '1')
-            );
+            $array = array();
+            for ($i=0; $i < $lados; $i++) { 
+                $array[$i] = array();
+                for ($j=0; $j < $lados; $j++) { 
+                    if($i==0 || $j==0)
+                        $array[$i][$j] = 1;
+                    else
+                        $array[$i][$j] = $array[$i-1][$j] + $array[$i][$j-1]; 
+                }
+            }
+            echo "<table border=1>";
+            foreach ($array as $key => $value) {
+                echo "<tr>";
+                foreach ($value as $clave => $valor) {
+                    echo "<td>";
+                    echo $valor;
+                    echo "</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
+
             echo "<pre>";
                 print_r($array);
             echo "</pre>";
