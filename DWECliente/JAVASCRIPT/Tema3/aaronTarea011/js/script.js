@@ -4,6 +4,11 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+function aleatorioEntre(min, max){
+    let num = Math.floor(Math.random() * (max - min + 1)) + min;
+    return num;
+}
+ 
 class Ball {
     constructor(x,y,radius,color,vx,vy){
         this._x = x;
@@ -26,22 +31,43 @@ class Ball {
     }
 }
 
-let bola1 = new Ball(50,100,25,"blue",5,7);
-console.log(bola1);
+
+let bola1 = new Ball(aleatorioEntre(41,canvas.width),aleatorioEntre(41, canvas.height),aleatorioEntre(5,40),"rgb("+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+")",aleatorioEntre(0,20),aleatorioEntre(0,20));
+let bola2 = new Ball(aleatorioEntre(41,canvas.width),aleatorioEntre(41, canvas.height),aleatorioEntre(5,40),"rgb("+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+")",aleatorioEntre(0,20),aleatorioEntre(0,20));
+let bola3 = new Ball(aleatorioEntre(41,canvas.width),aleatorioEntre(41, canvas.height),aleatorioEntre(5,40),"rgb("+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+")",aleatorioEntre(0,20),aleatorioEntre(0,20));
+let bola4 = new Ball(aleatorioEntre(41,canvas.width),aleatorioEntre(41, canvas.height),aleatorioEntre(5,40),"rgb("+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+")",aleatorioEntre(0,20),aleatorioEntre(0,20));
+let bola5 = new Ball(aleatorioEntre(41,canvas.width),aleatorioEntre(41, canvas.height),aleatorioEntre(5,40),"rgb("+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+")",aleatorioEntre(0,20),aleatorioEntre(0,20));
+let bola6 = new Ball(aleatorioEntre(41,canvas.width),aleatorioEntre(41, canvas.height),aleatorioEntre(5,40),"rgb("+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+")",aleatorioEntre(0,20),aleatorioEntre(0,20));
+let bola7 = new Ball(aleatorioEntre(41,canvas.width),aleatorioEntre(41, canvas.height),aleatorioEntre(5,40),"rgb("+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+")",aleatorioEntre(0,20),aleatorioEntre(0,20));
+
+let bolas = [];
+bolas.push(bola1);
+bolas.push(bola2);
+bolas.push(bola3);
+bolas.push(bola4);
+bolas.push(bola5);
+bolas.push(bola6);
+bolas.push(bola7);
+
 
 function chocar(){
-    if(bola1._y + bola1._radius> canvas.height || bola1._y - bola1._radius < 0 ){
-        bola1._vy = -bola1._vy;
-    }
-    if(bola1._x + bola1._radius> canvas.height || bola1._x - bola1._radius < 0 ){
-        bola1._vx = -bola1._vx;
+    for(let i=0; i<bolas.length; i++){
+        if(bolas[i]._y + bolas[i]._radius> canvas.height || bolas[i]._y - bolas[i]._radius < 0 ){
+            bolas[i]._vy = -bolas[i]._vy;
+        }
+        if(bolas[i]._x + bolas[i]._radius> canvas.width || bolas[i]._x - bolas[i]._radius < 0 ){
+            bolas[i]._vx = -bolas[i]._vx;
+        }
     }
 }
 
 function bucle(){
     ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    bola1.draw();
+    
+    for(let i=0; i<bolas.length; i++){
+        bolas[i].draw();
+    }
     chocar();
     requestAnimationFrame(bucle);
 }
