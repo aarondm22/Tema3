@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+<body>
+    <header>
+        <img src="https://entreunosyceros.net/wp-content/uploads/2013/11/interface-usuario.png"
+        alt="colormap">
+        <h2>Diseño de Interfaces Web</h2>
+    </header>
+    <main>
+        <article>
+            <h1>
+                <a href="./index.html">Volver al Index</a>
+            </h1>
+        </article>
+        <article>
+            <h1>Cuestionario para los alumnos</h1>
+            <p>Este cuestionario es de conocimientos sobre futbol</p>
+            <form method="POST" action="#">
+                <p><label>Busca el apartado que deseas ir: <input type="search" id="busqueda" placeholder="Termino a buscar"></label></p>
+                <fieldset>
+                    <legend>Datos personales</legend>
+                    <p><label>Nombre y Apellidos: <input type="text" id="nombre"></label></p>
+                    <p><label>Fecha del examen: <input type="date" id="dia"></label></p>
+                    <p><label for="telefono">Introduce tu teléfono: <input type="tel" id="telefono"></label></p>
+                    <p><label for="email">Introduce tu correo electrónico: <input type="email" id="email"></label></p>
+                    <p><label>Nombre de usuario: <input type="text" id="usuario" placeholder="Usuario"></label></p>
+                    <p><label>Contraseña: <input type="password" id="passwd"></label></p>
+                </fieldset>
+                <fieldset>
+                    <legend>Preguntas sobre Jugadores de Futbol</legend>
+                    <p><label>Preguntas contestadas <meter id="tiempo" value="0" min="0" max="100"></meter></label></p>
+                    <p>1. Cual de los siguientes jugadores es un exjugador del Real Betis Balonpie</p>
+                    <ul>
+                        <li>
+                            <label>a. Rafa Márquez<input type="radio" name="jugador" value="marquez"></label>
+                        </li>
+                        <li>
+                            <label>b. Andrés Palop<input type="radio" name="jugador" value="palop"></label>
+                        </li>
+                        <li>
+                            <label>c. Carlos Gurpegi<input type="radio" name="jugador" value="gurpegi"></label>
+                        </li>
+                        <li>
+                            <label>d. Marcos Assunçäo<input type="radio" name="jugador" value="gurpegi"></label>
+                        </li>
+                    </ul>
+                    <p>2. Sube una foto de las Champions League del Atlético de Madrid</p>
+                    <p><label for="imagen"><input type="file" id="imagen" accept="image/png, image/jpg"></label></p>
+                    <p>3. Marca los equipos en los que ha estado Gianluigi Buffon</p>
+                    <ul>
+                        <li><label>a.<input type="checkbox" id="torino">Torino</label></li>
+                        <li><label>b.<input type="checkbox" id="realmadrid">Real Madrid</label></li>
+                        <li><label>c.<input type="checkbox" id="parma">Parma</label></li>
+                        <li><label>d.<input type="checkbox" id="psg">Paris Saint Germain</label></li>
+                        <li><label>e.<input type="checkbox" id="juventus">Juventus</label></li>
+                    </ul>
+                </fieldset>
+                <fieldset>
+                    <legend>Equipos, Ligas, Copas y Trofeos individuales</legend>
+                    <p>Elige los dos colores icónicos del F.C. Barcelona</p>
+                    <ul>
+                        <li><label><input type="color" id="principal" value="#000000"> Color 1#</label></li>
+                        <li><label><input type="color" id="secundario" value="#FFFFFF"> Color 2#</label></li>
+                    </ul>
+                    <p>Records, Elige la opción correcta</p>
+                    <ul>
+                        <li>
+                            <label for="goleador">Máximo Goleador Champions League</label>
+                            <select id="goleador">
+                                <option value="jugador">Seleccione Jugador</option>
+                                <option value="messi">Leo Messi</option>
+                                <option value="vannistelrooy">Ruud van Nistelrooy</option>
+                                <option value="cristiano">Cristiano Ronaldo</option>
+                                <option value="raul">Raúl González</option>
+                            </select>
+                        </li>
+                        <br>
+                        <li>
+                            <label for="ganador">Equipo con más Champions League</label>
+                            <select id="goleador">
+                                <option value="equipo">Seleccione Equipo</option>
+                                <option value="liverpool">Liverpool</option>
+                                <option value="realmadrid">Real Madrid</option>
+                                <option value="milan">A.C. Milan</option>
+                                <option value="lyon">Olympique de Lyon</option>
+                                <option value="barcelona">F.C. Barcelona</option>
+                            </select>
+                        </li>
+                        <br>
+                        <li>
+                            <label for="ganador">Jugador con más Balones de Oro</label>
+                            <select id="goleador">
+                                <option value="jugador">Seleccione Jugador</option>
+                                <option value="ronaldo">Ronaldo Nazario</option>
+                                <option value="cryff">Johan Cruyff</option>
+                                <option value="messi">Leo Messi</option>
+                                <option value="modric">Luka Modric</option>
+                                <option value="cristiano">Cristiano Ronaldo</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <label for = "descripcion">Describe con tus palabras que significa para ti el fuera de juego</label>
+                    <textarea id="descripcion" rows="6" cols="40" maxlength="300"></textarea>
+                    <p>Preguntas contestadas:</p>
+                    <progress id="preg" value="100" max="100">100%</progress>
+                </fieldset>
+                <br>
+                <p>Indica el grado de dificultad que ha tenido el examen:</p>
+                <p><label>Preguntas sobre Jugadores de futbol<input type="range" id="jugadores" min="0" max="100" step="1" value="50"></label></p>
+                <p><label>Equipos, Ligas, Copas y Trofeos individuales<input type="range" id="jugadores" min="0" max="100" step="1" value="50"></label></p>
+                <br>
+                <input type="submit" value="Finalizar el examen">
+                <input type="reset" value="Limpiar las respuestas puestas">
+            </form>
+        </article>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

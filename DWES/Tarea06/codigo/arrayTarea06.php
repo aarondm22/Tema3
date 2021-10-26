@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <h1>Ejemplos Arrays</h1>
+        <h1>Tarea 06 Arrays</h1>
     </header>
     <main>
          <h3> 1. Genera un array multidimensional y asociativo donde <br>
@@ -99,6 +99,7 @@
                     echo "<td>";
                     foreach ($resultado as $cosas => $valor) 
                         echo $valor;
+                        
                     echo "</td>";
                     $i++;
                 }
@@ -152,7 +153,7 @@
         <br>
         <a href="../index.html">
             <img src="../media/volver.svg">
-            Volver al Index Tema 3
+            Volver al Index Tarea 06
         </a>
     </main>
     <footer>
