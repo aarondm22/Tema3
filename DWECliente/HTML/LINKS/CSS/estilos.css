@@ -1,0 +1,24 @@
+h1{
+    color:brown;
+}
+
+/*Estado inicial, visitado por primera vez*/
+a:link{
+    color:greenyellow;
+    text-decoration: none; /*Sin subrayar*/
+}
+
+/*Cuando se ha visitado el link*/
+a:visited{
+    color:peru;
+}
+
+/*Cuando nos ponemos encima con el raton encima del link*/
+a:hover{
+    color:red;
+}
+
+/*Cuando se mantiene pulsado*/
+a:active{
+    color:purple;
+}

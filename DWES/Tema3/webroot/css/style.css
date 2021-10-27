@@ -32,11 +32,8 @@ h2{
     font-size: 3em;
 }
 
-#content{
+.content{
     background-color: cornflowerblue;
     text-align: center;
-}
-#title{
-    background-color: cornflowerblue;
-    text-align: center;
+    padding: 10px;
 }

@@ -1,0 +1,15 @@
+h1{
+    color:palevioletred;
+}
+
+a:link, a:visited{
+    background-color: peru;
+    padding: 15px 25px;
+    text-decoration: none;
+    display:inline-block; /*Al hacer un salto de linea se amontona si 
+                    no se pone el display:inline*/
+}
+
+a:hover, a:active{
+    background-color: seagreen;
+}

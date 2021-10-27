@@ -3,30 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Curriculum</title>
+    <link rel="stylesheet" href="webroot/css/style.css">
 </head>
 <body>
     <header>
-        <picture>
-            <source
-                media="(min-width: 900px)"
-                srcset="./media/diseño-de-interfaces-web.jpg">
-            <source
-                media="(min-width: 500px)"
-                srcset="./media/diseño-de-interfaces-web.jpg">
-            <source
-                media="(min-width: 400px)"
-                srcset="./media/diseño-de-interfaces-web.jpg">
-                <img src="./media/diseño-de-interfaces-web.jpg"
-                 alt="colormap">
-        </picture>
-        <h1>Diseño de Interfaces Web</h1>
+        <center>
+        <img src="./media/diseño-de-interfaces-web.jpg" alt="colormap">
+        </center>
+        <h1 id="title">Diseño de Interfaces Web</h1>
     </header>
     <main>
-        <h3>¿Quién soy?</h3>
-        <article>
+        <section id="menu">
+            <h3>¿Quién soy?</h3>
             <ul>
                 <li>
                     Nombre: Aarón
+                </li>
+                <li>
+                    Apellidos: De Diego Martín
                 </li>
                 <li>
                     Edad:24
@@ -35,24 +29,15 @@
                     Correo: aaron.diemar.1@educa.jcyl.es
                 </li>
             </ul>
-        </article>
-        <section>
-            <picture>
-                <source 
-                media="(min-width: 900px)" 
-                srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Alhambra_Dec_2004_5.jpg/1024px-Alhambra_Dec_2004_5.jpg">
-                <source 
-                media="(min-width: 650px)" 
-                srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Fountain_patio_de_los_Leones_Alhambra_Granada_Spain.jpg/640px-Fountain_patio_de_los_Leones_Alhambra_Granada_Spain.jpg">
-                <source 
-                media="(min-width: 400px)" 
-                srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Lion%2C_Patio_de_los_Leones%2C_Alhambra%2C_Granada%2C_Andalusia%2C_Spain.jpg/399px-Lion%2C_Patio_de_los_Leones%2C_Alhambra%2C_Granada%2C_Andalusia%2C_Spain.jpg">
-            <picture>
         </section>
-        <audio src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Erik_Satie_-Gymnopedie_No.1_-_Arr_for_alto_saxophone_and_piano_-_David_Hernando_Vitores.ogg" controls>
-        </audio>
-        <audio src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Erik_Satie_-Gymnopedie_No.1_-_Arr_for_alto_saxophone_and_piano_-_David_Hernando_Vitores.ogg" controls>
-        </audio>
+        <br>
+        <section id="audios">
+            <h1>Audios</h1>
+            <audio src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Erik_Satie_-Gymnopedie_No.1_-_Arr_for_alto_saxophone_and_piano_-_David_Hernando_Vitores.ogg" controls>
+            </audio>
+            <audio src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Erik_Satie_-Gymnopedie_No.1_-_Arr_for_alto_saxophone_and_piano_-_David_Hernando_Vitores.ogg" controls>
+            </audio>
+        </section>
         <br>
         <h3> Video Interesante</h3>
         <video controls width="500"
@@ -62,6 +47,7 @@
         <article>
             <h1>
                 <a href="./formulario.html">Ir al formulario</a>
+                <a href="../index.html">Volver al Index Tema 4</a>
             </h1>
         </article>
     </main>

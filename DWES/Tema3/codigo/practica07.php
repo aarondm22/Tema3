@@ -19,7 +19,7 @@
             f. Realiza una página que utilice estas funciones
     </h3>
     <?php
-        require_once("./funciones.php");
+        require_once("../../Librerias/funciones.php");
         echo "<br/><br/>";
         echo "Hola...";
         br();
@@ -32,8 +32,8 @@
         br();
         self();
         br();
-        
-        letraDNI(71034849);
+        br();
+        print_r (letraDNI(71034849));
     ?>
     <br>
         <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);

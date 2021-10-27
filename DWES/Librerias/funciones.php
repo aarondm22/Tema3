@@ -19,7 +19,14 @@ function p($cadena){
 
 function self(){
 
-    echo __FILE__;
+    return $_SERVER["PHP_SELF"];
+
+}
+
+
+function self_imp(){
+
+    echo $_SERVER["PHP_SELF"];
 
 }
 
@@ -27,13 +34,13 @@ function letraDNI($integer){
 
     $letra = $integer%23;
 
-    echo $letra;
-
     $array = array("T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E");
 
-    $index = array_search($array);
-
-    echo $index;
+    foreach ($array as $value) {
+        $index = $array[$letra];
+    }
+    
+    return $index;
 }
 
 

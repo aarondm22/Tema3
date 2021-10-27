@@ -1,0 +1,44 @@
+
+body{
+    background-color: lightpink;
+}
+
+#title{
+    text-align: center;
+    text-shadow: 7px 7px gray;
+    font-size: 3em;
+}
+
+#audios, #menu{
+    text-align: center;
+}
+
+img{
+    display: flex;
+    width: 400px;
+    text-align: center;
+}
+
+ul{
+    text-align: center;
+}
+
+li{
+    width: 300px;
+    list-style-type: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: white;
+    padding: 25px;
+    margin: 3px;
+    background-color:violet;
+    text-align: center;
+}
+
+li:hover{
+    background-color:blueviolet;
+    margin-left: 10px;
+}
+li:active{
+    background-color:cornflowerblue;
+}
