@@ -1,0 +1,17 @@
+
+#contenedor-claudio{
+    text-align: center;
+}
+main{
+    text-align: center;
+}
+
+#animales{
+    display: inline-flex;
+}
+
+#contenedor-imagenes{
+    background-color: skyblue;
+}
+
+

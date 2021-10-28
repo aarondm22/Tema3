@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>003 Ejercicio JavaScript</title>
+    
+</head>
+<body>
+    <!--Utilizando elementos <input type="date"/>, se pide introducir dos fechas en una página web  
+        Las fechas corresponderán a las fechas de un viaje de ida y de vuelta en avión
+        La segunda fecha deberá ser superior a la primera
+        Las fechas se verán en párrafos de la página, indicando además el día de la semana (lunes, martes,...).
+        Calcula los días que hay entre las dos fechas y muéstralo en la página--> 
+
+    <h1>003 Ejercicio JavaScript</h1>
+    <label for="start">Fecha de ida:</label>
+    <input type="date" id="ida" name="trip-start"
+        min="2018-01-01" max="2023-12-31"/>
+    <p id="p1">&nbspIda:</p>
+    <br>
+    <label for="start">Fecha de vuelta:</label>
+    <input type="date" id="vuelta" name="trip-start"
+        min="2021-10-08" max="2023-12-31"/>
+    <p id="p2">&nbspVuelta:</p>
+    <br>
+    <input type="button" onclick="diferencia()" value="Dime diferencia" />
+    <p id="dif">Diferencia entre las dos fechas</p>
+    <script>
+        function diaDeSemanaIda(){ 
+        var dia=new Date(document.getElementById("ida").value);
+        var diadesemana=  ["Domingo", "Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+        var letraDia = diadesemana[dia.getDay()];
+        document.getElementById("ida").innerHTML=letraDia;
+        document.getElementById("p1").innerHTML=letraDia +" " +document.getElementById("ida").value;              
+        }
+        document.getElementById("ida").addEventListener("blur",diaDeSemanaIda,false);
+
+        function diaDeSemanaVuelta(){ 
+            var dia=new Date(document.getElementById("vuelta").value);
+            var diadesemana=  ["Domingo", "Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+            var letraDia = diadesemana[dia.getDay()];
+            document.getElementById("vuelta").innerHTML=letraDia;
+            document.getElementById("p2").innerHTML=letraDia +" " +document.getElementById("vuelta").value;              
+        }
+        document.getElementById("vuelta").addEventListener("blur",diaDeSemanaVuelta,false);
+    </script>
+    <script>
+        function diferencia(){
+            var fecha = new Date(document.getElementById("ida").value);
+            var fecha2 = new Date(document.getElementById("vuelta").value);
+            var diferenciaHoras = fecha2 - fecha;
+            var total = 1000*60*60*24;
+            var diferenciaDias = diferenciaHoras/total;
+            document.getElementById("dif").innerHTML= "Hay " +diferenciaDias+" dias entre las dos fechas"; 
+        }
+    </script>
+</body>
+</html>

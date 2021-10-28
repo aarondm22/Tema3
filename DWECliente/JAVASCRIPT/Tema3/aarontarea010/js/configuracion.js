@@ -35,6 +35,6 @@ function guardarSonido(){
 }
 
 function guardarFondo(){
+    document.getElementById("config-contenedor").style.backgroundColor = document.getElementById("colorSelect").value;
     localStorage.setItem("lsFondo", document.getElementById("colorSelect").value);
-    document.getElementById("config-contenedor").style.backgroundColor 
 }

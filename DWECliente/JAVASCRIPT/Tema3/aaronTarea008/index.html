@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 008 Ejercicio JavaScript</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div id="contenedor-claudio">
+            <img id="claudio" src="https://www.claudiomoyano.es/images/logoiesfse3.png"; onclick="cm()">
+        </div>
+    </header>
+    <main>
+        <div id="contenedor-imagenes">
+            <h1 id="tit">Las imágenes son ampliables.</h1>
+            <br>
+            <table id="animales">
+                <tr>
+                    <td><h2>Perro</h2></td>
+                    <td><h2>Gato</h2></td>
+                    <td><h2>Caballo</h2></td>
+                </tr> 
+                <tr>
+                    <td><img width="300px"; src="./media/perro.jpg" id="perro" onclick="aumentar(this)"></td>
+                    <td><img width="300px"; src="./media/gato.jpg" id="gato" onclick="aumentar(this)"></td>
+                    <td><img width="300px"; src="./media/caballo.jpg" id="caballo" onclick="aumentar(this)"></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <h2 id="texto">Aqui viene ...</h2>
+        <script src="js/script.js"></script>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

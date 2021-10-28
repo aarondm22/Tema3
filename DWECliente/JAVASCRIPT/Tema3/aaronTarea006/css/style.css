@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+
+.reloj-contenedor{
+    font-size: 50px;
+    text-align: center;
+    background-color: aquamarine;
+    padding: 25px;
+    margin: 100px auto;
+    max-width: 500px;
+    border-radius: 15px;
+}
+#lahora{
+    font-family: sans-serif;
+    text-shadow: 0px 0px 1px 4px;
+}
+
+#lamarca{
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 10px;
+}

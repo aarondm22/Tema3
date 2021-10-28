@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 004 - JavaScript (9 ejercicios)</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Tarea 004 - JavaScript (9 ejercicios)</h1>
+
+    <!--1. Realiza un programa JavaScript que calcule el área y la longitud de una circunferencia de radio 5 -->
+    <h3>Ejercicio 1.</h3>
+    <p id="area">Área = </p>
+    <p id="longitud">Longitud = </p>
+    <input type="button" onclick="calcular()" value="Calcula" />
+    <script>
+        //Función que calcula el radio y el perimetro de la circunferencia
+        function calcular(){
+            const PI = 3.141596;
+            const RADIO = 5;
+            document.getElementById("area").innerHTML = "Área = "+(PI*RADIO*RADIO);
+            document.getElementById("longitud").innerHTML = "Longitud = "+(2*PI*RADIO);
+        }
+    </script>
+    <!--2. Investiga el operador ternario y pon un ejemplo completo de uso-->
+    <h3>Ejercicio 2.</h3>
+    <p>Ejemplo: Dada una variable llamada edad decir si con esa edad se puede votar o no (>=18)</p>
+    <p id="vota"></p>
+    <input type="button" onclick="votar()" value="Comprobar edad" />
+    <script>
+        //Función que devuelve si puede votar o no dada una variable y el operador ternario
+        function votar(){
+            let edad = "23";
+            let numeroEdad = Number(edad);
+
+            let resul = (numeroEdad >= 18) ? "Puede votar" : "Demasiado joven";
+            document.getElementById("vota").innerHTML = resul;
+        }
+    </script>
+    <!--3. Ejecuta las siguientes dos líneas de código y comprueba el contenido de la variable var.
+        Interpreta y explica los resultados-->
+    <h3>Ejercicio 3.</h3>
+    <script>
+        var dato = "Ronaldo" + 5 + 5;
+        console.log(dato);
+        var dato = 5 + 5 + " Ronaldo ";
+        console.log(dato);
+    </script>
+    <p>En la primera linea el resultado es Ronaldo55, porque al ser la primera variable de la asignación 
+        un String de manera interna interpreta el 5 y el otro 5 como String
+    </p>
+    <p>En cambio en la segunda linea de codigo el resultado es 10Ronaldo, porque ambos numeros los interpreta
+        como dos enteros y después le concatena la cadena Ronaldo
+    </p>
+    <!--4. El operador typeof permite saber el tipo de una variable. Crea un programa en el que pongas ejemplos
+        de su utilización-->
+    <h3>Ejercicio 4.</h3>
+    <p>Ejercicio resuelto en consola</p>
+    <script>
+        var dato1 = "hola";
+        console.log(typeof dato1);
+        var dato2 = 25;
+        console.log(typeof dato2);
+    </script>
+    <!--5. Crea un script con algún ejemplo de cómo se pueden sobrescribir variables y funciones globales-->
+    <h3>Ejercicio 5.</h3>
+    <p>Solución en el html</p>
+    <script>
+        var a = 5;
+        function suma(){
+            a = 3; //No da error, solo la sobreescribe 
+            b = 1;
+            return(a+b); //Devuelve 4
+        }
+        console.log(a); //Aqui nos saca la variable global var a = 5 por que esta fuera de la funcion
+        console.log(suma()); //Nos hace la suma de la a = 3 porque llamamos a la función y por tanto la suma es 4
+    </script>
+    <!--6. JavaScript puede manejar eventos en una página web para conocer, por ejemplo,
+        cuando el ratón pasa por encima de un elemento. Pon un ejemplo de uso para cad uno
+        de los siguientes eventos:
+            - onmouseover
+            - onmouseout
+            - onblur -->
+    <h3>Ejercicio 6.</h3>
+    <a id="mouseover">Ponte encima de este cuadro</a>
+    <p id="p1">Texto a modificar cuando esté encima</p>
+
+    <a id="mouseout">Sal de este cuadro)</a>
+    <p id="p2">Texto a modificar cuando salga el ratón de aquí</p>
+    
+    <input type="text" id="blur" value="(Quítame el foco)" />
+    <p id="p3">Texto a modificar cuando el cuadro pierda el foco </p>
+    
+    <script>
+        var a1 = document.getElementById('mouseover')
+        var a2 = document.getElementById('mouseout');
+        var a3 = document.getElementById('blur');
+
+        //Listener que actua cuando el raton se encuentra encima
+        a1.addEventListener("mouseover", function(){
+            document.getElementById("p1").innerHTML="El ratón está encima.";
+        });
+
+        //Listener que actua cuando el raton sale del cuadro
+        a2.addEventListener("mouseout", function(){
+            document.getElementById("p2").innerHTML="El ratón ha salido.";
+        });
+
+        //Listener que actua cuando el foco cambia 
+        a3.addEventListener("blur", function(){
+        document.getElementById("p3").innerHTML="He perdido el foco del cuadro.";
+        });
+
+    </script>
+    <!--7. Averigua qué resultado darán los siguientes líneas de código:
+        Number("9 9");
+        Number("dos"); -->
+    <h3>Ejercicio 7.</h3>
+    <p>Al pasarlos por el console.log, nos dice que ambos string no se pueden convertir a numérico
+        en cambio al pasarle numero float sin espacios ni letras muestra por pantalla el numero 10
+    </p>
+    <script>
+        console.log(Number("9 9"));
+        console.log(Number("dos"));
+        console.log(Number("10"));
+    </script>
+    <!--8. Realiza un script que extraiga el mes y el año de una fecha concreta-->
+    <h3>Ejercicio 8.</h3>
+    <p>Introduzca una fecha en formato dd/mm/yyyy</p>
+    <input id="date" type="text"/>
+    <p id="respuesta"></p>
+
+    <input type="button" onclick="calculaMesAno()" value="Dime Mes y Año" />
+    <script>
+        //Función que con un switch barajamos los 12 meses del año para que nos de el mes escrito
+        function calculaMesAno() {
+            var respuesta = document.getElementById('respuesta');
+            var fecha = document.getElementById('date').value;
+            var barra = fecha.split('/'); //Separo la fecha con un backslash quedando así Ej. 02/1997
+
+            //formato[1] se refiere al mes y lo cambiamos por la variable mes
+            switch (formato[1]) {
+                case '01':
+                    var mes = "Enero";
+                    break;
+                case '02': 
+                    var mes = "Febrero";
+                    break;
+                case '03': 
+                    var mes = "Marzo";
+                    break;
+                case '04': 
+                    var mes = "Abril";
+                    break;
+                case '05': 
+                    var mes = "Mayo";
+                    break;
+                case '06': 
+                    var mes = "Junio";
+                    break;
+                case '07': 
+                    var mes = "Julio";
+                    break;
+                case '08': 
+                    var mes = "Agosto";
+                    break;
+                case '09': 
+                    var mes = "Septiembre";
+                    break;
+                case '10': 
+                    var mes = "Octubre";
+                    break;
+                case '11': 
+                    var mes = "Noviembre";
+                    break;
+                case '12': 
+                    var mes = "Diciembre";
+                    break;
+                default: 
+                    var mes = "*";
+                    break;
+                }
+                //formato[2] se refiere al año 
+                respuesta.innerHTML = "Año: " + formato[2] + " Mes: " + mes;
+        }
+    </script>
+    <!--9. Romualdo, que todavia no ha terminado el ciclo de DAW, se pregunta si puede crear el siguiente array:
+        var milista = ['panadero', 456., [0,1,2]];
+        También quiere saber si podría seleccionar la siiguiente posición del array:
+        milista[2][2]
+        Comprueba si puede utilizarlo e intenta hacer una pequeña web que muestre todo el contenido del array milista (si es posible)-->
+    <h3>Ejercicio 9.</h3>
+    <p>Si se puede crear el array que se ha descrito en el enunciado y acceder a la posición milista [2][2] también se puede
+        porque no discriminan por tipo de variables ni de contenido. Resuelto en html y consola
+    </p>
+    <script>
+        var milista = ['panadero', 456, [0,1,2]];
+        console.log(milista);
+        console.log(milista[2][2]);
+    </script>
+</body>
+</html>

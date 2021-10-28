@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 005 - JavaScript Rombo Configurable</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Tarea 005 - Ejercicio JavaScript: Rombo configurable</h1>
+    <p id="rombo"></p>
+    <script>
+        var rombo = document.getElementById("rombo");
+
+        var filas = 4;
+        //Parte creciente
+        for (var i=0; i<=filas-1; i++){
+            for (var j=0; j<filas-i-1; j++){
+                rombo.innerHTML=rombo.innerHTML+"&nbsp&nbsp";
+            }
+            for(var j=0;j<2*i+1;j++){
+                if((i==0)||(j==0)||(j==2*i)){
+                    rombo.innerHTML=rombo.innerHTML+"*";
+                }else{
+                    rombo.innerHTML=rombo.innerHTML+"&nbsp&nbsp";
+                }
+            }
+            rombo.innerHTML=rombo.innerHTML+"<br>";
+        }
+        //Parte decreciente
+        for (i=filas-2; i>=0; i--){
+            for (var j=0; j<filas-i-1; j++){
+                rombo.innerHTML=rombo.innerHTML+"&nbsp&nbsp";
+            }
+            for(var j=0;j<2*i+1;j++){
+                if((i==0)||(j==0)||(j==2*i)){
+                    rombo.innerHTML=rombo.innerHTML+"*";
+                }else{
+                    rombo.innerHTML=rombo.innerHTML+"&nbsp&nbsp";
+                }
+            }
+            rombo.innerHTML=rombo.innerHTML+"<br>";
+        }
+        
+    </script>
+</body>
+</html>
