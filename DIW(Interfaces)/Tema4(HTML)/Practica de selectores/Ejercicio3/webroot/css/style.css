@@ -1,0 +1,23 @@
+li:last-child{
+    color:red;
+    text-decoration-line: underline;
+    text-decoration-color: blue;
+}
+
+li:nth-last-of-type(3){
+    color:blue;
+}
+
+li:nth-child(4){
+    color:blue;
+    text-decoration-line: underline;
+    text-decoration-color: red;
+}
+
+li:nth-last-of-type(2){
+    color:black;
+}
+li:first-child{
+    color: green;
+    font-style: italic;
+}

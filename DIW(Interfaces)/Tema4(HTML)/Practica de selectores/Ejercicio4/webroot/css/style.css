@@ -1,0 +1,24 @@
+
+.diw{
+    padding: 0.5em;
+    border: 2px solid burlywood;
+    border-radius: 90px ;
+    width: 200px;
+}
+
+#diw2, #diw3, #diw4{
+    border-radius: 90px ;
+    border-bottom-right-radius: 200px;
+}
+
+#diw3{
+    border: 9px solid burlywood;
+    border-style: double;
+}
+
+#diw4{
+    border: 9px solid burlywood;
+    border-radius: 20px 0px 50px 20px;
+    border-style: inset;
+
+}
