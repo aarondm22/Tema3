@@ -64,9 +64,8 @@
                     <label for="nombre">Alfabetico:</label>
                     <!--Validar que cuando escribamos un nombre se quede cuando Enviemos el formulario-->
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php 
-                        if(isset($_REQUEST['Enviado']) && !empty($_REQUEST['nombre'])){
-                            echo ($_REQUEST['nombre']);
-                        }
+                        require_once("../libreria/funciones.php");
+                        mantenerAlfa();
                     ?>">
                     <?php
                         //Validar que se ha escrito algo o no en el campo nombre
@@ -76,14 +75,16 @@
                     <br>
                     <br>
                     <label for="nombreOpcional">Alfabetico Opcional:</label>
-                    <input type="text" name="nombreOpcional" placeholder="Nombre" id="nombreOpcional">
+                    <input type="text" name="nombreOpcional" placeholder="Nombre" id="nombreOpcional" value="<?php 
+                        require_once("../libreria/funciones.php");
+                        mantenerAlfaOp();
+                    ?>">
                     <br>
                     <br>
                     <label for="apellido">Alfanumérico:</label>
                     <input type="text" name="apellido" id="apellido" placeholder="Apellido" value="<?php 
-                        if(isset($_REQUEST['Enviado']) && !empty($_REQUEST['nombre'])){
-                            echo ($_REQUEST['nombre']);
-                        }
+                        require_once("../libreria/funciones.php");
+                        mantenerNum();
                     ?>">
                     <?php
                         //Validar que se ha escrito algo o no en el campo nombre
@@ -92,16 +93,30 @@
                     ?>
                     <br>
                     <br>
-                    <label for="numericoOpcional">Alfanumérico Opcional:</label>
-                    <input type="text" name="numericoOpcional" placeholder="Apellido" id="numericoOpcional">
+                    <label for="apellidoOpcional">Alfanumérico Opcional:</label>
+                    <input type="text" name="apellidoOpcional" placeholder="Apellido" id="apellidoOpcional"value="<?php 
+                        require_once("../libreria/funciones.php");
+                        mantenerNumOp();
+                    ?>">
                     <br>
                     <br>
                     <label>Fecha</label>
-                    <input type="date" name="fecha" id="fecha">
+                    <input type="date" name="fecha" id="fecha" value="<?php 
+                        require_once("../libreria/funciones.php");
+                        mantenerFecha();
+                    ?>">
+                    <?php
+                        //Validar que se ha introducido una fecha
+                        require_once("../libreria/funciones.php");
+                        validaFecha();
+                    ?>
                     <br>
                     <br>
                     <label>Fecha Opcional</label>
-                    <input type="date" name="fechaOp" id="fechaOp">
+                    <input type="date" name="fechaOp" id="fechaOp" value="<?php 
+                        require_once("../libreria/funciones.php");
+                        mantenerFechaOp();
+                    ?>">
                     <br>
                     <br>
                     <label>Radio obligatorio</label>
@@ -110,6 +125,11 @@
                     <input type="radio" name="opciones" id="opcion2" value="opcion2"><label for="opcion2">Opcion2</label>
                     <input type="radio" name="opciones" id="opcion3" value="opcion3"><label for="opcion3">Opcion3</label>
                     <br>
+                    <?php
+                        //Validar que se ha introducido una fecha
+                        require_once("../libreria/funciones.php");
+                        validaOp();
+                    ?>
                     <br>
                     <label for="seleccion">Elige una Opción:</label>
                     <select name="seleccion" id="seleccion">
