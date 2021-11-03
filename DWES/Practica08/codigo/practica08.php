@@ -63,91 +63,113 @@
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" name="formulario" enctype="multipart/form-data">
                     <label for="nombre">Alfabetico:</label>
                     <!--Validar que cuando escribamos un nombre se quede cuando Enviemos el formulario-->
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php 
-                        require_once("../libreria/funciones.php");
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php                    
                         mantenerAlfa();
                     ?>">
                     <?php
-                        //Validar que se ha escrito algo o no en el campo nombre
-                        require_once("../libreria/funciones.php");
+                        //Validar que se ha escrito algo o no en el campo nombre                       
                         validaAlfa();
                     ?>
                     <br>
                     <br>
                     <label for="nombreOpcional">Alfabetico Opcional:</label>
-                    <input type="text" name="nombreOpcional" placeholder="Nombre" id="nombreOpcional" value="<?php 
-                        require_once("../libreria/funciones.php");
+                    <input type="text" name="nombreOpcional" placeholder="Nombre" id="nombreOpcional" value="<?php               
                         mantenerAlfaOp();
                     ?>">
                     <br>
                     <br>
                     <label for="apellido">Alfanumérico:</label>
                     <input type="text" name="apellido" id="apellido" placeholder="Apellido" value="<?php 
-                        require_once("../libreria/funciones.php");
                         mantenerNum();
                     ?>">
                     <?php
                         //Validar que se ha escrito algo o no en el campo nombre
-                        require_once("../libreria/funciones.php");
                         validaNum();
                     ?>
                     <br>
                     <br>
                     <label for="apellidoOpcional">Alfanumérico Opcional:</label>
                     <input type="text" name="apellidoOpcional" placeholder="Apellido" id="apellidoOpcional"value="<?php 
-                        require_once("../libreria/funciones.php");
                         mantenerNumOp();
                     ?>">
                     <br>
                     <br>
                     <label>Fecha</label>
                     <input type="date" name="fecha" id="fecha" value="<?php 
-                        require_once("../libreria/funciones.php");
                         mantenerFecha();
                     ?>">
                     <?php
                         //Validar que se ha introducido una fecha
-                        require_once("../libreria/funciones.php");
                         validaFecha();
                     ?>
                     <br>
                     <br>
                     <label>Fecha Opcional</label>
                     <input type="date" name="fechaOp" id="fechaOp" value="<?php 
-                        require_once("../libreria/funciones.php");
                         mantenerFechaOp();
                     ?>">
                     <br>
                     <br>
                     <label>Radio obligatorio</label>
                     <br>
-                    <input type="radio" name="opciones" id="opcion1" value="opcion1" checked><label for="opcion1">Opcion1</label>
-                    <input type="radio" name="opciones" id="opcion2" value="opcion2"><label for="opcion2">Opcion2</label>
-                    <input type="radio" name="opciones" id="opcion3" value="opcion3"><label for="opcion3">Opcion3</label>
+                    <input type="radio" name="opciones" id="opcion1" value="opcion1" <?php 
+                        mantenerOpcion("opcion1");
+             
+                    ?>><label for="opcion1">Opcion1</label>
+                    <input type="radio" name="opciones" id="opcion2" value="opcion2" <?php 
+                        mantenerOpcion("opcion2");
+                     
+                    ?>><label for="opcion2">Opcion2</label>
+                    <input type="radio" name="opciones" id="opcion3" value="opcion3" <?php 
+                        mantenerOpcion("opcion3");
+                       
+                    ?>><label for="opcion3">Opcion3</label>
                     <br>
                     <?php
-                        //Validar que se ha introducido una fecha
-                        require_once("../libreria/funciones.php");
                         validaOp();
+                       
                     ?>
                     <br>
                     <label for="seleccion">Elige una Opción:</label>
                     <select name="seleccion" id="seleccion">
-                        <option value="sel">Seleccione</option>
-                        <option value="sel1">Algo</option>
-                        <option value="sel2">Cosa</option>
-                        <option value="sel3">Eso</option>
+                        <option value="sel" <?php 
+                            mantenerSeleccion("sel");
+                        ?>>Seleccione</option>
+                        <option value="sel1"<?php 
+                            mantenerSeleccion("sel1");
+                        ?>>Algo</option>
+                        <option value="sel2"<?php 
+                            mantenerSeleccion("sel2");
+                        ?>>Cosa</option>
+                        <option value="sel3"<?php 
+                            mantenerSeleccion("sel3");
+                        ?>>Eso</option>
                     </select>
                     <br>
+                    <?php
+                        validaSel();
+                    ?>
                     <br>
                     <label>Elige al menos 1 y máximo 3:</label>
                     <br>
-                        <input type="checkbox" name="caja[]" id="caja1" value="caja1"><label for="caja1">Check1</label>
-                        <input type="checkbox" name="caja[]" id="caja2" value="caja2"><label for="caja2">Check2</label>
-                        <input type="checkbox" name="caja[]" id="caja3" value="caja3"><label for="caja3">Check3</label>
-                        <input type="checkbox" name="caja[]" id="caja4" value="caja4"><label for="caja4">Check4</label>
-                        <input type="checkbox" name="caja[]" id="caja5" value="caja5"><label for="caja5">Check5</label>
-                        <input type="checkbox" name="caja[]" id="caja6" value="caja6"><label for="caja6">Check6</label>
+                        <input type="checkbox" name="caja[]" id="caja1" value="caja1"<?php 
+                            mantenerCheck("caja1");
+                        ?>><label for="caja1">Check1</label>
+                        <input type="checkbox" name="caja[]" id="caja2" value="caja2"<?php 
+                            mantenerCheck("caja2");
+                        ?>><label for="caja2">Check2</label>
+                        <input type="checkbox" name="caja[]" id="caja3" value="caja3"<?php 
+                            mantenerCheck("caja3");
+                        ?>><label for="caja3">Check3</label>
+                        <input type="checkbox" name="caja[]" id="caja4" value="caja4"<?php 
+                            mantenerCheck("caja4");
+                        ?>><label for="caja4">Check4</label>
+                        <input type="checkbox" name="caja[]" id="caja5" value="caja5"<?php 
+                            mantenerCheck("caja5");
+                        ?>><label for="caja5">Check5</label>
+                        <input type="checkbox" name="caja[]" id="caja6" value="caja6"<?php 
+                            mantenerCheck("caja6");
+                        ?>><label for="caja6">Check6</label>
                     <br>
                     <br>
                     <br>

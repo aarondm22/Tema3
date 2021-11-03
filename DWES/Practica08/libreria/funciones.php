@@ -64,9 +64,15 @@ function validaFecha(){
 }
 
 function validaOp(){
-    if(isset($_REQUEST['Enviado']) && !empty($_REQUEST['opcion1'])){
-        echo "hola";
-    }
+    if(!isset($_REQUEST['opciones']) && isset($_REQUEST['Enviado']))
+        echo "<label for='opciones' style='color: red'>Debe haber algo</label>";
+    
+}
+
+function validaSel(){
+    if(isset($_REQUEST['Enviado']) && ($_REQUEST['seleccion']=="sel"))
+        echo "<label for='seleccion' style='color: red'>Debe escoger una seleccion</label>";
+    
 }
 
 //Funciones para mantener los datos introducidos correctamente
@@ -107,10 +113,24 @@ function mantenerFechaOp(){
     }
 }
 
-function mantenerOpcion1(){
-    if(isset($_REQUEST['Enviado']) && isset($_REQUEST['opcion1'])){
-        echo ($_REQUEST['opcion1']);
+function mantenerOpcion($opcion){
+    if(isset($_REQUEST['Enviado']) && isset($_REQUEST['opciones']) && ($_REQUEST['opciones']==$opcion)){
+        echo "checked";
     }
 }
+
+function mantenerSeleccion($seleccion){
+    if(isset($_REQUEST['Enviado']) && ($_REQUEST['seleccion']==$seleccion)){
+        echo "selected";
+    }
+}
+
+function mantenerCheck($caja){
+    if(isset($_REQUEST['Enviado']) && ($_REQUEST['caja[]']==$caja)){
+        echo "checked";
+    }
+}
+
+
 
 ?>

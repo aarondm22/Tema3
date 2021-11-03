@@ -1,0 +1,36 @@
+body{
+    margin: 2em 5em; border: 8px double #996666; padding: 2em;
+}
+
+h1{ font-size: 2em; font-family: impact; text-align: center; padding: 0.5em;
+		 	 border: 3px dotted #72bbf1; margin: 0 30%; }
+h2{ font-size: 1.5em; font-family: cursive; text-align: center; padding: 0.2em;
+			border: 2px #e159ec; border-style: dashed none; margin: 1em 5em; }
+p{ margin: 0.5 0; font-style: italic }
+
+.seccion1{ font-size: 1.2em; font-family: "times new roman";
+					 margin: 0.5em 22em 1.5em 2em ; padding: 0.5em; border: 1px solid orange;
+					 color: #0000cc; }
+.p1{ padding-left: 1em }
+.p2{ padding-left: 2em }
+.p3{ padding-left: 3em }
+.p4{ padding-left: 4em }
+
+.seccion2{ font-size: 1.1em; font-family: "arial";
+					 margin: 1.5em 15em 0.5em 10em ; padding: 0.5em; border: 1px solid orange }
+.seccion2 .p1{ padding-left: 1em; color:#0000cc; }
+.seccion2 .p2{ padding-left: 1.5em; color:#3300cc; }
+.seccion2 .p3{ padding-left: 2em; color:#6600cc; }
+.seccion2 .p4{ padding-left: 2.5em; color:#9900cc; }
+.seccion2 .p5{ padding-left: 3em; color:#cc00cc; }
+.seccion2 .p6{ padding-left: 3.5em; color:#ff00cc; }
+
+.seccion3{ font-size: 1.1em; font-family: "verdana";
+					 margin: 1.5em 5em 1.5em 20em ; padding: 0.5em; border: 1px solid orange;
+					 color: #ff00cc;  }
+
+.seccion3 .p1{ padding-left: 4em }
+.seccion3 .p2{ padding-left: 4em }
+.seccion3 .p3{ padding-left: 3em }
+.seccion3 .p4{ padding-left: 2em }
+.seccion3 .p5{ padding-left: 1em }
