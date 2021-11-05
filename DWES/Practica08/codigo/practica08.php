@@ -18,46 +18,7 @@
                 <br>
             </div>
                 <?php
-                require_once("../libreria/funciones.php");
-                    //1ª opción: Ver si hay algo en $_POST
-                    /*if(count($_REQUEST)>0){ //$_REQUEST coge por $_get y por $_post
-                        p("El formulario ha sido enviado");
-                    }*/
-                    /*
-                    if(isset($_REQUEST['Enviado'])){
-                        p("El formulario ha sido enviado");
-                        if(!empty($_REQUEST['nombre']))
-                            p("El nombre es: ".$_REQUEST['nombre']);
-                        if(!empty($_REQUEST['pass']))
-                            p("La contraseña es: ".$_REQUEST['pass']);
-                        if(isset($_REQUEST['genero']))
-                            p("El genero es: ".$_REQUEST['genero']);
-                        if($_REQUEST['curso']=="seleccion"){
-                            p("Debe seleccionar un curso");
-                        }
-                        if(!isset($_REQUEST['aficiones']))
-                            p("No ha elegido ninguna afición, espabila");
-                        elseif(count($_REQUEST['aficiones'])>3)
-                            p("Debes elegir como mucho 3");
-
-                        //La variable superglobal que guarda los ficheros es $_FILES
-                        print_r($_FILES);
-                        if(isset($_FILES)){
-                            $guarda = "../uploads/";
-                            $rutaConNombre = $guarda . $_FILES['fichero']['name'];
-                            echo $rutaConNombre;
-                            if(move_uploaded_file($_FILES['fichero']['tmp_name'], $rutaConNombre))
-                                p("Guardado");
-                            else
-                                p("Error");
-                        }
-
-                    }
-                    */
-                    require_once("./validarFormulario.php");
-                    /*if(isset($_REQUEST['Enviado'])){
-                        validaForm();
-                    }/*else{*/
+                    require_once("../libreria/funciones.php");
                     
                 ?>
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" name="formulario" enctype="multipart/form-data">
@@ -127,7 +88,6 @@
                     <br>
                     <?php
                         validaOp();
-                       
                     ?>
                     <br>
                     <label for="seleccion">Elige una Opción:</label>
@@ -152,7 +112,7 @@
                     <br>
                     <label>Elige al menos 1 y máximo 3:</label>
                     <br>
-                        <input type="checkbox" name="caja[]" id="caja1" value="caja1"<?php 
+                        <input type="checkbox" name="caja[]" id="caja1" value="caja1" <?php 
                             mantenerCheck("caja1");
                         ?>><label for="caja1">Check1</label>
                         <input type="checkbox" name="caja[]" id="caja2" value="caja2"<?php 
@@ -171,31 +131,61 @@
                             mantenerCheck("caja6");
                         ?>><label for="caja6">Check6</label>
                     <br>
+                    <?php
+                        validaCheck();
+                    ?>
                     <br>
                     <br>
                     <label for="telefono" id="telefono" name="telefono">Nº Telefono: </label>
-                    <input type="tel" id="telefono" name="telefono" placeholder="654987321">
+                    <input type="tel" id="telefono" name="telefono" placeholder="654987321" value="<?php 
+                        mantenerTel();
+                    ?>">
+                    <?php
+                        validaTel();
+                    ?>
                     <br>
                     <br>
                     <label for="email" id="email" name="email">Email:</label>
-                    <input type="email" name="email" id="email" placeholder="Email">
+                    <input type="email" name="email" id="email" placeholder="Email" value="<?php 
+                        mantenerEmail();
+                    ?>">
+                    <?php
+                        validaEmail();
+                    ?>
                     <br>
                     <br>
                     <label for="password" id="password" name="password">Contraseña:</label>
-                    <input type="password" name="pass" id="pass" placeholder="Contraseña">
+                    <input type="password" name="pass" id="pass" placeholder="Contraseña" value="<?php 
+                        mantenerPass();
+                    ?>">
+                    <?php
+                        validaPass();
+                    ?>
                     <br>
                     <br>
                     <label for="fichero" id="fichero" name="fichero">Subir documento</label>
-                    <input type="file" name="fichero" id="fichero">
+                    <input type="file" name="fichero" id="fichero" >
+                    <?php 
+                        mantenerFich();
+                    ?>
                     <br>
+                    <?php
+                        //print_r($_FILES);
+                        validaFich();
+                    ?>
                     <br>
                     <input type="submit" value="Enviar" name="Enviado" class="btn btn-danger">
                     <input type="reset" value="Limpiar formulario" class="btn btn-danger">
-                </form>  
+                    <?php
+                        require_once("./validarFormulario.php");
+                        if(isset($_REQUEST['Enviado'])&& validaForm()){
+                            echo "EL FORMULARIO SE HA ENVIADO CORRECTAMENTE";
+                            $nuevaURL = "./muestraFormulario.php";
 
-                <?php
-                    //}
-                ?>
+                            header('Location: ' .$nuevaURL);
+                        }
+                    ?>
+                </form>  
         </div>
         <br>
         <br>
