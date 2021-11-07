@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Formulario</title>
@@ -19,16 +19,17 @@
             </div>
                 <?php
                     require_once("../libreria/funciones.php");
-                    
+                    require_once("./validarFormulario.php");
+                    if(isset($_REQUEST['Enviado'])&& validaForm()){
+                        header('Location: muestraFormulario.php');
+                    }
                 ?>
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" name="formulario" enctype="multipart/form-data">
                     <label for="nombre">Alfabetico:</label>
-                    <!--Validar que cuando escribamos un nombre se quede cuando Enviemos el formulario-->
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php                    
                         mantenerAlfa();
                     ?>">
-                    <?php
-                        //Validar que se ha escrito algo o no en el campo nombre                       
+                    <?php                      
                         validaAlfa();
                     ?>
                     <br>
@@ -44,7 +45,6 @@
                         mantenerNum();
                     ?>">
                     <?php
-                        //Validar que se ha escrito algo o no en el campo nombre
                         validaNum();
                     ?>
                     <br>
@@ -60,7 +60,6 @@
                         mantenerFecha();
                     ?>">
                     <?php
-                        //Validar que se ha introducido una fecha
                         validaFecha();
                     ?>
                     <br>
@@ -170,21 +169,11 @@
                     ?>
                     <br>
                     <?php
-                        //print_r($_FILES);
                         validaFich();
                     ?>
                     <br>
                     <input type="submit" value="Enviar" name="Enviado" class="btn btn-danger">
                     <input type="reset" value="Limpiar formulario" class="btn btn-danger">
-                    <?php
-                        require_once("./validarFormulario.php");
-                        if(isset($_REQUEST['Enviado'])&& validaForm()){
-                            echo "EL FORMULARIO SE HA ENVIADO CORRECTAMENTE";
-                            $nuevaURL = "./muestraFormulario.php";
-
-                            header('Location: ' .$nuevaURL);
-                        }
-                    ?>
                 </form>  
         </div>
         <br>

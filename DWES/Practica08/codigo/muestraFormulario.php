@@ -17,9 +17,8 @@
                 <h3>Formulario de Registro</h3>
                 <br>
             </div>
+            <h2 style="font-style:italic">Formulario enviado correctamente</h2>
         </div>
-        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" name="formulario" enctype="multipart/form-data">
-        </form>
         <br>
         <br>
         <a href="../index.html">
