@@ -17,6 +17,7 @@ class Ball {
         this._color = color;
         this._vx = vx;
         this._vy = vy;
+        
     }
 
     draw(){
