@@ -64,13 +64,16 @@
             echo preg_match($patron, "logs"); //true
 
             echo "<p>Buscar algo y la posicion en la que se encuentra con preg_match_all</p>";
-            $patron ='/<\/([a-z]+[0-9]?)>/'; //Etiqueta de cierre de html tambien vale '/<\/([a-z][0-9]?)+>/'
+            $patron ='/<\/[a-z]+[0-9]?>/'; //Etiqueta de cierre de html tambien vale '/<\/([a-z][0-9]?)+>/'
             echo preg_match_all($patron, "<html> Hola masquines </html>
             <p> Hola masquines </p>
             <a1> Hola masquines </a1>",
             $array); //true
             echo "<pre>";
-            print_r($array);
+            foreach ($array as $value) {
+                $value = str_replace("<", "&lt", $value);
+                print_r(str_replace(">","&gt",$value));
+            }
             echo "</pre>";
 
             echo "<p> Numero de cuenta valido</p>";

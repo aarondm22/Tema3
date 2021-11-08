@@ -20,9 +20,14 @@
                 <?php
                     require_once("../libreria/funciones.php");
                     require_once("./validarFormulario.php");
-                    if(isset($_REQUEST['Enviado'])&& validaForm()){
+                    if(enviado() && validaForm()){
                         header('Location: muestraFormulario.php');
                     }
+                    if(enviado() && validaForm()){
+                        echo "hola" + validaForm();
+                    }   
+
+                    
                 ?>
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" name="formulario" enctype="multipart/form-data">
                     <label for="nombre">Alfabetico:</label>

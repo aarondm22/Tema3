@@ -24,8 +24,9 @@ function self(){
 }
 
 function enviado(){
-    return isset($_REQUEST["Enviado"]);
+    return isset($_REQUEST['Enviado']);
 }
+
 
 function self_imp(){
 
@@ -48,44 +49,43 @@ function letraDNI($integer){
 
 //Funciones para validar
 
-function validaAlfa(){
-    if(isset($_REQUEST['Enviado']) && empty($_REQUEST['nombre'])){
+//No puede estar vacio y minimo 3 caracteres
+function validaNom(){
+    $patron = '/^[a-z]{1,2}$/';
+    if(enviado() && empty($_REQUEST['nombre'])){
         echo "<label for='nombre' style='color: red'>Debe haber un nombre </label>";
-        return false;
-    }else
-        return true;
+    } 
+    else if(enviado() && preg_match($patron, $_REQUEST['nombre'])){
+        echo "<label for='nombre' style='color: red'>Tiene que tener al menos 3 caracteres</label>";
+    }
 }
 
-function validaNum(){
-    if(isset($_REQUEST['Enviado']) && empty($_REQUEST['apellido'])){
+//No puede estar vacio, minimo 3 caracteres el primer apellido, un espacio y minimo 3 caracteres el segundo apellido
+function validaApe(){
+    $patron = '/^[a-z]{3,100}\s[a-z]{3,100}/';
+    if(enviado() && empty($_REQUEST['apellido'])){
         echo "<label for='apellido' style='color: red'>Debe haber un apellido </label>";
-        return false;
-    }else
-        return true;
+    }
+    else if(enviado() && preg_match($patron,  $_REQUEST['apellido'])==false){
+        echo "<label for='apellido' style='color: red'>Debe haber 3 caracteres y un espacio entre medias </label>";
+    }
 }
 
 function validaFecha(){
     if(isset($_REQUEST['Enviado']) && empty($_REQUEST['fecha'])){
         echo "<label for='fecha' style='color: red'>Debe haber una fecha </label>";
-        return false;
-    }else
-        return true;
+    }
 }
 
 function validaOp(){
-    if(!isset($_REQUEST['opciones']) && isset($_REQUEST['Enviado'])){
+    if(!isset($_REQUEST['opciones']) && isset($_REQUEST['Enviado']))
         echo "<label for='opciones' style='color: red'>Debe haber algo</label>"; 
-        return false;
-    }else
-        return true;
 }
 
 function validaSel(){
-    if(isset($_REQUEST['Enviado']) && ($_REQUEST['seleccion']=="sel")){
+    if(isset($_REQUEST['Enviado']) && ($_REQUEST['seleccion']=="sel"))
         echo "<label for='seleccion' style='color: red'>Debe escoger una seleccion</label>";
-        return false;
-    }else
-        return true;
+    
 }
 
 
@@ -93,71 +93,51 @@ function validaCheck(){
     if(isset($_REQUEST['Enviado'])){
         if(!isset($_REQUEST['caja'])){
             echo "<label for='caja' style='color: red'>Debe haber uno marcado</label>";
-            return false;
         }else if(count($_REQUEST['caja'])<1 || count($_REQUEST['caja'])>3){
             echo "<label for='caja' style='color: red'>Debe haber minimo uno maximo tres</label>";
-            return false;
         }
-        return true;
     }
 }
 
 function validaTel(){
     if(isset($_REQUEST['Enviado']) && empty($_REQUEST['telefono'])){
         echo "<label for='telefono' style='color: red'>Debe haber un telefono </label>";
-        return false;
-    }else
-        return true;
+    }
 }
 
 function validaEmail(){
     if(isset($_REQUEST['Enviado']) && empty($_REQUEST['email'])){
         echo "<label for='email' style='color: red'>Debe haber un email </label>";
-        return false;
-    }else
-        return true;
-    
+    }
 }
 
 function validaPass(){
     if(isset($_REQUEST['Enviado']) && empty($_REQUEST['pass'])){
         echo "<label for='password' style='color: red'>Debe haber una contraseña </label>";
-        return false;
-    }else
-        return true;
+    }
 }
 
 function validaFich(){
     if(isset($_REQUEST['Enviado']) && isset($_FILES)){
         $guarda = "../uploads/";
         $rutaConNombre = $guarda . $_FILES['fichero']['name'];
-        if(move_uploaded_file($_FILES['fichero']['tmp_name'], $rutaConNombre)){
+        if(move_uploaded_file($_FILES['fichero']['tmp_name'], $rutaConNombre))
             p("");
-            return true;
-        }else{
+        else
             echo "<label for='fichero' style='color: red'>Debe elegir un fichero </label>";
-            return false;
-        }
     }
 }
 
 //Funciones para mantener los datos introducidos correctamente
 
-function mantenerAlfa(){
+function mantenerNom(){
     if(isset($_REQUEST['Enviado']) && !empty($_REQUEST['nombre'])){
         echo ($_REQUEST['nombre']);
         return true;
     }
 }
 
-function mantenerAlfaOp(){
-    if(isset($_REQUEST['Enviado']) && !empty($_REQUEST['nombreOpcional'])){
-        echo ($_REQUEST['nombreOpcional']);
-        return true;
-    }
-}
-
-function mantenerNum(){
+function mantenerApe(){
     if(isset($_REQUEST['Enviado']) && !empty($_REQUEST['apellido'])){
         echo ($_REQUEST['apellido']);
         return true;
@@ -182,8 +162,7 @@ function mantenerFechaOp(){
     if(isset($_REQUEST['Enviado']) && !empty($_REQUEST['fechaOp'])){
         echo ($_REQUEST['fechaOp']);
         return true;
-    }else
-        return false;
+    }
 }
 
 function mantenerOpcion($opcion){
@@ -234,7 +213,7 @@ function mantenerPass(){
 function mantenerFich(){
     if(isset($_REQUEST['Enviado']) && isset($_FILES)){
         echo "<label for='fichero' style='color: red'>".$_FILES['fichero']['name']."</label>";
-        
+        return true;
     }
 }
 

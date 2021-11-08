@@ -1,7 +1,7 @@
 <?php
    require_once("../libreria/funciones.php");
 function validaForm(){
-    if(mantenerAlfa()&&mantenerNum()&&mantenerFecha()&&mantenerOpcion($opcion)&&mantenerSeleccion($seleccion)&&mantenerCheck($caja)&&mantenerTel()&&mantenerEmail()&&mantenerFich()&&mantenerPass()){
+    if(validaAlfa()&&validaNum()&&validaFecha()&&validaOp()&&validaSel()&&validaCheck()&&validaTel()&&validaEmail()&&validaFich()&&validaPass()){
         return true;
     }
 }
