@@ -1,0 +1,56 @@
+header{
+    color:tomato;
+    background-color: cornsilk;
+    text-align: center;
+    font-size: 2em;
+}
+
+a:link{
+    text-decoration: none; /*Sin subrayar*/
+    color:brown;
+}
+
+/*Cuando se ha visitado el link*/
+a:visited{
+    color:lightsalmon;
+}
+
+/*Cuando nos ponemos encima con el raton encima del link*/
+a:hover{
+    color:red;
+}
+
+footer{
+    background-color:cornsilk;
+    color:tomato;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: 2em;
+}
+
+header .subtitulo{
+    font-size: 25px;
+}
+
+main{
+    padding: 50px;
+}
+
+a{
+    font-size: 2em;
+}
+
+h2{
+    font-size: 3em;
+}
+
+.content{
+    background-color: cornflowerblue;
+    width: 900px;
+    text-align: center;
+    padding: 10px;
+    margin-left: 450px;
+}

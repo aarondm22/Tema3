@@ -20,10 +20,10 @@
                 </div>
                 <?php
                     require_once("../libreria/funciones.php");
-                    //require_once("./validarFormulario.php");
-                    /*if(isset($_REQUEST['Enviado'])&& validaForm()){
+                    require_once("./validarFormulario.php");
+                    if(isset($_REQUEST['Enviado'])&& validaForm()){
                         header('Location: muestraFormulario.php');
-                    }*/
+                    }
                 ?>
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" name="formulario" enctype="multipart/form-data">
                     <label for="nombre">Nombre:</label>
@@ -44,6 +44,33 @@
                     ?>
                     <br>
                     <br>
+                    <label for="fecha">Fecha:</label>
+                    <input type="text" name="fecha" id="fecha" placeholder="yyyy/mm/dd" value="<?php 
+                        mantenerFecha();
+                    ?>">
+                    <?php
+                        validaFecha();
+                    ?>
+                    <br>
+                    <br>
+                    <label for="dni">DNI:</label>
+                    <input type="text" name="dni" id="dni" placeholder="DNI" value="<?php 
+                        mantenerDni();
+                    ?>">
+                    <?php
+                        validaDni();
+                    ?>
+                    <br>
+                    <br>
+                    <label for="correo">Correo:</label>
+                    <input type="text" name="correo" id="correo" placeholder="Correo" value="<?php 
+                        mantenerCorreo();
+                    ?>">
+                    <?php
+                        validaCorreo();
+                    ?>
+                    <br>
+                    <br>
                     <input type="submit" value="Enviar" name="Enviado" class="btn btn-danger">
                     <input type="reset" value="Limpiar formulario" class="btn btn-danger">
                 </form>
@@ -52,12 +79,12 @@
         <br>
         <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;?>">
-            Ver codigo <img style="width:35px;"src="../../media/lupa.svg">
+            Ver codigo <img style="width:35px;"src="../media/lupa.svg">
         </a>
         <br>
         <br>
         <a href="../index.html">
-            <img src="../../media/volver.svg">
+            <img src="../media/volver.svg">
             Volver al Index Práctica 09
         </a>
     </main>
