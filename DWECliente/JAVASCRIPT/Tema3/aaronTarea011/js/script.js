@@ -59,7 +59,6 @@ class Ball {
     }
 
 }
-document.body
 
 for(let i=0; i<10; i++){
     bolas[i] = new Ball(aleatorioEntre(41,canvas.width),aleatorioEntre(41, canvas.height),aleatorioEntre(5,40),"rgb("+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+","+aleatorioEntre(0,255)+")",aleatorioEntre(0,20),aleatorioEntre(0,20));

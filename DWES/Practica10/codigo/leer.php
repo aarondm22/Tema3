@@ -8,41 +8,38 @@
 </head>
 <body>
     <header>
-        <h1>Elige Fichero</h1>
+        <h1>Leer Fichero</h1>
     </header>
     <main>
         <?php
-        require_once("../libreria/funciones.php");
-        ?>        
+            require_once("../libreria/funciones.php");
+        ?>
         <div class="entrada">
-            <form action="eligeFichero.php" method="post">
-                <label for="fich" >Nombre Fichero</label>
-                <input type="text" name="fich" id="fich">
+            <form action="leer.php" method="post">
+                <input type="hidden" name="fich" value="<?php echo $_REQUEST['fich'];?>">
+                <h3 for="areatext">Texto del Fichero</h3>
+                <textarea name="texto" id="areatext" rows="10" cols="50" disabled><?php leeTexto()?></textarea>
                 <br>
                 <br>
                 <input type="submit" name="boton" value="Editar">
-                <input type="submit" name="boton" value="Leer">
             </form>
-        </div>
-        <?php
-        if(sizeof($_REQUEST)>0){
-            if($_REQUEST['boton']=='Editar')
-                header('Location: editar.php?fich='.$_REQUEST['fich']);
-            if($_REQUEST['boton']=='Leer')
-                header('Location: leer.php?fich='.$_REQUEST['fich']);
-        }
-        ?>
-    <br>
-        
+            <?php
+                if(isset($_REQUEST['boton'])){
+                    if($_REQUEST['boton']=='Editar')
+                        header('Location: editar.php?fich='.$_REQUEST['fich']);
+                }
+            ?>
+        </div>   
+        <br>    
         <a id="link" href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;?>">
             Ver codigo <img style="width:35px;"src="../media/lupa.svg">
         </a>
         <br>
         <br>
-        <a id="link" href="../index.html">
+        <a id="link" href="./eligeFichero.php">
             <img src="../media/volver.svg">
-            Volver al Index Practica 10
+            Volver a Elegir un Fichero
         </a>
     </main>
     <footer>

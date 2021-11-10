@@ -42,9 +42,18 @@ main{
 a{
     font-size: 2em;
 }
-
+a#link{
+    margin-left:70px;
+}
 h2{
     font-size: 3em;
+}
+
+.entrada{
+    width: 900px;
+    text-align: center;
+    padding: 10px;
+    margin-left: 450px;
 }
 
 .content{

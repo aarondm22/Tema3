@@ -1,0 +1,16 @@
+.plantilla{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: red;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+a{
+    color:white;
+}
+
