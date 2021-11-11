@@ -15,7 +15,7 @@
             $rutaFichero = "../ficheros/blocDeNotas.txt";
 
             //Abrir el fichero para escritura
-            /*
+            
             if(!$fp = fopen($rutaFichero,'w')){
                echo "No se ha podido abrir el fichero";
                exit;
@@ -23,7 +23,7 @@
             $texto = "Quiero matar a Ismael por poner .length";
             fwrite($fp,$texto,strlen($texto));
             fclose($fp);
-            */
+            
             //Abrir el fichero para escribir al final
 
             if(!$fp = fopen($rutaFichero,'a')){

@@ -18,11 +18,7 @@
             <form action="editar.php" method="post">
                 <input type="hidden" name="fich" value="<?php echo $_REQUEST['fich'];?>">
                 <h3 for="areatext">Texto del Fichero</h3>
-                <textarea name="texto" id="areatext" rows="10" cols="50">
-                    <?php 
-                        leeTexto();
-                    ?>
-                </textarea>
+                <textarea name="texto" id="areatext" rows="10" cols="50"><?php leeTexto();?></textarea>
                 <br>
                 <br>
                 <input type="submit" name="boton" value="Guardar">

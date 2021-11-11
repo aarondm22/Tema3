@@ -59,15 +59,27 @@ function leeTexto(){
 }
 
 function editaTexto(){
-    $rutaFichero = "../ficheros/".$_REQUEST['fich'];
+    $rutaFichero2 = "../ficheros/".$_REQUEST['fich'];
+    $rutaFicheroTemporal = "../ficheros/temp.txt";
 
-    if(!$fp = fopen($rutaFichero,'a')){
+    if(!$fp = fopen($rutaFichero2,'r')){
         echo "No se ha podido abrir el fichero";
         exit;
     }
-    $texto = leeTexto();
-    fwrite($fp,$texto,strlen($texto));
+
+    if(!$ftemp = fopen($rutaFicheroTemporal,'w')){
+        echo "Ha habido un error al abrir el fichero";
+        exit;
+    }
+    $texto = $_REQUEST['texto'];
+    
+    fwrite($ftemp, $texto, strlen($linea));
+    
     fclose($fp);
+    fclose($ftemp);
+
+    unlink($rutaFichero2); //Deja de indexar el fichero inicial
+    rename($rutaFicheroTemporal, $rutaFichero2);
 }
 
 ?>
