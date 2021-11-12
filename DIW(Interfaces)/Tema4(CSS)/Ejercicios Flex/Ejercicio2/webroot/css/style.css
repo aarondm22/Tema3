@@ -6,6 +6,10 @@ li{
     text-align: center;
     letter-spacing: 1px;
 }
+a{
+    text-decoration: none;
+    color:black;
+}
 
 ul{
     display: flex;
@@ -61,7 +65,10 @@ nav li:nth-child(4){
 }
 
 
-nav li:nth-child(4)>form{
+nav li:nth-child(4)>form {
     display: flex;
-    align-items: center;
+    align-items: baseline;
+  }
+  input[type="search"] {
+    flex-grow:1;
 }
