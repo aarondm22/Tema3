@@ -63,3 +63,14 @@ h2{
     padding: 10px;
     margin-left: 450px;
 }
+
+#modTabla{
+    font-size: 1em;
+}
+
+#tabla{
+    width: 400px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 260px;
+}

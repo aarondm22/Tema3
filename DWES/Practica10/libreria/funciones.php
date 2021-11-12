@@ -53,7 +53,7 @@ function leeTexto(){
         exit;
     }
     $leo = fread($fp,filesize($rutaFichero));
-    $leo = str_replace("\n", "<br>", $leo);
+    
     echo $leo;
     fclose($fp); 
 }
@@ -73,13 +73,54 @@ function editaTexto(){
     }
     $texto = $_REQUEST['texto'];
     
-    fwrite($ftemp, $texto, strlen($linea));
+    fwrite($ftemp, $texto, strlen($texto));
     
     fclose($fp);
     fclose($ftemp);
 
     unlink($rutaFichero2); //Deja de indexar el fichero inicial
     rename($rutaFicheroTemporal, $rutaFichero2);
+}
+
+function leeTabla(){
+    $rutaFichero = "../ficheros/notas.csv";
+
+    if(!$fp = fopen($rutaFichero,'r')){
+        echo "No se ha podido abrir el fichero";
+        exit;
+    }
+
+    echo "<table id='tabla' border=1>";
+    echo "<tr>";
+    echo "<th>";
+    echo "Alumno";
+    echo "</th>";
+    echo "<th>";
+    echo "Nota1";
+    echo "</th>";
+    echo "<th>";
+    echo "Nota2";
+    echo "</th>";
+    echo "<th>";
+    echo "Nota3";
+    echo "</th>";
+    echo "</tr>";
+
+    while($linea = fgets($fp, filesize($rutaFichero))){ 
+        echo "<tr>";
+        $tabla = explode(";", $linea);
+        foreach ($tabla as $key => $dato) {
+            echo "<td>";
+            echo $tabla[$key];
+            echo "</td>";
+        }
+        echo "<td>";
+        echo "<a id='modTabla' href='editaCSV.php'>Editar</a>";
+        echo "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+    fclose($fp);
 }
 
 ?>
