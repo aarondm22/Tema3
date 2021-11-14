@@ -15,10 +15,25 @@
             require_once("../libreria/funciones.php");
         ?>
         <div class="entrada">
-            <form action="editar.php" method="post">
-                <input type="hidden" name="fich" value="<?php echo $_REQUEST['fich'];?>">
+            <form action="editaCSV.php" method="post">
+                <input type="hidden" name="fich" value="<?php echo $_REQUEST['alum'];?>">
                 <h3 for="areatext">Notas del Alumno</h3>
-                <textarea name="texto" id="areatext" rows="10" cols="50"><?php leeTexto();?></textarea>
+                <label for="alumno" id="alumno">Alumno:</label>
+                <input type="text" name="alumno" id="alumnp" value="<?php echo $_REQUEST['alum']?>"
+                disabled>
+                <br>
+                <br>
+               
+                <label for="notas1" id="notas1">Nota1:</label>
+                <input type="text" name="notas1" id="notas1" value="<?php echo $_REQUEST['nota1']?>">
+                <br>
+                <br>
+                <label for="notas2" id="notas2">Nota2:</label>
+                <input type="text" name="notas2" id="notas2" value="<?php echo $_REQUEST['nota2']?>">
+                <br>
+                <br>
+                <label for="notas3" id="notas3">Nota3:</label>
+                <input type="text" name="notas3" id="notas3" value="<?php echo $_REQUEST['nota3']?>">
                 <br>
                 <br>
                 <input type="submit" name="boton" value="Guardar">
@@ -26,8 +41,8 @@
             <?php
                 if(isset($_REQUEST['boton'])){
                     if($_REQUEST['boton']=='Guardar'){
-                        editaTexto();
-                        header('Location: leer.php?fich='.$_REQUEST['fich']);
+                        editaTabla();
+                        //header('Location: leerCSV.php');
                     }
                 }
             ?>
@@ -39,9 +54,9 @@
         </a>
         <br>
         <br>
-        <a id="link" href="./eligeFichero.php">
+        <a id="link" href="./leerCSV.php">
             <img src="../media/volver.svg">
-            Volver a Elegir un Fichero
+            Volver a Leer Notas
         </a>
     </main>
     <footer>

@@ -112,15 +112,48 @@ function leeTabla(){
         foreach ($tabla as $key => $dato) {
             echo "<td>";
             echo $tabla[$key];
+            echo "<input type='hidden' name='alumno' value='$tabla[0]'>";
             echo "</td>";
         }
         echo "<td>";
-        echo "<a id='modTabla' href='editaCSV.php'>Editar</a>";
+        echo "<a id='modTabla' href=editaCSV.php?alum=$tabla[0]&nota1=$tabla[1]&nota2=$tabla[2]&nota3=$tabla[3]> Editar</a>";
         echo "</td>";
         echo "</tr>";
     }
     echo "</table>";
     fclose($fp);
+}
+
+function editaTabla(){
+    $rutaFichero2 = "../ficheros/notas.csv";
+    $rutaFicheroTemporal2 = "../ficheros/temp2.txt";
+
+    if(!$fp = fopen($rutaFichero2,'r')){
+        echo "No se ha podido abrir el fichero";
+        exit;
+    }
+
+    if(!$ftemp = fopen($rutaFicheroTemporal2,'w')){
+        echo "Ha habido un error al abrir el fichero";
+        exit;
+    }
+
+    while($linea = fgets($fp, filesize($rutaFichero2))){ 
+        $tabla = explode(";", $linea);
+        if(isset($_REQUEST['notas1'])&& isset($_REQUEST['notas2'])&& isset($_REQUEST['notas3'])){
+            $tabla[1] = $_REQUEST['notas1'];
+            $tabla[2] = $_REQUEST['notas2'];
+            $tabla[3] = $_REQUEST['notas3'];
+        }
+        
+        fwrite($ftemp, $linea, strlen($linea));
+    }
+    
+    fclose($fp);
+    fclose($ftemp);
+
+    unlink($rutaFichero2); //Deja de indexar el fichero inicial
+    rename($rutaFicheroTemporal2, $rutaFichero2);
 }
 
 ?>

@@ -26,9 +26,9 @@
         </a>
         <br>
         <br>
-        <a id="link" href="./eligeFichero.php">
+        <a id="link" href="../index.html">
             <img src="../media/volver.svg">
-            Volver a Elegir un Fichero
+            Volver a Practica 10
         </a>
     </main>
     <footer>
