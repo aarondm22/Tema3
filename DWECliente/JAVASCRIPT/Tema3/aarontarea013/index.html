@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 013 - JavaScript - Ejercicio de Herencia</title>
+    <link rel="stylesheet" href="./webroot/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="media/claudio.png">
+    </header>
+    <main>
+        <center>
+        <div class="juego-contenedor" id="config-contenedor">
+            <div class="title">
+                &emsp;&emsp;&emsp;
+                <h1>Juego de Dados</h1>
+                &emsp;&emsp;&emsp;
+                <h2>
+                    <a id="enlace" href="codigo/config.html">Configurar</a>
+                </h2>
+            </div>
+            <table border=1 style="margin: 0 auto;">
+                <tr>
+                    <th>
+                        Partida
+                    </th>
+                    <th style="margin: 0 auto;">
+                        Apuesta 
+                        <br>
+                        <input type="number" name="apuesta" id="apuesta" value="0" onchange="apostar()">
+                    </th>
+                    <th>
+                        Jugada
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Restante : <a id="total">50</a>
+                    </td>
+                    <td>
+                        <a id="num1">
+                            -
+                        </a>
+                        <a id="num2">
+                            -
+                        </a>
+                        <br>  
+                        <img src="media/arrow-repeat.svg" style="width: 50px;" onclick="mostrarNumero()">
+                    </td>
+                    <td>
+                        <a id="apostado" >
+                            Apostado 
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <h2 id="resultado"></h2>
+            </div>
+        </div>
+        <audio id ="lanzar" controls> <source type="audio/wav" src="./media/lanzar.wav"></audio>
+        </center>
+        <br>
+        <br>
+        <a id="volver" href="../index.html">
+            <img src="../../../../media/volver.svg">
+            Volver al Index del Tema 3
+        </a>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>

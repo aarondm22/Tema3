@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 010 - JavaScript - Configuración</title>
+    <link rel="stylesheet" href="../webroot/css/style.css">
+</head>
+<body onload="iniciar()">
+    <header>
+        <img src="../media/claudio.png">
+    </header>
+    <main>
+        <center>
+        <div class="juego-contenedor" id="config-contenedor">
+            <div class="title">
+                &emsp;&emsp;
+                <h1>Configuración</h1>
+                &emsp;&emsp;
+                <h2>
+                    <a id="enlace" href="../index.html">Volver al Juego</a>
+                </h2>
+            </div>
+            <form id="form_configurar">
+                <label for="dineroRestante">
+                    Dinero restante:
+                </label>
+                <input type="number" id="dineroRestante"class="config" placeholder="Cantidad Restante" onchange="guardarRestante()">
+                <br>
+                <label for="valorApuesta">
+                    Valor inicial de las apuestas:
+                </label>
+                <input type="number" id="valorApuesta" class="config" placeholder="Valor inicial Apuesta" onchange="guardarApostado()">
+                <br>
+                <label for="sonidoElegido">
+                    Sonido:
+                </label>
+                <input type="checkbox" id="sonidoElegido" class="config" onblur="guardarSonido()">
+                <br>
+                <label for="colorSelect">
+                    Elige color:
+                </label>
+                <select id="colorSelect" id="colores" onchange="guardarFondo()">
+                    <option value="seleccion">Seleccione una opcion</option>
+                    <option value="blue">Azul</option>
+                    <option value="red">Rojo</option>
+                    <option value="black">Negro</option>
+                    <option value="gray">Gris</option>
+                </select>
+            </form>
+        </div>
+        </center>
+    </main>
+    <script src="../js/configuracion.js"></script>
+</body>
+</html>

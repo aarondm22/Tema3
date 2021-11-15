@@ -1,0 +1,64 @@
+
+header{
+    text-align: center;
+}
+table{
+    text-align: center;
+}
+
+.title{
+    display: flex;
+}
+
+#form_configurar{
+    font-size: 2em;
+}
+
+#volver{
+    font-size: 2em;
+}
+
+.juego-contenedor{
+    text-align: center;
+    background-color: blue;
+    padding: 45px;
+    color: white;
+    display: inline-block;
+}
+
+#apuesta{
+    width: 25%;
+}
+
+#lanzar{
+    display: none;
+}
+
+#num1{
+    font-size: 100px;
+    color: yellowgreen;
+}
+#num2{
+    font-size: 100px;
+    color: yellowgreen;
+}
+
+#enlace:link{
+    text-decoration: none;
+    background-color:turquoise;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+#enlace:visited{
+    text-decoration: none;
+    color: white;
+}
+#enlace:hover{
+    text-decoration: none;
+    color: white;
+}
+#enlace:active{
+    text-decoration: none;
+    color: white;
+}
