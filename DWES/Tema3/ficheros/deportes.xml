@@ -1,2 +1,15 @@
-<?xml version="1.0utf-8"?>
-<Deportes/>
+<?xml version="1.0" encoding="utf-8"?>
+<Deportes>
+  <Deporte>
+    <Nombre>Futbol</Nombre><Jugadores>5</Jugadores>
+  </Deporte>
+  <Deporte>
+  
+    <Nombre>Tenis</Nombre>
+    <Jugadores Modificado="true">15</Jugadores>
+  </Deporte>
+  <Deporte>
+    <Nombre>Hockey Hierba</Nombre>
+    <Jugadores>10</Jugadores>
+  </Deporte>
+</Deportes>

@@ -1,0 +1,52 @@
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form{
+    display: grid;
+    gap:25px;
+    grid-auto-flow: row;
+    grid-template-rows:500px 250px; 
+    grid-template-columns: repeat(2, 1fr);
+}
+
+legend{
+    text-transform: uppercase;
+}
+
+form>p{
+    margin:auto;
+} 
+
+p:nth-child(5){
+    display:grid;
+    gap:2px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+button{
+    width: 100px;
+    padding-bottom: 7%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+fieldset p:first-of-type label{
+    display: flex;
+    justify-content: space-between;
+}
+
+fieldset p label{
+    display: flex;
+}
+label input{
+    flex-grow:2;
+    flex-shrink: 2;
+}

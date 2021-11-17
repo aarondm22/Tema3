@@ -1,0 +1,33 @@
+/* Algoritmo de ordenación en filas */
+.galeria{
+    display:grid;
+    gap:1ex;
+    grid-auto-rows:100px;
+    grid-auto-flow: row;
+    grid-template-rows:150px 500px 100px; 
+    grid-template-columns:33.33% 66.66%; 
+
+}
+   /* Algoritmo de ordenación en columnas */ /* .galeria{ display:grid; gap:1ex; grid-template-rows:repeat(5,100px); grid-auto-columns:250px; grid-auto-flow:column; } */ /* Algoritmo de ordenación dense (en filas) */ /* .galeria{ display:grid; gap:1ex; grid-template-columns:repeat(4,1fr); grid-auto-rows:100px; grid-auto-flow: dense; } */ /* Algoritmo de ordenación dense (en columnas) */ /* .galeria{ display:grid; gap:1ex; grid-template-rows:repeat(5,100px); grid-auto-columns:250px; grid-auto-flow:column dense; } */ /* -------------------------------------- * / Estilos generales. No modificar. * /-----------------------------------------*/
+ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    font-size:200%;
+    text-align:center;
+}
+li{
+   border:1px
+   solid grey;
+   display:grid;
+}
+li>span{ 
+    margin: auto; 
+}
+li:nth-child(2n){ background-color:whitesmoke; }
+li:nth-child(2n+1){ background-color:orange; } 
+li:nth-child(2){ grid-row:span 2; } 
+li:nth-child(3){ grid-row:span 3; } 
+li:nth-child(4){ grid-column:span 2; } 
+li:nth-child(8){ grid-column:span 3; } 
+li:nth-child(9){ grid-column:span 2; }
