@@ -45,17 +45,40 @@ function letraDNI($integer){
     return $index;
 }
 
-function leeTexto(){
-    $rutaFichero = "../ficheros/".$_REQUEST['fich'];
+function transformaTexto(){
+    $rutaFichero = "../ficheros/notas.csv";
 
     if(!$fp = fopen($rutaFichero,'r')){
         echo "No se ha podido abrir el fichero";
         exit;
     }
-    $leo = fread($fp,filesize($rutaFichero));
-    
-    echo $leo;
+
+    $XML =  new DOMDocument("1.0", "utf-8");
+    $XML -> formatOutput = true;
+
+    $ElementoRaiz = $XML -> createElement("notas");
+    $raiz = $XML -> appendChild($ElementoRaiz);
+
+    while($linea = fgets($fp, filesize($rutaFichero))){ 
+        $tabla = explode(";", $linea);
+        $alumno = $XML ->createElement("alumno");
+        $ElementoRaiz -> appendChild($alumno);
+        foreach ($tabla as $key => $dato) {
+            if($tabla[$key]==$tabla[0]){
+                $nombrePropio = $tabla[0];
+                $nombre = $XML ->createElement("nombre", $nombrePropio);
+                $alumno -> appendChild($nombre);
+            }else{
+                $notaX = $tabla[$key];
+                $notas = $XML ->createElement("nota".$key, $notaX);
+                $alumno -> appendChild($notas);
+            }
+        }
+    }
+
     fclose($fp); 
+    $XML -> save("../ficheros/notas.xml");
+    
 }
 
 function editaTexto(){
@@ -141,14 +164,11 @@ function editaTabla(){
     while($linea = fgets($fp, filesize($rutaFichero2))){ 
         $tabla = explode(";", $linea);
         if(isset($_REQUEST['notas1'])&& isset($_REQUEST['notas2'])&& isset($_REQUEST['notas3'])){
-            if(isset($_REQUEST['alumnoX']) == $tabla[0]){
-                $tabla[1] = $_REQUEST['notas1'];
-                $tabla[2] = $_REQUEST['notas2'];
-                $tabla[3] = $_REQUEST['notas3'];
-            }
+            $tabla[1] = $_REQUEST['notas1'];
+            $tabla[2] = $_REQUEST['notas2'];
+            $tabla[3] = $_REQUEST['notas3'];
         }
-        $linea = implode(";", $tabla);
-        //$linea += "\n";
+        
         fwrite($ftemp, $linea, strlen($linea));
     }
     

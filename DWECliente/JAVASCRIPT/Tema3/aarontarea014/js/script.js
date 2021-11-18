@@ -1,118 +1,98 @@
 
-class Persona {
-    static contadorPersonas = 101;
-    constructor(nombre,apellido,edad){
-        this._id = Persona.contadorPersonas++;
+Number.prototype.moneda = function(){
+    return this.toLocaleString(undefined, {style:'currency',currency:'EUR',
+    usegrouping: true, minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+//return Intl.NumberFormat(undefined, {style: "currency", useGrouping: true, currency:""})
+
+class Producto{
+    static contadorProductos = 0;
+    constructor(nombre,precio){
+        this._idProducto = Producto.contadorProductos++;
         this._nombre = nombre;
-        this._apellido = apellido;
-        this._edad = edad;
+        this._precio = precio;
     }
 
-    get edad(){
-        return this._edad;
+    get getIdProducto(){
+        return this._idProducto;
     }
 
-    get nombre(){
-        return Persona.mayuscula(this._nombre);
+    get getNombre(){
+        return this._nombre;
     }
 
-    set nombre(nombre){
+    set setNombre(nombre){
         this._nombre = nombre;
     }
 
-    get apellido(){
-        return Persona.mayuscula(this._apellido);
+    get getPrecio(){
+        return this._precio;
     }
 
-    set apellido(apellido){
-        this._apellido = apellido;
+    set setPrecio(precio){
+        this._precio = precio;
     }
 
-    static mayuscula(palabra){
-        return palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase();
+    toString(){
+        return this.getNombre +" "+ this.getPrecio;
+    }
+}
+
+let p1 = new Producto("Camiseta", 24.56);
+let p2 = new Producto("Sudadera", 50.22);
+console.log(p1.toString()); 
+console.log(p2.toString()); 
+
+class Orden {
+    static contadorOrdenes = 0;
+    static contadorProductosAgregados = 0;
+    constructor(){
+        this._idOrden = Orden.contadorOrdenes++;
+        this._productos = [];
+    }
+
+    get getIdOrden(){
+        return this._idOrden;
+    }
+
+    static get MAX_PRODUCTOS(){
+        return 5;
+    }
+
+    agregarProducto(prod){
+        if(Orden.contadorProductosAgregados < Orden.MAX_PRODUCTOS){
+            Orden.contadorProductosAgregados++;
+            prod = new Producto();
+            this._productos.push(prod);
+        }else{
+            console.log("Ha superado el numero máximo de productos");
+        }
+    }
+
+    calcularTotal(){
+        let total = 0;
+        for(let i=0;i<this._productos.length;i++){
+            let prod = new Producto();
+            total += this._productos[i].precio;
+        }
+        return total;
     }
     
-    toString(){
-        return `${this._id}:\n       ${this.nombre} ${this.apellido}\n       Edad:${this._edad}`;
+    mostrarOrden(){
+       /* let orden = "Orden "+ this.getIdOrden;
+        for(let i=0;i<this._productos.length;i++){
+            r
+        }*/
+        return "Orden "+ this.getIdOrden + Producto.toString() + "Total: "+ this.calcularTotal();
     }
 }
 
-
-
-let persona1 = new Persona ('JUAN', 'PÉREZ', 19);
-let persona2 = new Persona ('federica', 'lopEZ', 25);
-
-console.log(persona1);
-console.log(persona1.toString());
-console.log(persona2.toString());
-
-class Empleado extends Persona{
-    static contadorEmpleados = 201;
-    
-    constructor(nombre, apellido, edad, sueldo){
-        super(nombre,apellido,edad);
-        this._id = Empleado.contadorEmpleados++;
-        this._sueldo = sueldo;
-    }
-
-    get getId(){
-        return this._id;
-    }
-
-
-    get getSueldo(){
-        return this._sueldo;
-    }
-
-    toString(){
-        return `Empleado ${this.getId}:\n       ${super.nombre} ${super.apellido}\n       Edad:${super.edad},\n       Sueldo: ${this.getSueldo.toLocaleString("es")}€`; 
-    }
-}
-
-let empleado1 = new Empleado("aaron","marcos",21,22200.34);
-let empleado2 = new Empleado("hSDAulian","SULEimani",90,300.34);
-console.log(empleado1);
-console.log(empleado1.toString());
-console.log(empleado2.toString());
-
-class Cliente extends Persona{
-    static contadorClientes = 301;
-    constructor(nombre, apellido, edad, fecha){
-        super(nombre,apellido,edad);
-        this._id = Cliente.contadorClientes++;
-        this._fecha = fecha;
-    }
-
-    get fecha(){
-        return this._fecha;
-    }
-
-    get id(){
-        return this._id;
-    }
-
-    toString(){
-        return `Cliente ${this.id}:\n       ${super.nombre} ${super.apellido}\n       Edad:${super.edad},\n       Registro: ${this.fecha.toLocaleDateString()}`;
-    }
-}
-let cliente1 = new Cliente("AnToNIO","GARCIA", 28, new Date());
-let cliente2 = new Cliente("SabrrINA","JIMEnez", 34, new Date());
-console.log(cliente1.toString());
-console.log(cliente2.toString());
-
-let empleado3 = new Empleado(persona1.nombre, persona1.apellido, persona1.edad, 30000);
-console.log(empleado3.toString());
-console.log("Id del Empleado2: "+empleado2.id);
-console.log("id del Cliente1: "+cliente1.id);
-console.log("Contador de Personas: "+Persona.contadorPersonas);
-let p23=new Persona();
-console.log("Contador de Personas: "+Persona.contadorPersonas);
-let p24=new Persona();
-console.log("Contador de Personas: "+Persona.contadorPersonas);
-let p25=new Persona();
-console.log("Contador de Personas: "+Persona.contadorPersonas);
-let p26=new Persona();
-console.log("Contador de Personas: "+Persona.contadorPersonas);
-let p27=new Persona();
-
+let orden1 = new Orden();
+p1.setPrecio=100;
+p2.setNombre="Abrigo";
+orden1.agregarProducto(p1);
+orden1.agregarProducto(p2);
+orden1.calcularTotal();
+console.log(orden1.calcularTotal())
 
