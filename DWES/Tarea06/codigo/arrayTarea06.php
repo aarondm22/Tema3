@@ -117,6 +117,42 @@
         </h3>
 
         <?php
+            //iniciamos el array
+            $resultados = array();
+
+            foreach ($liga as $equipoLocal => $arraySec) {
+                $resultados[$equipoLocal] = array();
+
+                $resultados[$equipoLocal]["Puntos"] = 0;
+                $resultados[$equipoLocal]["Favor"] = 0;
+                $resultados[$equipoLocal]["Contra"] = 0;
+            }
+
+            foreach ($liga as $equipoLocal => $arraySec) {
+                foreach ($arraySec as $visitante => $valores) {
+                    $datos = explode("-",$valores["Resultado"]);
+                    $favor = $datos[0];
+                    $contra = $datos[1];
+
+                    if($datos[0]>$datos[1]){
+                        //añado a local 3 puntos
+                        $resultados[$equipoLocal]["Puntos"] += 3;
+                    }else if($datos[0]<$datos[1]){
+                        //añado a visitante 3 puntos
+                        $resultados[$visitante]["Puntos"] += 3;
+                    }else{
+                        //añado a loocal y visitante 1 punto
+                        $resultados[$equipoLocal]["Puntos"] += 1;
+                        $resultados[$visitante]["Puntos"] += 3;
+                    }
+
+                    $resultados[$equipoLocal]["Favor"] += $favor;
+                    $resultados[$equipoLocal]["Contra"] += $contra;
+                    $resultados[$visitante]["Favor"] += $contra;
+                    $resultados[$visitante]["Contra"] += $favor;
+
+                }
+            }
 
             $header = array(
                 "Puntos", "Goles a favor", "Goles en contra"
@@ -131,17 +167,17 @@
                 echo "</td>";               
             }
             echo "</tr>";
-            foreach ($liga as $equipovisitante => $arraypartidos) {
+            foreach ($resultados as $key => $value) {
                 echo "<tr>";
                 echo "<td>";
-                echo $equipovisitante;
+                echo $key;
                 echo "</td>";
-                foreach ($arraypartidos as $clave => $resultado) {
-                    foreach ($resultado as $cosas => $valor){
-                        echo $valor;
-                    }
+                foreach ($value as $datos) {
+                    echo "<td>";
+                    echo $datos;
+                    echo "</td>";
                 }
-                //$i = 0;
+                echo "</tr>";
             }
             echo "</table>";
         ?>

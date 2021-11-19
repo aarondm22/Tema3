@@ -81,9 +81,8 @@ function transformaTexto(){
     
 }
 
-function editaTexto(){
-    $rutaFichero2 = "../ficheros/".$_REQUEST['fich'];
-    $rutaFicheroTemporal = "../ficheros/temp.txt";
+function leeXML(){
+    $rutaFichero2 = "../ficheros/notas.xml";
 
     if(!$fp = fopen($rutaFichero2,'r')){
         echo "No se ha podido abrir el fichero";

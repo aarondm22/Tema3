@@ -14,25 +14,6 @@
         $rutaFichero = "../ficheros/notas.csv";
         require_once("../libreria/funciones.php");
         transformaTexto();
-        /*if(file_exists($rutaFichero)){
-            //Transforma el xml en un objeto de tipo simplexml
-            $xml = simplexml_load_file($rutaFichero);
-            echo "<pre>";
-            print_r($xml);
-            echo "</pre>";
-        }else{
-            exit();
-        }
-
-        foreach ($xml as $departamento ) {
-            echo "Codigo: " . $departamento -> children()[0] . " Descripcion: " . $departamento -> children()[1];
-            echo "<br>Profesores:";
-            foreach ($departamento -> children()[2] as $profesor) {
-                var_dump($profesor);
-                echo "<br> id: ". $profesor -> attributes()["id"] ." ".$profesor;
-            }
-            echo "<br>";
-        }*/
         ?>
         <br>
         <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);

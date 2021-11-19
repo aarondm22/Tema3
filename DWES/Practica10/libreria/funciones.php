@@ -115,9 +115,11 @@ function leeTabla(){
             echo "<input type='hidden' name='alumno' value='$tabla[0]'>";
             echo "</td>";
         }
+        if(count($tabla)>0){
         echo "<td>";
         echo "<a id='modTabla' href=editaCSV.php?alum=$tabla[0]&nota1=$tabla[1]&nota2=$tabla[2]&nota3=$tabla[3]> Editar</a>";
         echo "</td>";
+        }
         echo "</tr>";
     }
     echo "</table>";
@@ -137,18 +139,19 @@ function editaTabla(){
         echo "Ha habido un error al abrir el fichero";
         exit;
     }
-
+    $primera = true;
     while($linea = fgets($fp, filesize($rutaFichero2))){ 
         $tabla = explode(";", $linea);
         if(isset($_REQUEST['notas1'])&& isset($_REQUEST['notas2'])&& isset($_REQUEST['notas3'])){
-            if(isset($_REQUEST['alumnoX']) == $tabla[0]){
+            if(($_REQUEST['alumnoX']) == $tabla[0]){
                 $tabla[1] = $_REQUEST['notas1'];
                 $tabla[2] = $_REQUEST['notas2'];
                 $tabla[3] = $_REQUEST['notas3'];
+                //Volvemos a juntar el array con implode y le metemos un intro al final y despues escribimos linea a linea
+                $linea = implode(";", $tabla);        
+                $linea = $linea ."\n";
             }
-        }
-        $linea = implode(";", $tabla);
-        //$linea += "\n";
+        }  
         fwrite($ftemp, $linea, strlen($linea));
     }
     
