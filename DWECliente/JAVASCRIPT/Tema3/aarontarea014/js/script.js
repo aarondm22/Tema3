@@ -1,10 +1,7 @@
-
 Number.prototype.moneda = function(){
     return this.toLocaleString(undefined, {style:'currency',currency:'EUR',
     usegrouping: true, minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
-
-//return Intl.NumberFormat(undefined, {style: "currency", useGrouping: true, currency:""})
 
 class Producto{
     static contadorProductos = 0;
@@ -27,7 +24,7 @@ class Producto{
     }
 
     get getPrecio(){
-        return this._precio;
+        return this._precio.moneda();
     }
 
     set setPrecio(precio){
@@ -41,11 +38,13 @@ class Producto{
 
 let p1 = new Producto("Camiseta", 24.56);
 let p2 = new Producto("Sudadera", 50.22);
+p1.setPrecio=100;
+p2.setNombre="Abrigo";
 console.log(p1.toString()); 
 console.log(p2.toString()); 
 
 class Orden {
-    static contadorOrdenes = 0;
+    static contadorOrdenes = 1;
     static contadorProductosAgregados = 0;
     constructor(){
         this._idOrden = Orden.contadorOrdenes++;
@@ -60,39 +59,45 @@ class Orden {
         return 5;
     }
 
-    agregarProducto(prod){
+    agregarProducto(prod = new Producto){
         if(Orden.contadorProductosAgregados < Orden.MAX_PRODUCTOS){
             Orden.contadorProductosAgregados++;
-            prod = new Producto();
             this._productos.push(prod);
         }else{
             console.log("Ha superado el numero máximo de productos");
         }
     }
 
+    get getProductos(){
+        return this._productos;
+    }
+
     calcularTotal(){
         let total = 0;
         for(let i=0;i<this._productos.length;i++){
-            let prod = new Producto();
-            total += this._productos[i].precio;
+            total += this._productos[i]._precio;
         }
-        return total;
+        return total.moneda();
     }
     
     mostrarOrden(){
-       /* let orden = "Orden "+ this.getIdOrden;
-        for(let i=0;i<this._productos.length;i++){
-            r
-        }*/
-        return "Orden "+ this.getIdOrden + Producto.toString() + "Total: "+ this.calcularTotal();
+        //No consigo mostrar todos los productos del array productos
+        for(let i=0;i<this.getProductos.length;i++){
+            return " Orden: " +this.getIdOrden + "\n   · "+ this.getProductos[i].toString() +
+            "\n ------------------- \n Total: "+ this.calcularTotal();
+        }
     }
 }
 
 let orden1 = new Orden();
-p1.setPrecio=100;
-p2.setNombre="Abrigo";
-orden1.agregarProducto(p1);
+let o2 = new Orden();
+
 orden1.agregarProducto(p2);
-orden1.calcularTotal();
-console.log(orden1.calcularTotal())
+orden1.agregarProducto(p1);
+
+o2.agregarProducto(p1);
+o2.agregarProducto(p1);
+
+console.log(orden1.mostrarOrden());
+console.log(o2.mostrarOrden());
 

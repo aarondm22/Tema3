@@ -62,7 +62,7 @@
             echo date('d-m-y h:i:s', $diaMKtime);
 
             echo "<br>";
-            echo "<h3>Función getdate (devuelve un array)</h3>";
+            echo "<h3>Función getdate (devuelve un array asociativo)</h3>";
             print_r (getdate());
             $arrayfecha = getdate();
             echo "<br>";

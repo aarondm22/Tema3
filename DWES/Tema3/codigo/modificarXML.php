@@ -22,7 +22,7 @@
             $dom = dom_import_simplexml($xml)->ownerDocument;
 
             $deportes = $dom -> firstChild;
-
+            
             foreach ($deportes -> childNodes as $deporte) {
                 if($deporte->nodeName == "Deporte"){
                     foreach ($deporte -> childNodes as $hijos) {

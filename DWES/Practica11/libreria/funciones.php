@@ -1,7 +1,4 @@
 <?php
-function br(){
-    echo "<br>";
-}
 
 function h1($cadena){
 
@@ -78,40 +75,16 @@ function transformaTexto(){
 
     fclose($fp); 
     $XML -> save("../ficheros/notas.xml");
-    
 }
 
-function leeXML(){
-    $rutaFichero2 = "../ficheros/notas.xml";
-
-    if(!$fp = fopen($rutaFichero2,'r')){
-        echo "No se ha podido abrir el fichero";
-        exit;
+function leeXmlTabla(){
+    $rutaFichero = "../ficheros/notas.xml";
+    if(file_exists($rutaFichero)){
+        //Transforma el xml en un objeto de tipo simplexml
+        $xml = simplexml_load_file($rutaFichero);
+    }else{
+        exit();
     }
-
-    if(!$ftemp = fopen($rutaFicheroTemporal,'w')){
-        echo "Ha habido un error al abrir el fichero";
-        exit;
-    }
-    $texto = $_REQUEST['texto'];
-    
-    fwrite($ftemp, $texto, strlen($texto));
-    
-    fclose($fp);
-    fclose($ftemp);
-
-    unlink($rutaFichero2); //Deja de indexar el fichero inicial
-    rename($rutaFicheroTemporal, $rutaFichero2);
-}
-
-function leeTabla(){
-    $rutaFichero = "../ficheros/notas.csv";
-
-    if(!$fp = fopen($rutaFichero,'r')){
-        echo "No se ha podido abrir el fichero";
-        exit;
-    }
-
     echo "<table id='tabla' border=1>";
     echo "<tr>";
     echo "<th>";
@@ -128,54 +101,58 @@ function leeTabla(){
     echo "</th>";
     echo "</tr>";
 
-    while($linea = fgets($fp, filesize($rutaFichero))){ 
+    foreach ($xml as $alumno) {
         echo "<tr>";
-        $tabla = explode(";", $linea);
-        foreach ($tabla as $key => $dato) {
+        foreach ($alumno as $datos) {
             echo "<td>";
-            echo $tabla[$key];
-            echo "<input type='hidden' name='alumno' value='$tabla[0]'>";
+            echo $datos;
             echo "</td>";
         }
+        
         echo "<td>";
-        echo "<a id='modTabla' href=editaCSV.php?alum=$tabla[0]&nota1=$tabla[1]&nota2=$tabla[2]&nota3=$tabla[3]> Editar</a>";
+        echo "<a id='modTabla' href=editaNotas.php?alum=".$alumno -> children()[0]."&nota1=".$alumno -> children()[1]."&nota2=".$alumno -> children()[2]."&nota3=".$alumno -> children()[3]."> 
+        Editar</a>";
         echo "</td>";
         echo "</tr>";
     }
     echo "</table>";
-    fclose($fp);
 }
 
-function editaTabla(){
-    $rutaFichero2 = "../ficheros/notas.csv";
-    $rutaFicheroTemporal2 = "../ficheros/temp2.txt";
-
-    if(!$fp = fopen($rutaFichero2,'r')){
-        echo "No se ha podido abrir el fichero";
-        exit;
+function editaAlumnos(){
+    $rutaFichero = "../ficheros/notas.xml";
+    if(file_exists($rutaFichero)){
+        //Transforma el xml en un objeto de tipo simplexml
+        $xml = simplexml_load_file($rutaFichero);
+    }else{
+        exit();
     }
 
-    if(!$ftemp = fopen($rutaFicheroTemporal2,'w')){
-        echo "Ha habido un error al abrir el fichero";
-        exit;
-    }
+    $dom = dom_import_simplexml($xml)->ownerDocument;
 
-    while($linea = fgets($fp, filesize($rutaFichero2))){ 
-        $tabla = explode(";", $linea);
-        if(isset($_REQUEST['notas1'])&& isset($_REQUEST['notas2'])&& isset($_REQUEST['notas3'])){
-            $tabla[1] = $_REQUEST['notas1'];
-            $tabla[2] = $_REQUEST['notas2'];
-            $tabla[3] = $_REQUEST['notas3'];
+    $etiquetasNombre = $dom->getElementsByTagName("nombre");
+
+    foreach ($etiquetasNombre as $nombreAlumno) {
+        if($nombreAlumno -> nodeValue == ($_REQUEST['alumnoX'])){
+            $aux = $nombreAlumno;
+            do{
+                $aux = $aux-> nextSibling;
+                if($aux -> nodeName == "nota1"){
+                    $aux -> nodeValue = $_REQUEST['notas1'];
+                    $aux -> setAttribute("Modificado","true");
+                }
+                if($aux -> nodeName == "nota2"){
+                    $aux -> nodeValue = $_REQUEST['notas2'];
+                    $aux -> setAttribute("Modificado","true");
+                }
+            }while(($aux -> nodeName != "nota3"));
+            
+            if($aux -> nodeName == "nota3"){
+                $aux -> nodeValue = $_REQUEST['notas3'];
+                $aux -> setAttribute("Modificado","true");
+            }
         }
-        
-        fwrite($ftemp, $linea, strlen($linea));
     }
-    
-    fclose($fp);
-    fclose($ftemp);
 
-    unlink($rutaFichero2); //Deja de indexar el fichero inicial
-    rename($rutaFicheroTemporal2, $rutaFichero2);
+    $dom -> save($rutaFichero);
 }
-
 ?>

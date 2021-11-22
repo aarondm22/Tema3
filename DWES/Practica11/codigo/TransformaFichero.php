@@ -11,7 +11,6 @@
     </header>
     <main>
         <?php
-        $rutaFichero = "../ficheros/notas.csv";
         require_once("../libreria/funciones.php");
         transformaTexto();
         ?>

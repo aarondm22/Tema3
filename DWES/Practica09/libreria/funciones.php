@@ -51,12 +51,12 @@ function letraDNI($integer){
 
 //No puede estar vacio y minimo 3 caracteres
 function validaNom(){
-    $patron = '/^[a-z]{1,2}$/';
+    $patron = '/^[a-z|A-Z]{3,}/';
     if(enviado() && empty($_REQUEST['nombre'])){
         echo "<label for='nombre' style='color: red'>Debe haber un nombre </label>";
         return false;
     } 
-    else if(enviado() && preg_match($patron, $_REQUEST['nombre'])){
+    else if(enviado() && preg_match($patron, $_REQUEST['nombre']) == false){
         echo "<label for='nombre' style='color: red'>Tiene que tener al menos 3 caracteres</label>";
         return false;
     }
@@ -65,7 +65,7 @@ function validaNom(){
 
 //No puede estar vacio, minimo 3 caracteres el primer apellido, un espacio y minimo 3 caracteres el segundo apellido
 function validaApe(){
-    $patron = '/^[a-z]{3,100}\s[a-z]{3,100}/';
+    $patron = '/^[a-z|A-Z]{3,}\s[a-z|A-Z]{3,}/';
     if(enviado() && empty($_REQUEST['apellido'])){
         echo "<label for='apellido' style='color: red'>Debe haber un apellido </label>";
         return false;

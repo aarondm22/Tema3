@@ -123,14 +123,17 @@
 
             //Funciones para recorrer
             echo "<h3>Funciones para recorrer</h3>";
+            //current() -> Devuelve el elemento de la posición actual
             echo "current<br>";
             print_r(current($cosas));
+            //Avanzamos en uno el array solo salen el array DAM Y ASIR con next()
             echo "next<br>";
-            //Avanzamos en uno el array solo salen el array DAM Y ASIR
             print_r(next($cosas));
             echo "current<br>";
             print_r(current($cosas));
             echo "<h3>Recorrer array cosas desde la segunda posicion</h3>";
+            /*each() -> Devuelve un array con la clave y el elemento de la posición actual. Además, avanza el puntero interno
+            una posición*/
             while($cosa = each($cosas)){
                 echo "<pre>";
                 echo "El ciclo es: ".$cosa['key']." y las asignaturas son: ";
@@ -138,7 +141,7 @@
                 echo "</pre>";
             }
 
-            //Resetamos para que nos muestre los tres arrays
+            //reset() -> Sitúa el puntero al comienzo del array / Reseteamos para que nos muestre los tres arrays
             reset($cosas);
             echo "<h3>Recorrer array cosas desde el principio</h3>";
             while($cosa = each($cosas)){
@@ -147,7 +150,8 @@
                 print_r($cosa['value']);
                 echo "</pre>";
             }
-
+            //end() -> Situa el puntero al final del array
+            //key() -> Devuelve la clave de la posición actuañ 
         ?>
         <br>
         <a href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);
