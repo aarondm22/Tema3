@@ -25,10 +25,8 @@ form>p{
     margin:auto;
 } 
 
-p:nth-child(5){
-    display:grid;
-    gap:2px;
-    grid-template-columns: repeat(2, 1fr);
+fieldset p:last-child{
+    flex-wrap: nowrap;
 }
 
 button{
@@ -46,7 +44,38 @@ fieldset p:first-of-type label{
 fieldset p label{
     display: flex;
 }
+
 label input{
     flex-grow:2;
     flex-shrink: 2;
 }
+
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+fieldset ul li label{
+    display: flex;
+    justify-content: space-between;
+}
+
+fieldset ul li label input{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+p label{
+    flex-wrap: nowrap;
+} 
+
+p:last-child{
+    display:grid;
+    gap:2px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+fieldset p:nth-last-child(1){
+    display: inline;
+}
+
+

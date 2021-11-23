@@ -36,6 +36,8 @@ class Producto{
     }
 }
 
+Intl.NumberFormat(undefined)
+
 let p1 = new Producto("Camiseta", 24.56);
 let p2 = new Producto("Sudadera", 50.22);
 p1.setPrecio=100;
