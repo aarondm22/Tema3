@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>003 Ejercicio JavaScript</title>
+    
+</head>
+<body>
+    <!--Utilizando elementos <input type="date"/>, se pide introducir dos fechas en una página web  
+        Las fechas corresponderán a las fechas de un viaje de ida y de vuelta en avión
+        La segunda fecha deberá ser superior a la primera
+        Las fechas se verán en párrafos de la página, indicando además el día de la semana (lunes, martes,...).
+        Calcula los días que hay entre las dos fechas y muéstralo en la página--> 
+
+    <h1>003 Ejercicio JavaScript</h1>
+    <label for="start">Fecha de ida:</label>
+    <input type="date" id="ida" name="trip-start"
+        min="2018-01-01" max="2023-12-31"/>
+    <p id="p1">&nbspIda:</p>
+    <br>
+    <label for="start">Fecha de vuelta:</label>
+    <input type="date" id="vuelta" name="trip-start"
+        min="2021-10-08" max="2023-12-31"/>
+    <p id="p2">&nbspVuelta:</p>
+    <br>
+    <input type="button" onclick="diferencia()" value="Dime diferencia" />
+    <p id="dif">Diferencia entre las dos fechas</p>
+    <script src="js/script003.js"></script>
+</body>
+</html>

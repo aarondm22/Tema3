@@ -22,9 +22,6 @@ class Persona{
    
 }
 
-static incrementarContador(){
-    if(Persona.contadorObjetosPersona)
-}
  
 class Empleado extends Persona{
     constructor (nombre, apellido, departamento = 'Informática'){

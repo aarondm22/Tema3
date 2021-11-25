@@ -1,5 +1,5 @@
 
-//Hosting: Necesitas crear primero la clase antes del objeto
+//HoIsting: Necesitas crear primero la clase antes del objeto
 //let persona3 = new Persona();
 
 class Persona{

@@ -19,7 +19,7 @@ class Ball {
         this._y = y;
         this._radius = radius;
         this._color = color;
-        this._vx = vx;
+        this._vx = 0;
         this._vy = vy;
         
     }

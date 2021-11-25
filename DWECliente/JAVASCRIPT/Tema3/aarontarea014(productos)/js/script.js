@@ -54,7 +54,8 @@ class Orden {
     }
 
     get getIdOrden(){
-        return this._idOrden;
+        //Devuelve el id asi -> 003
+        return this._idOrden.toLocaleString(undefined,{ minimumIntegerDigits: 3, useGrouping: false});
     }
 
     static get MAX_PRODUCTOS(){
@@ -83,11 +84,13 @@ class Orden {
     }
     
     mostrarOrden(){
-        //No consigo mostrar todos los productos del array productos
-        for(let i=0;i<this.getProductos.length;i++){
-            return " Orden: " +this.getIdOrden + "\n   · "+ this.getProductos[i].toString() +
-            "\n ------------------- \n Total: "+ this.calcularTotal();
+        let linea= "";
+        for (let producto of this.getProductos){
+            linea += '\n    · ' + producto.toString();
         }
+        //No consigo mostrar todos los productos del array productos
+        return " Orden: " +this.getIdOrden + linea +
+            "\n ------------------- \n Total: "+ this.calcularTotal();
     }
 }
 
