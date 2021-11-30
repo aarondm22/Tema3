@@ -134,7 +134,7 @@
             echo "<h3>Recorrer array cosas desde la segunda posicion</h3>";
             /*each() -> Devuelve un array con la clave y el elemento de la posición actual. Además, avanza el puntero interno
             una posición*/
-            while($cosa = each($cosas)){
+            while($cosa -> each($cosas)){
                 echo "<pre>";
                 echo "El ciclo es: ".$cosa['key']." y las asignaturas son: ";
                 print_r($cosa['value']);
@@ -144,7 +144,7 @@
             //reset() -> Sitúa el puntero al comienzo del array / Reseteamos para que nos muestre los tres arrays
             reset($cosas);
             echo "<h3>Recorrer array cosas desde el principio</h3>";
-            while($cosa = each($cosas)){
+            while($cosa -> each($cosas)){
                 echo "<pre>";
                 echo "El ciclo es: ".$cosa['key']." y las asignaturas son: ";
                 print_r($cosa['value']);

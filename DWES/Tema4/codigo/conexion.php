@@ -44,8 +44,21 @@
 
         //  Ejecutar un select
         $sql = "select * from alumno";
-        $resultado = mysqli_query($conexion,$sql, MYSQLI_USE_RESULT);
-        
+        //Use va a buscar la informacion cuando hago fetch
+        $resultado = mysqli_query($conexion,$sql, MYSQLI_STORE_RESULT);
+        //Fetch es que vaya a la siguiente fila
+        //Para cada fila introduce 0,id 1,nombre 2,edad en un array
+        //mysqli_fetch_all Array de arrays con 0,1,2
+        //mysqli_fetch_row Arrays con 0,1,2
+        //mysqli_fetch_object Objetos con id,nombre,edad
+        //mysqli_fetch_field Muestra todo lo que tiene que ver con la BBDD
+        while($fila = mysqli_fetch_array($resultado)){
+            echo "<pre>";
+            print_r($fila);
+            echo "</pre>";
+        }
+        //Vaciar lo que tiene $resultado
+        mysqli_free_result($resultado);
         mysqli_close($conexion);
     }
 
