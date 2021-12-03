@@ -87,7 +87,7 @@ class Orden {
         for (let producto of this.getProductos){
             linea += '\n    · ' + producto.toString();
         }
-        //No consigo mostrar todos los productos del array productos
+        
         return " Orden: " +this.getIdOrden + linea +
             "\n ------------------- \n Total: "+ this.calcularTotal();
     }

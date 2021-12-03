@@ -50,27 +50,18 @@ h2{
 }
 
 .entrada{
-    width: 900px;
-    text-align: center;
-    padding: 10px;
-    margin-left: 450px;
+   margin: 0 auto;
+   
 }
 
-.content{
-    background-color: cornflowerblue;
-    width: 900px;
-    text-align: center;
-    padding: 10px;
-    margin-left: 450px;
+#modReg{
+    font-size: 1em;
 }
 
-#modTabla{
+#borrarReg{
     font-size: 1em;
 }
 
 #tabla{
-    width: 400px;
-    text-align: center;
-    padding: 5px;
-    margin-left: 260px;
+    margin: 0 auto;
 }
