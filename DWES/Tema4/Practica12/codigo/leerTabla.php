@@ -11,13 +11,22 @@
         <h2 class="subtitulo">Desarrollo Web en Entorno Servidor</h2>
     </header>
     <main>
+        <form method="post" action="leerTabla.php">
+            <label id="buscar">Buscar:</label>
+            <input type="text" name="busca">
+            <input type="submit" name="busqueda" value="Buscar" class="btn btn-danger">
+        </form>
         <?php
         require_once("../libreria/funcionesBD.php");
         require_once("../libreria/conexionBD.php");
-        require_once("../segura/datosLoL.php");
+        //require_once("../segura/datosLoL.php");
+        require_once("../segura/datosCasa.php");
 
-        leer();
-
+        if(isset($_REQUEST['busqueda'])){
+            buscarBD();
+        }else
+            leer();
+        
         ?>
         <br>
         <a id="link" href="codigo.php?paginaPHP=<?php $pagina = basename($_SERVER['SCRIPT_FILENAME']);

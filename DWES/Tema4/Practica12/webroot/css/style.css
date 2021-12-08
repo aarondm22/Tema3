@@ -65,3 +65,11 @@ h2{
 #tabla{
     margin: 0 auto;
 }
+
+#insertarReg{
+    margin: 0 auto;
+    font-size: 1.5em;
+    color:red;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+}

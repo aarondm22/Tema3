@@ -71,7 +71,7 @@
                     ?>
                     <br>
                     <br>
-                    <input type="submit" value="Enviar" name="Enviado" class="btn btn-danger">
+                    <input type="submit" name="Enviado" value="Enviar" class="btn btn-danger">
                     <input type="reset" value="Limpiar formulario" class="btn btn-danger">
                 </form>
         </div>
