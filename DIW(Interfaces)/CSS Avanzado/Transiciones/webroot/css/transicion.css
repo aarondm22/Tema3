@@ -1,0 +1,82 @@
+
+main{
+    display:grid;
+    gap:15px;
+    grid-auto-rows:100px;
+    grid-template-rows:200px 200px 200px; 
+    grid-template-columns:33.33% 33.33% 33.33%;
+}
+.caja{
+    color:white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 180px;
+    background-color: red;
+}
+
+#caja1{
+    background-color: royalblue;
+    transition: background-color 1s linear;
+}
+
+#caja1:hover{
+    background-color: seagreen;
+}
+
+#caja2{
+    background-color:slateblue;
+    transition: font-size 1s linear;
+}
+
+#caja2:hover{
+    font-size: 2em;
+}
+
+#caja3{
+    background-color:tomato;
+    transition: color 1s linear;
+}
+
+#caja3:hover{
+    color:darkcyan;
+}
+
+#caja4{
+    background-color:darkcyan;
+    transition: line-height 1s linear;
+}
+
+#caja4:hover{
+    line-height: 5em;
+}
+
+#caja5{
+    background-color:yellowgreen;
+    transition: border-radius 1s linear;
+}
+
+#caja5:hover{
+    border-radius: 2em;
+}
+
+#caja6{
+    background-color:crimson;
+    transition: box-shadow 1s linear;
+}
+
+#caja6:hover{
+    box-shadow:4px 4px 4px 2px darkgoldenrod;
+}
+
+
+#caja7{
+    background-color:crimson;
+    transition: box-shadow 1s linear;
+}
+
+#caja7:hover{
+    box-shadow:4px 4px 4px 2px darkgoldenrod;
+}

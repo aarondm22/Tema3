@@ -1,0 +1,18 @@
+/*asegurarnos de que no vamos a enviar los colores a la impresora,
+sino el texto negro sobre un fondo blanco*/
+
+body, header, section, footer {
+    background-color: white;
+    color: black;
+  }
+/*eliminaremos las secciones derecha e izquierda, para que no se impriman*/
+  .derecha, .izquierda {
+    display: none;
+  }
+
+/*Por último nos preocuparemos de que, tanto la cabecera como el contenido principal y el pie, se vean en su posición normal; para lograrlo simplemente eliminaremos la rejilla del body y aplicaremos los márgenes solicitados:*/
+
+body {
+    display: block;
+    margin: 4cm 3cm;
+  }

@@ -1,7 +1,6 @@
 <?php
 
 //require_once("../segura/datosLoL.php");
-
 function conexionPDO(){
     $dsn = "mysql:host=".IP.";dbname=".BD;
     try{
