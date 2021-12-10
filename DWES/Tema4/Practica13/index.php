@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Index Tarea 12</title>
+    <title>Index Tarea 13</title>
     <link href="./webroot/css/style.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Index de la Tarea 12</h1>
+        <h1>Index de la Tarea 13</h1>
         <h2 class="subtitulo">Desarrollo Web en Entorno Servidor</h2>
     </header>
     <main>
@@ -23,7 +23,7 @@
         ?>
         <ul>
             <?php
-                if(conexionBD()==false){
+                if(conexionPDO()==false){
             ?>
             <li>
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post"  name="creaBBDD" enctype="multipart/form-data">
