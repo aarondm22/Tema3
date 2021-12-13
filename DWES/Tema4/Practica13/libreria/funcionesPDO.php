@@ -6,44 +6,46 @@ function guardado(){
 }
 
 function crear(){
-    if(conexionBD()!=false){
-        
-        $sql = "insert into jugadores values (?,?,?,?)";
+    if(conexionPDO()!=false){
+        try{
+            $con = conexionPDO();
+            $prep = $con -> prepare("insert into jugadores values (?,?,?,?)"); 
 
-        $con = conexionBD();
-        $consulta = $con -> stmt_init();
-        $consulta -> prepare($sql);
+            //Transacción para comprobar que solo añadimos un jugador cuando el id no coincida
+            $con -> beginTransaction();
+            //Recogemos cada uno de los datos introducidos en el formulario
+            $id = $_REQUEST["id"];
+            $id = $id+0;
+            $nombre = $_REQUEST["nombre"];
+            $kills = $_REQUEST["kills"];
+            $cumple = $_REQUEST["cumple"];
 
-        //Recogemos cada uno de los datos introducidos en el formulario
-        $id = $_REQUEST["id"];
-        $id = $id+0;
-        $nombre = $_REQUEST["nombre"];
-        $kills = $_REQUEST["kills"];
-        $cumple = $_REQUEST["cumple"];
-
-        //Ahora añadimos $id, $nombre, $rol y $nacionalidad a la consulta
-        $consulta -> bind_param('isds',$id,$nombre,$kills,$cumple);
-        //Ejecutamos
-        $consulta -> execute();
-
-        if($consulta -> errno == 1062){
-            echo "<label for='id' style='color: red'>Id duplicado</label>";
-            return false;
-        }
-        else
-            $consulta -> free_result();
-            $con -> close();
+            $prep->bindParam(1,$id);
+            $prep->bindParam(2,$nombre);
+            $prep->bindParam(3,$kills);
+            $prep->bindParam(4,$cumple);
+            //Ejecutamos el INSERT
+            
+            $prep-> execute();
+            //Si todo ha ido bien hacemos commit y creamos al jugador
+            $con -> commit();
             return true;
+        }catch(PDOException $ex){
+            echo "<label for='id' style='color: red'>Id duplicado</label>";
+            $con->rollBack();
+        }finally{
+            unset($con);
+        }
     }
 }
 
 function leer(){
-    if(conexionBD()!=false){
-        $con = conexionBD();
+    if(conexionPDO()!=false){
+        $con = conexionPDO();
 
         $sql = "select * from jugadores";
 
-        $resultado = mysqli_query($con,$sql);
+        $result = $con->query($sql);
 
         echo "<table border=1 id='tabla'>";
         echo "<tr>";
@@ -60,18 +62,26 @@ function leer(){
         echo "CUMPLE";
         echo "</th>";
         echo "</tr>";
-        while($fila = mysqli_fetch_assoc($resultado)){
+        //$row = $result->fetch();
+        while($row = $result -> fetch()){
             echo "<tr>";
-            foreach ($fila as $valor) {
-                echo "<td>";
-                echo $valor;
-                echo "</td>";
-            }
             echo "<td>";
-            echo "<a id='modReg' href=modificarReg.php?id=".$fila['id']."> Modificar</a>";
+            echo $row['id'];
             echo "</td>";
             echo "<td>";
-            echo "<a id='borrarReg' href=borraReg.php?id=".$fila['id']."> Borrar</a>";
+            echo $row['nombre'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['kills'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['cumple'];
+            echo "</td>";
+            echo "<td>";
+            echo "<a id='modReg' href=modificarReg.php?id=".$row['id']."> Modificar</a>";
+            echo "</td>";
+            echo "<td>";
+            echo "<a id='borrarReg' href=borraReg.php?id=".$row['id']."> Borrar</a>";
             echo "</td>";
             echo "</tr>";
 
@@ -82,29 +92,26 @@ function leer(){
         echo "<a id='insertarReg' href=insertarReg.php> Insertar Nuevo Registro</a>";
         echo "</center>";
 
-        $con->close();
+        unset($con);
     }
 }
 
 function buscarBD(){
-    if(conexionBD()!=false){
-        $con = conexionBD();
+    if(conexionPDO()!=false){
+        $con = conexionPDO();
         
-        $sql = "select * from jugadores where nombre like ? ";
-
-        $preparado = $con ->stmt_init();
-
-        $preparado -> prepare($sql);
+        $prep = $con -> prepare("select * from jugadores where nombre like :nombre"); //:nombre funciona como el ?
 
         $busca = $_REQUEST["busca"];
+        $nombrelike = "%$busca%";
 
-        $parametros = "%$busca%";
+        $prep->bindParam(":nombre", $nombrelike);
+        $prep->execute();
 
-        $preparado -> bind_param('s', $parametros);
-
-        $preparado -> execute();
-
-        $preparado ->bind_result($rid,$rnombre,$rkills,$rfecha);
+        $prep->bindColumn(1,$id); 
+        $prep->bindColumn(2,$nombre);
+        $prep->bindColumn(3,$kills);
+        $prep->bindColumn(4,$cumple);
 
         echo "<table border=1 id='tabla'>";
         echo "<tr>";
@@ -121,25 +128,25 @@ function buscarBD(){
         echo "CUMPLE";
         echo "</th>";
         echo "</tr>";
-        while($preparado->fetch()){
+        while($prep->fetch()){
             echo "<tr>";
             echo "<td>";
-            echo $rid;
+            echo $id;
             echo "</td>";
             echo "<td>";
-            echo $rnombre;
+            echo $nombre;
             echo "</td>";
             echo "<td>";
-            echo $rkills;
+            echo $kills;
             echo "</td>";
             echo "<td>";
-            echo $rfecha;
+            echo $cumple;
             echo "</td>";
             echo "<td>";
-            echo "<a id='modReg' href=modificarReg.php?id=".$rid."> Modificar</a>";
+            echo "<a id='modReg' href=modificarReg.php?id=".$id."> Modificar</a>";
             echo "</td>";
             echo "<td>";
-            echo "<a id='borrarReg' href=borraReg.php?id=".$rid."> Borrar</a>";
+            echo "<a id='borrarReg' href=borraReg.php?id=".$id."> Borrar</a>";
             echo "</td>";
             echo "</tr>";
         }
@@ -150,46 +157,41 @@ function buscarBD(){
         echo "<a id='insertarReg' href=insertarReg.php> Insertar Nuevo Registro</a>";
         echo "</center>";
 
-        $preparado -> free_result();
-        $con->close();
+        unset($con);
     }
 }
 
 function selectId(){
-    if(conexionBD()!=false){
-        $con = conexionBD();
+    if(conexionPDO()!=false){
+        $con = conexionPDO();
 
-        $preparado = $con ->stmt_init();
-
-        $sql = "select * from jugadores where id = ?";
-        $preparado -> prepare($sql);
+        $prep = $con -> prepare("select * from jugadores where id = :id ");
         $id = $_REQUEST["id"];
         $id = $id+0;
 
-        $preparado -> bind_param('i', $id);
+        $prep->bindParam(":id", $id);
+        $prep->execute();
 
-        $preparado -> execute();
-        $preparado ->bind_result($rid,$rnombre,$rkills,$rfecha);
-
-        $seleccion="";
-        while($preparado->fetch()){
-            $seleccion = $rid.",".$rnombre.",".$rkills.",".$rfecha;
+        $prep->bindColumn(1,$id); //Análogo al bind_result del mysqli
+        $prep->bindColumn(2,$nombre);
+        $prep->bindColumn(3,$kills);
+        $prep->bindColumn(4,$cumple);
+        $seleccion = "";
+        while($prep->fetch()){
+            $seleccion = $id.":".$nombre.":".$kills.":".$cumple;
         }
-        
-        $preparado -> free_result();
-        $con->close();
-        
+
+        unset($con);
         return $seleccion;
     }
 }
 
 function actualizar(){
-    if(conexionBD()!=false){
-        $sql = "update jugadores set nombre=? , kills=? , cumple=? where id=? ";
+    if(conexionPDO()!=false){
+        $con = conexionPDO();
 
-        $con = conexionBD();
-        $consulta = $con -> stmt_init();
-        $consulta -> prepare($sql);
+        $prep = $con -> prepare("update jugadores set nombre=? , kills=? , cumple=? where id=? ");
+        
 
         //Recogemos cada uno de los datos introducidos en el formulario
         $id = $_REQUEST["id"];
@@ -198,48 +200,38 @@ function actualizar(){
         $kills = $_REQUEST["kills"];
         $cumple = $_REQUEST["cumple"];
 
+        $prep->bindParam(1,$nombre);
+        $prep->bindParam(2,$kills);
+        $prep->bindParam(3,$cumple);
+        $prep->bindParam(4,$id);
+        //Ejecutamos el update
+        $prep -> execute();
 
-        //Ahora añadimos $id, $nombre, $rol y $nacionalidad a la consulta
-        $consulta -> bind_param('sdsi',$nombre,$kills,$cumple,$id);
-        //Ejecutamos
-        $consulta -> execute();
-
-        $consulta -> free_result();
-        $con -> close();
+        unset($con);
     }
 }
 
 function borrar(){
-    if(conexionBD()!=false){
-        $sql = "delete from jugadores where id=? ";
+    if(conexionPDO()!=false){
+        
+        $con = conexionPDO();
 
-        $con = conexionBD();
-        $consulta = $con -> stmt_init();
-        $consulta -> prepare($sql);
-
-        //Recogemos cada uno de los datos introducidos en el formulario
+        $prep = $con -> prepare("delete from jugadores where id = :id");
         $id = $_REQUEST["id"];
         $id = $id+0;
 
-        $consulta -> bind_param('i',$id);
+        $prep->bindParam(":id", $id);
+        $prep->execute();
 
-        //Ahora añadimos $id, $nombre, $rol y $nacionalidad a la consulta
-        $consulta -> bind_param('i',$id);
-        //Ejecutamos
-        $consulta -> execute();
-
-        $consulta -> free_result();
-        $con -> close();
+        unset($con);
     }
 }
 
 function cargar(){
     if(conexionPDO()!=false){
-        $comandosSQL = file_get_contents("./segura/script.sql");
-        $con = conexion();
-        $con-> multi_query($comandosSQL);
-        $con-> close();
-
+        $con = conexionPDO();
+        $commands = file_get_contents("./segura/script.sql");
+        $con -> exec($commands);
         return true;
     }
 }
@@ -256,11 +248,6 @@ function validaId(){
         echo "<label for='nombre' style='color: red'>Tiene que ser de tipo numerico</label>";
         return false;
     }
-    else if(guardado() && conexionBD()==false){
-        //Error con el duplicado del id
-        return false;
-    }
-
     return true;
 }
 function validaNom(){

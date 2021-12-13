@@ -25,31 +25,31 @@
 
             /* ----- FORMA 1 ------ */ 
             //Crear el array antes (para arrays)
-                //$arrayparametros = array(123,"Viernes",35);
+                $arrayparametros = array(123,"Viernes",35);
             //O crearlo en el execute
-                //$preparada -> execute($arrayparametros);
+                $preparada -> execute($arrayparametros);
 
             /* ----- FORMA 2 ------ */ 
             //Crear el bindparam para
-                //$id = 124;
-                //$nombre = "Sabado";
-                //$edad = 36;
-                //$preparada->bindParam(1,$id);
-                //$preparada->bindParam(2,$nombre);
-                //$preparada->bindParam(3,$edad);
-                //$preparada -> execute();
+                $id = 124;
+                $nombre = "Sabado";
+                $edad = 36;
+                $preparada->bindParam(1,$id);
+                $preparada->bindParam(2,$nombre);
+                $preparada->bindParam(3,$edad);
+                $preparada -> execute();
             /* ----- FORMA 3 ------ */
             //Con nombre en la consulta preparada
-                //$preparada2 = $con -> prepare("select * from alumno where nombre like :nombre"); //:nombre funciona como el ?
-                //$nombrelike = "%ri%";
-                //$preparada2->bindParam(":nombre", $nombrelike);
-                //$preparada2->execute();
-                //$preparada2->bindColumn(1,$id); //Análogo al bind_result del mysqli
-                //$preparada2->bindColumn(2,$nombre);
-                //echo "<br>Filas devueltas: ".$preparada2->rowCount(); //Número de filas que te devuelve la consulta
-                //while($row = $preparada2->fetch()){
-                    //echo "<br>" .$id.":".$nombre.":".$row[2];
-                //}
+                $preparada2 = $con -> prepare("select * from alumno where nombre like :nombre"); //:nombre funciona como el ?
+                $nombrelike = "%ri%";
+                $preparada2->bindParam(":nombre", $nombrelike);
+                $preparada2->execute();
+                $preparada2->bindColumn(1,$id); //Análogo al bind_result del mysqli
+                $preparada2->bindColumn(2,$nombre);
+                echo "<br>Filas devueltas: ".$preparada2->rowCount(); //Número de filas que te devuelve la consulta
+                while($preparada2->fetch()){
+                    echo "<br>" .$id.":".$nombre.":".$row[2];
+                }
 
             /* ----- TRANSACCIONES ----- */ 
                 $con -> beginTransaction();
