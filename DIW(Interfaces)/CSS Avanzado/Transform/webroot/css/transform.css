@@ -20,20 +20,24 @@ main{
 
 #caja1{
     background-color: royalblue;
-    transition: background-color 1s linear;
+    -webkit-transition: 1s linear;
+    transition: 1s linear;
 }
 
 #caja1:hover{
-    background-color: seagreen;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
 
 #caja2{
     background-color:slateblue;
-    transition: font-size 1s linear;
+    -webkit-transition: 1s linear;
+    transition: 1s linear;
 }
 
 #caja2:hover{
-    font-size: 2em;
+    -webkit-transform: scale(0,5);
+    transform: scale(0,5);
 }
 
 #caja3{
