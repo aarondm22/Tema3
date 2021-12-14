@@ -12,7 +12,8 @@
     </header>
     <main>
         <?php
-        require_once("./segura/datosBD.php");
+        //require_once("./segura/datosBD.php");
+        require_once("./segura/datosCasa.php");
 
         $dsn = "mysql:host=".IP.";dbname=".BBDD;
         try{
@@ -24,7 +25,7 @@
             $con->query($sql);
             */
             //Hacemos un select en la BBDD
-            $sql = "select * from alumno";
+            $sql = "select * from jugadores";
             $result = $con->query($sql);
             while($row = $result->fetch()){
                 echo "<pre>";

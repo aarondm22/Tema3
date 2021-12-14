@@ -17,10 +17,10 @@
             <input type="submit" name="busqueda" value="Buscar" class="btn btn-danger">
         </form>
         <?php
-        require_once("../libreria/funcionesBD.php");
+        require_once("../libreria/funcionesPDO.php");
         require_once("../libreria/conexionBD.php");
-        require_once("../segura/datosLoL.php");
-        //require_once("../segura/datosCasa.php");
+        //require_once("../segura/datosLoL.php");
+        require_once("../segura/datosCasa.php");
 
         if(isset($_REQUEST['busqueda'])){
             buscarBD();
