@@ -1,10 +1,8 @@
 
 main{
     display:grid;
-    gap:15px;
     grid-auto-rows:200px;
-    grid-template-rows:200px 200px 200px; 
-    grid-template-columns:25% 25% 25% 25%;
+    grid-template-columns:20% 20% 20% 20% 20%;
 }
 .caja{
     color:white;
@@ -15,7 +13,6 @@ main{
     height: 180px;
     width: 180px;
     background-color: red;
-    line-height: 20px;
 }
 
 #caja1{
@@ -42,75 +39,53 @@ main{
 
 #caja3{
     background-color:tomato;
-    transition: color 1s linear;
+    -webkit-transition: 1s linear;
+    transition: 1s linear;
 }
 
 #caja3:hover{
-    color:darkcyan;
+    -webkit-transform: translate(20px, 20px);
+    transform: translateX(20px);
 }
 
 #caja4{
-    background-color:darkcyan;
+    background-color:darkkhaki;
     -webkit-transition: 1s linear;
     transition: 1s linear;
 }
 
 #caja4:hover{
-    line-height: 500px;
+    -webkit-transform: translate(20px, 20px);
+    transform: translateY(20px);
+    
 }
 
 #caja5{
-    background-color:yellowgreen;
-    transition: border-radius 1s linear;
+    background-color:darkcyan;
+    -webkit-transition: 1s linear;
+    transition: 1s linear;
 }
 
 #caja5:hover{
-    border-radius: 2em;
+    transform: skew(15deg, 15deg);
+    
 }
 
 #caja6{
-    background-color:crimson;
-    transition: box-shadow 1s linear;
+    background-color: blue;
+    transition: 1s linear;
 }
 
 #caja6:hover{
-    box-shadow:4px 4px 4px 2px darkgoldenrod;
+    transform: matrix(0.5,0.1,0.5,1,10,-2);
+    background: linear-gradient(45deg, #66f, #f80, #ffc);
 }
 
-
 #caja7{
-    background-color:darkmagenta;
-    transition: opacity 1s linear;
+    background-color:chocolate;
+    transition: 1s linear;
 }
 
 #caja7:hover{
-    opacity: 0;
-}
-
-#caja8{
-    background-color:darkolivegreen;
-    transition: border 1s linear;
-}
-
-#caja8:hover{
-    border: 5px solid red;
-}
-
-#caja9{
-    background-color:seashell;
-    color: black;
-    transition: margin 1s linear;
-}
-
-#caja9:hover{
-    margin: 50px;
-}
-
-#caja10{
-    background-color:violet;
-    transition: padding 1s linear;
-}
-
-#caja10:hover{
-    padding: 50px;
+    transform: perspective(150px) rotateY(45deg);
 }
