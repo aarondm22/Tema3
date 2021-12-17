@@ -1,0 +1,4 @@
+AuthName "Contenido Privado"
+AuthType Basic
+AuthUserFile /etc/apache2/admin
+require valid-user

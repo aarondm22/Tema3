@@ -81,7 +81,7 @@ function leer(){
             echo "<a id='modReg' href=modificarReg.php?id=".$row['id']."> Modificar</a>";
             echo "</td>";
             echo "<td>";
-            echo "<a id='borrarReg' href=borraReg.php?id=".$row['id']."> Borrar</a>";
+            echo "<a id='borrarReg' href=../administrador/borraReg.php?id=".$row['id']."> Borrar</a>";
             echo "</td>";
             echo "</tr>";
 
@@ -146,7 +146,7 @@ function buscarBD(){
             echo "<a id='modReg' href=modificarReg.php?id=".$id."> Modificar</a>";
             echo "</td>";
             echo "<td>";
-            echo "<a id='borrarReg' href=borraReg.php?id=".$id."> Borrar</a>";
+            echo "<a id='borrarReg' href=../administrador/borraReg.php?id=".$id."> Borrar</a>";
             echo "</td>";
             echo "</tr>";
         }
@@ -228,12 +228,7 @@ function borrar(){
 }
 
 function cargar(){
-    if(conexionPDO()!=false){
-        $con = conexionPDO();
-        $commands = file_get_contents("./segura/script.sql");
-        $con -> exec($commands);
-        return true;
-    }
+    conexion();
 }
 
 //FUNCIONES PARA VALIDAR

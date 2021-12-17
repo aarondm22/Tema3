@@ -27,11 +27,12 @@ function conexionPDO(){
 }
 
 function conexion(){
-    $dsn = "mysql:host=".IP.";dbname=".BD;
+    $dsn = "mysql:host=".IP;
     try{
         $con = new PDO($dsn,USUARIO,PASS);
         $con -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $con;
+        $commands = file_get_contents("./segura/script.sql");
+        $con -> exec($commands);
     }catch(PDOException $ex){
         if($ex -> getCode() != 0){
             //Error al conectarse
