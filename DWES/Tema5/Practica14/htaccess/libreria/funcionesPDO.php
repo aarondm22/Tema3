@@ -78,7 +78,7 @@ function leer(){
             echo $row['cumple'];
             echo "</td>";
             echo "<td>";
-            echo "<a id='modReg' href=modificarReg.php?id=".$row['id']."> Modificar</a>";
+            echo "<a id='modReg' href=../administrador/modificarReg.php?id=".$row['id']."> Modificar</a>";
             echo "</td>";
             echo "<td>";
             echo "<a id='borrarReg' href=../administrador/borraReg.php?id=".$row['id']."> Borrar</a>";

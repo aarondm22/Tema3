@@ -17,20 +17,6 @@
             //require_once("../segura/datosLoL.php");
             require_once("../segura/datosCasa.php");
 
-            if(!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])){
-                header('WWW-Authenticate: Basic Realm="Contenido Restringido"');
-                header('HTTP/1.0 401 Unauthorized');
-                exit;
-            }
-            else if($_SERVER['PHP_AUTH_USER'] != 'admin' && $_SERVER['PHP_AUTH_PW'] != 'admin'){
-                header('WWW-Authenticate: Basic Realm="Contenido Restringido"');
-                header('HTTP/1.0 401 Unauthorized');
-                exit;
-            }else if($_SERVER['PHP_AUTH_USER'] != 'aaron' && $_SERVER['PHP_AUTH_PW'] != 'aaron'){
-                header('WWW-Authenticate: Basic Realm="Contenido Restringido"');
-                header('HTTP/1.0 401 Unauthorized');
-                exit;
-            }else{
         ?>
         <center>
         <div class="entrada">
@@ -90,6 +76,5 @@
     <footer>
         ©Aarón de Diego Martín
     </footer>
-    <?php } ?>
 </body>
 </html>
