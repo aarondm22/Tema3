@@ -7,7 +7,7 @@
 </head>
 <body style="background-color: antiquewhite;">
     <header>
-        <h1>Store Jueitos</h1>
+        <h1>StopStore</h1>
         <ul>
             <li>
                 <a href="index.html">Inicio</a>
@@ -53,7 +53,7 @@ Esse pariatur quis incididunt qui. Est nulla do commodo veniam. Eiusmod eu nulla
         <br>
     </main>
     <footer>
-        <h2>®Copy Aarón de Diego Store Jueitos</h2>
+        <h2>®Copy Aarón de Diego StopStore</h2>
     </footer>
 </body>
 </html>

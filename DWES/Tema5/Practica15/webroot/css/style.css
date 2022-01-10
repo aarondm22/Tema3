@@ -9,10 +9,14 @@ h2{
     text-align: center;
 }
 
-img{
-    height: 300px;
-    vertical-align: top;
-    align-content: center;
+h3{
+    color:black;
+    font-size: 2em;
+    text-align: center;
+}
+
+body{
+    background-color:blanchedalmond;
 }
 
 header{
@@ -21,6 +25,13 @@ header{
 
 footer{
     background-color: #BF5B04;
+    color:white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: 1.5em;
 }
 
 ul {
@@ -47,4 +58,19 @@ li a {
 
 li a:hover {
     background-color: black;
+}
+
+.log{
+    color: white; 
+    float: right; 
+    font-size: 1.5em;
+    padding-right: 20px;
+}
+
+.content{
+    width: 900px;
+    text-align: center;
+    padding: 10px;
+    margin-left: 450px;
+    font-size: 1.2em;
 }

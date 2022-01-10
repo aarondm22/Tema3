@@ -9,4 +9,4 @@ for (let i = 0; i < enlaces.length; i++) {
 }
 console.log(`Numero de enlaces que enlazan a prueba: ${contador}`);
 const tercero = document.getElementsByTagName("p");
-console.log(tercero);
+console.log(tercero[2].getElementsByTagName("a").length);
