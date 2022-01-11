@@ -16,15 +16,15 @@ h3{
 }
 
 body{
-    background-color:blanchedalmond;
+    background-color:snow;
 }
 
 header{
-    background-color: #BF5B04;
+    background-color:slateblue;
 }
 
 footer{
-    background-color: #BF5B04;
+    background-color: slateblue;
     color:white;
     text-align: center;
     position: fixed;
@@ -39,7 +39,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #8C2C16;
+    background-color:snow;
 }
 
 li {
@@ -49,7 +49,7 @@ li {
 
 li a {
     display: block;
-    color: #F2C879;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -58,6 +58,7 @@ li a {
 
 li a:hover {
     background-color: black;
+    color: white;
 }
 
 .log{
