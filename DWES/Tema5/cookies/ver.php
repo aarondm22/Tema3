@@ -7,9 +7,31 @@
 
         if(!isset($_COOKIE['visitado'])){
             echo "No hay cookie";
-            setcookie("visitado",$codigo,time()+12308,'/');
+            //Cuando solo es una
+            //setcookie("visitado",$codigo,time()+12308,'/');
+            //Cuando quiero que sea un array
+            setcookie("visitado[0]",$codigo,time()+12308,'/');
         }else{
-            setcookie("visitado",$codigo,time()+12308,'/');
+            //orden de la cookies. Van a ser 3
+            //contar cuantas hay
+            $arrayCookie = $_COOKIE['visitado'];
+            $numero = count($arrayCookie);
+            //Para que no se repitan los valores
+            if(!in_array($codigo, $arrayCookie)){
+                if($numero<3){
+                    array_unshift($arrayCookie,$codigo);
+                    foreach ($arrayCookie as $key => $value) {
+                        setcookie('visitado['.$key.']',$value,time()+12308,'/');
+                    }
+                }else{
+                    //Ordenar poniendo el primero el ultimo codigo
+                    array_unshift($arrayCookie,$codigo);
+                    array_pop($arrayCookie);
+                    foreach ($arrayCookie as $key => $value) {
+                        setcookie('visitado['.$key.']',$value,time()+12308,'/');
+                    }
+                }
+            }
         }
     }else{
         header('Location: index.php');

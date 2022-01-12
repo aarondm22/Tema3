@@ -3,7 +3,11 @@
 
     $array = buscaProductos();
     if(isset($_COOKIE['visitado'])){
-        $producto = buscaProducto($_COOKIE['visitado']);
+        $arrayCookie = $_COOKIE['visitado'];
+        $arrayVisitados = array();
+        foreach ($arrayCookie as $key => $value) {
+            array_push($arrayVisitados,buscaProducto($value));
+        }
     }
 
 ?>
@@ -39,10 +43,10 @@
             <div class="col-3">
                 <h2>Ultimas visitas</h2>
                 <?php
-                    if(isset($producto)){
-                        echo $producto['nombre'].
-                        "<img src='./".$producto['baja']."'>";
-                    }
+                foreach ($arrayVisitados as $producto) {
+                    echo $producto['nombre'].
+                    "<img src='./".$producto['baja']."'>";
+                }
                 ?>
             </div>
         </div>
