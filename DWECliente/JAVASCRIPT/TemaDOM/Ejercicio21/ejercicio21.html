@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+   <link href="css/estilos.css" rel="stylesheet">
+    <title>Listado de Personas</title>
+    
+  </head>
+  <body>
+    
+        <div id="cabecero" class="contenedor">
+            <h1>Listado de Personas</h1>
+        </div>
+
+        
+        <div class="contenedor">
+            <div class="elemento">
+                <ul>
+                    <li>Juan Perez</li>
+                    <li>Ana Gonzalez</li>
+                    <li>Faustino Sinverguenza</li>
+                </ul>
+            </div>
+        </div>
+        <div class="contenedor">
+            <form id="formulario">
+                <button onclick="añadir()">+</button>
+                <div>
+                    <input type="text" step="any" class="form-control" placeholder="Nombre" id="nombre" />
+                    <input type="text" step="any" class="form-control" placeholder="Apellido" id="apellido" />  
+                </div>
+            
+            </form>
+        </div>
+
+        <div class="mb-3">
+            <label for="suma" id="suma"></label>
+        </div>
+        <script src="js/listado.js"></script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Eventos</h1>
+ 
+    <form id="formulario">
+        <label for="idNombre">Nombre:</label>
+        <input type="text" id="idNombre">
+        <br><br>
+        <label for="idApellido">Apellido:</label>
+        <input type="text" id="idApellido">
+    </form>
+    
+    <script>
+ 
+        // DELEGACIÓN DE EVENTOS //
+        const formulario = document.getElementById("formulario");
+ 
+        formulario.addEventListener("focus",(evento) => evento.target.style.background = "yellow",true);
+        formulario.addEventListener("blur",(evento) => evento.target.style.background = "white",true);
+ 
+        
+        document.getElementById("idNombre").addEventListener("focus",(evento) => evento.target.style.background = "yellow");
+        document.getElementById("idNombre").addEventListener("blur",(evento) => evento.target.style.background = "white");
+ 
+        document.getElementById("idApellido").addEventListener("focus",(evento) => evento.target.style.background = "yellow");
+        document.getElementById("idApellido").addEventListener("blur",(evento) => evento.target.style.background = "white");
+        
+        
+        function ponerColor(evento)
+        {
+            evento.target.style.background = "yellow";
+        }
+ 
+        function quitarColor(evento)
+        {
+            evento.target.style.background = "white";
+        }
+ 
+    </script>
+</body>
+</html>
