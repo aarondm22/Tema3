@@ -1,8 +1,8 @@
 <?php
 
 define("IP", '192.168.1.43');
-define("USUARIO", 'aaron');
+define("USER", 'aaron');
 define("PASS", 'aaron');
-define("BD",'tienda');
+define("BBDD",'tienda');
 
 ?>

@@ -143,6 +143,81 @@ function draw(){
     ctx.beginPath();
     ctx.fillStyle = "green";
     ctx.fillRect(490,499,60,-89);
+
+    //Moñeco cabeza
+    ctx.beginPath();
+    ctx.fillStyle = "black";
+    ctx.moveTo(1000,200);
+    ctx.arc(1000, 200, 80, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+
+    //Moñeco ojo izq
+    ctx.beginPath();
+    ctx.fillStyle = "white";
+    ctx.moveTo(950,200);
+    ctx.arc(950, 200, 10, 0, Math.PI);
+    ctx.fill();
+    ctx.stroke();
+
+    //Moñeco ojo der
+    ctx.beginPath();
+    ctx.fillStyle = "white";
+    ctx.moveTo(1050,200);
+    ctx.arc(1050, 200, 10, 0, Math.PI);
+    ctx.fill();
+    ctx.stroke();
+
+    //Moñeco sonrisa
+    ctx.beginPath();
+    ctx.fillStyle = "white";
+    ctx.moveTo(1000,240);
+    ctx.arc(1000, 240, 20, 0, Math.PI);
+    ctx.fill();
+    ctx.stroke();
+
+    //Moñeco tronco
+    ctx.beginPath();
+    ctx.moveTo(1000,280);
+    ctx.lineTo(1000,600);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+
+    //Moñeco brazo der
+    ctx.beginPath();
+    ctx.moveTo(1000,280);
+    ctx.lineTo(1200,400);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+
+    //Moñeco brazo izq
+    ctx.beginPath();
+    ctx.moveTo(1000,280);
+    ctx.lineTo(800,400);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+
+    //Moñeco pierna izq
+    ctx.beginPath();
+    ctx.moveTo(1000,600);
+    ctx.lineTo(800,800);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+
+    //Moñeco pierna der
+    ctx.beginPath();
+    ctx.moveTo(1000,600);
+    ctx.lineTo(1200,800);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+
+    
+
 }
 
 draw();
