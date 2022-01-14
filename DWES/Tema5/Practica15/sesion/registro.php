@@ -1,12 +1,9 @@
 <?php
     //llamar a verifica sesion
     require_once("../funciones/validaSession.php");
-    require_once("../funciones/funciones.php");
     session_start();
-    if(isset($_REQUEST['entrar'])&&validaSession()&&validaLogin()){
-        header("Location: ../sesionvalidada/index.php");
-    }else{
-        echo "Error";
+    if(validaSession()){
+        header("Location: ./paginas/menu.php");
     }
 ?>
 
@@ -42,27 +39,59 @@
     <main class="masthead bg-primary text-white text-center">
         <div class="content">
             <!--Formulario que paso por post -->
-            <form style="padding-bottom: 305.5px;" action="../funciones/valida.php" method="post" name="formulario" enctype="multipart/form-data">
+            <form style="padding-bottom: 155px;" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" name="formulario" enctype="multipart/form-data">
                 <div class="mb-3">    
-                    <h1>Login</h1>
+                    <h1>Formulario de Alta de Usuarios </h1>
                 </div>
                 <div class="mb-3">
                     <label for="nombre">User:&nbsp;</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php                    
+                        //mantenerAlfa();
+                    ?>">
                     <?php                      
-                        validaUser();
+                        //validaAlfa();
                     ?>
                 </div>
                 <div class="mb-3">
                     <label for="password" id="password" name="password">Contraseña:&nbsp;</label>
-                    <input type="password" name="pass" id="pass" placeholder="Contraseña">
+                    <input type="password" name="pass" id="pass" placeholder="Contraseña" value="<?php 
+                        //mantenerPass();
+                    ?>">
                     <?php
-                        validaPass();
+                        //validaPass();
                     ?>
                 </div>
-                <input type="submit" value="Entrar" name="entrar" class="btn btn-danger">
-                <a href="./registro.php" class="btn btn-danger">Registrar</a>
-            </form>
+                <div class="mb-3">
+                    <label for="password" id="password" name="password">Repita Contraseña:&nbsp;</label>
+                    <input type="password" name="pass2" id="pass2" placeholder="Contraseña" value="<?php 
+                        //mantenerPass();
+                    ?>">
+                    <?php
+                        //validaPass();
+                    ?>
+                </div>
+                <div class="mb-3">
+                    <label for="email" id="email" name="email">Email:&nbsp;</label>
+                    <input type="email" name="email" id="email" placeholder="Email" value="<?php 
+                        //mantenerEmail();
+                    ?>">
+                    <?php
+                        //validaEmail();
+                    ?>
+                </div>
+                <div class="mb-3">
+                    <label for="fecha" id="fecha" name="fecha">Fecha Nacimiento:&nbsp;</label>
+                    <input type="date" name="fecha" id="fecha" value="<?php 
+                        //mantenerFecha();
+                    ?>">
+                    <?php
+                        //validaFecha();
+                    ?>
+                </div>
+                <input type="submit" value="Enviar" name="Enviado" class="btn btn-danger">
+                <input type="reset" value="Limpiar formulario" class="btn btn-danger">
+            </form>  
+        </div>
     </main>
     <footer class="footer text-center">©Copy Aaron de Diego</footer>
 </body>

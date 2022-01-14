@@ -4,9 +4,9 @@
         try{
             $con = new PDO('mysql:host='.IP.";dbname=".BBDD,USER,PASS);
             $con ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $sql = $con -> prepare("select * from usuarios where usuario = :user and clave = :pass");
+            $sql = $con -> prepare("select * from usuarios where nombre = :user and clave = :pass");
             $sql -> bindParam(":user",$user);
-            $encrip = sha1($pass);
+            $encrip = $pass;
             $sql -> bindParam(":pass",$encrip);
             $sql -> execute();
             if($sql-> rowCount()==1){
@@ -15,13 +15,12 @@
                 
                 $row = $sql->fetch();
                 $_SESSION['validada'] = true;
-                $_SESSION['usuario'] = $row['usuario'];
                 $_SESSION['nombre'] = $row['nombre'];
                 $_SESSION['perfil'] = $row['perfil'];
 
 
                 //Páginas a las que tiene acceso
-                $sqlp = $con -> prepare("select descripcion, url from paginas p join accede a on (p.codigo=a.codigoPagina) 
+                /*$sqlp = $con -> prepare("select descripcion, url from paginas p join accede a on (p.codigo=a.codigoPagina) 
                 where codigoPerfil = :perfil");
                 $sqlp -> bindParam(":perfil",$_SESSION["perfil"]);
                 $sqlp -> execute();
@@ -30,7 +29,7 @@
                 while($row = $sqlp->fetch()){
                     $paginas[$row[0]] = $row[1];
                 }
-                $_SESSION['paginas'] = $paginas;
+                $_SESSION['paginas'] = $paginas;*/
                 //Cierre de conexion
                 unset($con);
                 return true;
