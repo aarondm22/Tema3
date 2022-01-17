@@ -13,7 +13,7 @@ class Persona {
     }
 
     toString(){
-        return this.getNombre +" " + this.getApellido;
+        return `${this.getNombre} ${this.getApellido}`;
     }
 
 }

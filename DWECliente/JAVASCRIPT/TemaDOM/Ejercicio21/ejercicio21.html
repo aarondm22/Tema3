@@ -1,17 +1,16 @@
 <!doctype html>
 <html lang="es">
-  <head>
+    <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-   <link href="css/estilos.css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
     <title>Listado de Personas</title>
     
-  </head>
-  <body>
-    
+    </head>
+    <body>
         <div id="cabecero" class="contenedor">
             <h1>Listado de Personas</h1>
         </div>
@@ -27,13 +26,13 @@
             </div>
         </div>
         <div class="contenedor">
-            <center>
-                <button onclick="añadir()">+</button>
-            </center>
+            <div style="text-align: center;">
+                <button style="cursor: pointer;" onclick="añadir()">+</button>
+            </div>
             <form id="formulario">
                 <div>
-                    <input type="text" step="any" class="form-control" placeholder="Nombre" id="nombre" />
-                    <input type="text" step="any" class="form-control" placeholder="Apellido" id="apellido" />  
+                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" autocomplete="off" />
+                    <input type="text" class="form-control" placeholder="Apellido" id="apellido" />  
                 </div>
             
             </form>

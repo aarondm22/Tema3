@@ -1,3 +1,6 @@
+let personasAlmacenadas=localStorage.getItem
+
+
 class Persona {
     constructor(nombre, apellido){
         this._nombre = nombre;

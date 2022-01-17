@@ -42,4 +42,29 @@
         }
     }
 
+    function selectId(){
+        if(conexionPDO()!=false){
+            $con = conexionPDO();
+    
+            $prep = $con -> prepare("select * from jugadores where id = :id ");
+            $id = $_REQUEST["id"];
+            $id = $id+0;
+    
+            $prep->bindParam(":id", $id);
+            $prep->execute();
+    
+            $prep->bindColumn(1,$id); //Análogo al bind_result del mysqli
+            $prep->bindColumn(2,$nombre);
+            $prep->bindColumn(3,$kills);
+            $prep->bindColumn(4,$cumple);
+            $seleccion = "";
+            while($prep->fetch()){
+                $seleccion = $id.":".$nombre.":".$kills.":".$cumple;
+            }
+    
+            unset($con);
+            return $seleccion;
+        }
+    }
+
 ?>
