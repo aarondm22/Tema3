@@ -1,0 +1,45 @@
+body{
+    background-color:#b2bec3;
+    margin:0;
+  }
+  article{
+    background-color:#dfe6e9;
+    width:90vw;
+    margin:0 auto;
+  }
+  h1{
+    padding:1em 0;
+    text-align:center;
+    margin:0;
+  }
+  section{
+    padding-bottom:0em;
+  }
+  section p, section ul{
+    padding-bottom:1em;
+    margin-bottom:0;
+  }
+  section:nth-child(1){
+    background-color:#81ecec;
+  }
+  section:nth-child(1)>h1{
+    background-color:#0984e3;
+  }
+  section:nth-child(2){
+    background-color:#ffeaa7;
+  }
+  section:nth-child(2)>h1{
+    background-color:#fdcb6e;
+  }
+  section:nth-child(3){
+    background-color:#fd79a8;
+  }
+  section:nth-child(3)>h1{
+    background-color:#e84393;
+  }
+  section:nth-child(4){
+    background-color:#a29bfe;
+  }
+  section:nth-child(4)>h1{
+    background-color:#6c5ce7;
+  }

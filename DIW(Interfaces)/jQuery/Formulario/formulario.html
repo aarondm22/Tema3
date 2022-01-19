@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        DIW
+    </title>
+    <script defer src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script defer src="./js/formulario.js"></script>
+    <link rel="stylesheet" href="./css/formulario.css" media="screen">
+</head>
+<body>
+    <div class="formulario">
+        <form action="/alta.php" method="post">
+        <fieldset>
+          <legend>Datos personales</legend>
+          <p>
+            <label>Nombre y apellidos: <input type="text" name="nombre" id="nombre" required></label>
+          </p>
+          <p>
+            <label>Fecha de nacimiento: <input type="date" name="fNac" id="fNac"></label>
+          </p>
+          <p>
+            <label>Teléfono: <input type="tel" name="tlf" id="tlf"></label>
+          </p>
+          <p>
+            <label>Correo electrónico: <input type="email" name="email" id="email" required></label>
+          </p>
+        </fieldset>
+        <p>
+          <button type="button" class="cerrar">Vista previa</button>
+        </p>
+      </form>
+    </div>
+    <div class="vp">
+        <article>
+            <p class="nombre"></p>
+            <p class="mail"></p>
+            <p class="tlf"></p>
+            <p class="bdate">Fecha de nacimiento: <span></span></p>
+            <p class="cerrar"></p>
+        </article>
+    </div>
+</body>
+</html>

@@ -11,6 +11,11 @@ class Producto{
         echo "<p>".$this->id.":".$this->descripcion.":".$this->PVP."</p>";
     }
 
+    //final no nos permite sobreescribir en las clases heredadas
+    public final function aumentaPrecio($cuanto){
+        $this->PVP = $this->PVP + $cuanto;
+    }
+
     /**
      * Get the value of id
      */ 
