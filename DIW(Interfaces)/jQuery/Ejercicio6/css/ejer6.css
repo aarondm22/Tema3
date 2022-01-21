@@ -1,0 +1,23 @@
+body,p{margin:0;}
+.importante{
+  font-size:150%;
+  font-weight:bolder;
+  text-decoration:underline;
+}
+.caps{
+  text-transform:uppercase;
+}
+.red{
+  color:red;
+}
+.nl{
+  text-decoration:none;
+}
+
+article{
+  box-sizing:border-box;
+  width:85%;
+  margin:1ex auto;
+  background-color:lightgray;
+  padding:1em 3em;
+}
