@@ -8,12 +8,39 @@
 </head>
 <body>
     <header class="navbar">
+        
         <h1>MVC</h1>
-    </header>
-    <main>
+        <!-- Aqui mostrar un boton de Ir al Login si no esta logueado y dos botones, uno de perfil y otro de logout -->
         <?php
-            require $vistas['inicio'];
+            if(isset($_SESSION['validada'])){
+                ?>
+                 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+                    <input type="submit" value="Mi Perfil">
+                    <input type="submit" value="Logout">
+                 </form>
+                <?php
+            }else{
+                ?>
+                <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+                    <input type="submit" value="Login" name="login">
+                </form>
+                <?php
+            }
+           
         ?>
+    </header>
+    <main class="container">
+        <div class="row">
+            <?php
+                //Si no tiene ninguna vista nos manda al login 
+                if(!isset($_SESSION['vista'])){
+                    require $vistas['inicio'];
+                //Si hay alguna vista cargada desde el controlador, la carga
+                }else{
+                    require $_SESSION['vista'];
+                }
+            ?>
+        </div>
     </main>
     <footer class="text-center">
         Derechos de Autor Aarón de Diego
