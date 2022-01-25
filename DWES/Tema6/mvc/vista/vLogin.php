@@ -1,6 +1,8 @@
 <?php
 
-
+if(isset($_SESSION['mensaje'])){
+    echo $_SESSION['mensaje'];
+}
 
 ?>
 
@@ -15,3 +17,9 @@
     <input type="submit" value="Registro" name="registro">
     <input type="submit" value="Volver" name="volver">
 </form>
+
+<?php
+if(isset($_SESSION['mensaje'])){
+    unset($_SESSION['mensaje']);
+}
+?>

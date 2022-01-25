@@ -5,15 +5,15 @@ class Usuario {
     //atributos
     private $codUsuario;
     private $nombre;
-    private $pass;
+    private $password;
     private $perfil;
 
     //Constructor en php
-    public function __construct($codUsuario, $nombre, $pass, $perfil){
+    public function __construct($codUsuario, $nombre, $password, $perfil){
         $this->codUsuario = $codUsuario;
         $this->nombre = $nombre;
-        $this->pass = $pass;
-        $this->perfil = $perfil;
+        $this->password = $password;
+        $this->Perfil = $perfil;
     }
 
     public function __get($atributo){

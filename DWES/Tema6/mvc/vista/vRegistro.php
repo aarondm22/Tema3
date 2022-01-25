@@ -12,4 +12,5 @@
         <input type="text" name="repPass" id="repPass">
 
     <input type="submit" value="Registrar" name="registro">
+    <input type="submit" value="Volver" name="volver">
 </form>

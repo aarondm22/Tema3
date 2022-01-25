@@ -13,10 +13,11 @@
         <!-- Aqui mostrar un boton de Ir al Login si no esta logueado y dos botones, uno de perfil y otro de logout -->
         <?php
             if(isset($_SESSION['validada'])){
+                echo "<p>".$_SESSION['nombre']."</p>";
                 ?>
                  <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
-                    <input type="submit" value="Mi Perfil">
-                    <input type="submit" value="Logout">
+                    <input type="submit" value="Mi Perfil" name="perfil">
+                    <input type="submit" value="Logout" name="logout">
                  </form>
                 <?php
             }else{
