@@ -1,0 +1,76 @@
+body{
+    background-color: rgb(238, 235, 235);
+
+}
+.grid {
+    display:grid;
+    grid-template-columns: 30% 60%;
+
+}
+
+.cabecera{
+    color:brown;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 5px 5px 5px rgb(145, 130, 133);
+}
+
+
+
+
+section{
+    font-size: 16px;
+}
+fieldset{
+    border-color: rgb(226, 114, 23);
+}
+
+legend{
+    color: royalblue;
+    font-size: 24px;
+    /*poner negrita*/
+    font-weight: bold;
+}
+
+
+label{
+    display:flex;
+    justify-content: space-between;
+
+}
+
+label input[type="radio"]{
+    width: 16px;
+	height: 16px;
+    margin-right: 20%;
+
+}
+
+label input[type="checkbox"] {
+	content: "";
+	width: 16px;
+	height: 16px;
+    margin-right: 60%;
+	background: rgb(255, 255, 253);
+ 	-webkit-box-shadow: -3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 -3px 0 rgba(0,0,0,0.2);
+}
+
+.boton{
+    display: flex;
+    justify-content:center;
+}
+
+button {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: rgb(182, 145, 145);
+    padding: 1%;
+    box-shadow: 3px 3px 3px rgb(148, 90, 90);
+    border-radius: 14%;
+    background-color: rgba(221, 212, 212, 0.658);
+
+}
+
+
+

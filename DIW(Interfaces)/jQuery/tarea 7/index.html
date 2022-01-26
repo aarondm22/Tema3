@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    DIW
+  </title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="css/style.css" media="screen">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <script defer src="js/script.js"></script>
+</head>
+
+<body class="grid">
+  <header class="cabecera">
+    <h1>Diseño de Interfaces Web</h1>
+  </header>
+  <section>
+    <fieldset>
+      <legend>Preguntas sobre la teoria de Gestalt y del color</legend>
+      <ol type="1" id="wrapper_accordion">
+        <li>
+          <p>Figura y fondo. Marca la incorrecta:</p>
+          <ol type="a" class="radio">
+            <li>
+              <label>Esta ley analiza la tendencia de separar la figura de una imagen y su fondo <input id="question1_answer1" type="radio" value="resp1_ko" name="FiguraFondo"></label>
+            </li>
+            <li>
+              <label>La figura y el fondo no son estáticos pueden intercambiar sus papeles <input id="question1_answer2" type="radio" value="resp1_ko" name="FiguraFondo"></label>
+            </li>
+            <li>
+              <label>Ninguna es correcta <input id="question1_answer3" type="radio" value="resp1_ok" name="FiguraFondo"></label>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>Marca las leyes de Gestalt</p>
+          <ol type="a">
+            <li>
+              <label>Ley de cierre
+                <input type="checkbox" class="micheckbox" id="question2_answer1" name="cierre">
+              </label>
+            </li>
+            <li>
+              <label>Ley del contraste
+                <input type="checkbox" class="micheckbox" id="question2_answer2" name="contraste">
+              </label>
+            </li>
+            <li>
+              <label>Ley de Acercamiento
+                <input type="checkbox" class="micheckbox" id="question2_answer3" name="Acercamiento">
+              </label>
+            </li>
+            <li>
+              <label>Ley de la proximidad
+                <input type="checkbox" class="micheckbox" id="question2_answer4" name="proximidad">
+              </label>
+            </li>
+            <li>
+              <label>Ley de Asimetria
+                <input type="checkbox" class="micheckbox" id="question2_answer5" name="Asimetria">
+              </label>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Psicología de cada color, elige la opción correcta
+          </p>
+          <ul>
+            <li>
+              <label for="blanco">Blanco:</label>
+              <select id="blanco">
+                <option value="question3a_answer0">Elige una opción...</option>
+                <option value="question3a_answer1">Puro e Inocente</option>
+                <option value="question3a_answer2">Felicidad, riqueza, abundancia</option>
+                <option value="question3a_answer3">Pasión, revolución, peligro.</option>
+                <option value="question3a_answer4">Divino, sensualidad</option>
+              </select>
+            </li>
+            <br>
+            <li>
+              <label for="rojo">Rojo:</label>
+              <select id="rojo">
+                <option value="question3b_answer0">Elige una opción...</option>
+                <option value="question3b_answer1">Puro e Inocente</option>
+                <option value="question3b_answer2">Felicidad, riqueza, abundancia</option>
+                <option value="question3b_answer3">Pasión, revolución, peligro.</option>
+                <option value="question3b_answer4">Divino, sensualidad</option>
+              </select>
+            </li>
+            <br>
+            <li>
+              <label for="naranja">Naranja:</label>
+              <select id="naranja">
+                <option value="question3c_answer0">Elige una opción...</option>
+                <option value="question3c_answer1">Puro e Inocente</option>
+                <option value="question3c_answer2">Felicidad, riqueza, abundancia</option>
+                <option value="question3c_answer3">Pasión, revolución, peligro.</option>
+                <option value="question3c_answer4">Divino, sensualidad</option>
+              </select>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </fieldset>
+    <p class="boton"><button class="add" type="button" id="show_dialog_button">Mostrar la nota</button></p>
+  </section>
+
+  <div id="wrapper_dialog">
+    <p>La nota final es: <span id="text_result"></span></p>
+  </div>
+</body>
+
+</html>

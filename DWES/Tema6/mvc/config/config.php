@@ -25,7 +25,8 @@ require './dao/UsuarioDAO.php';
 $controladores = [
     'inicio' => 'controlador/cInicio.php',
     'login' => 'controlador/cLogin.php',
-    'registro' => 'controlador/cRegistro.php'
+    'registro' => 'controlador/cRegistro.php',
+    'perfil' => 'controlador/cPerfil.php'
     //etc
 ];
 
@@ -33,8 +34,8 @@ $vistas = [
     'inicio' => 'vista/vInicio.php',
     'login' => 'vista/vLogin.php',
     'layout' => 'vista/vLayout.php',
-    'registro' => 'vista/vRegistro.php'
-    
+    'registro' => 'vista/vRegistro.php',
+    'perfil' => 'vista/vPerfil.php'
     //etc
 ]
 

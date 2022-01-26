@@ -3,7 +3,7 @@ $(function(){
     $(".acordeon").accordion({
       active:false,
       collapsible:true,
-      header:"legend"
+      header:"a"
     });
 });
 
@@ -40,19 +40,39 @@ $(function(){
 //Cuadros de dialogo
 $(function(){
     $(".mensaje").dialog({
-        title:"Copyright",
+        title: "Datos Fútbol",
         autoOpen:false,
         modal:true,
         buttons: {
-            "Mostrar autor": function() {
-                alert( "CRFPTIC" );
-            },
-            Cancel: function() {
+            Ok: function() {
                 $( this ).dialog( "close" );
-            } 
+                $(".mensaje").empty();
+            }
         }
     });
-    $(".modal").on( "click", function() {
+
+    $(".mensaje" ).on("dialogclose", function() {
+        $( this ).dialog( "close" );
+        $(".mensaje").empty();
+    });
+
+    $(".mostrarDatos").on( "click", function() {
         $(".mensaje").dialog("open");
+        $(".mensaje").append("<p>Nombre: "+$("#nombre").val()+"</p>"+
+        "<p>Fecha: "+$("#dia").val()+"</p>"+
+        "<p>Telefono: "+$("#telefono").val()+"</p>"+
+        "<p>Email: "+$("#email").val()+"</p>"+
+        "<p>Usuario: "+$("#usuario").val()+"</p>"+
+        "<p>Contraseña: "+$("#passwd").val()+"</p>");
+    });
+
+    $(".mostrarPreguntas").on( "click", function() {
+        $(".mensaje").dialog("open");
+        $(".mensaje").append("<p>Exjugador: "+$(".jugadores").checked +"</p>"+
+        "<p>Imagen: "+$("#dia").val()+"</p>"+
+        "<p>Telefono: "+$("#telefono").val()+"</p>"+
+        "<p>Email: "+$("#email").val()+"</p>"+
+        "<p>Usuario: "+$("#usuario").val()+"</p>"+
+        "<p>Contraseña: "+$("#passwd").val()+"</p>");
     });
 });
