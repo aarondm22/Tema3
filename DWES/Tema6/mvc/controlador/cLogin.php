@@ -13,8 +13,7 @@ if(isset($_POST['registro'])){
     if($todoOK){
         $user = $_POST['nombre'];
         $pass = $_POST['pass'];
-        //$pass = hash("SHA256", $user.$pass);
-        $pass = "25c0af9a1dc924c388e66d0acf93ef54885d9783a03131e11f6a21e378e4f70a";
+        $pass = hash("SHA256", $pass);
 
         $usuario = UsuarioDAO::validaUsuario($user,$pass);
         if($usuario != null){
@@ -22,7 +21,7 @@ if(isset($_POST['registro'])){
             $_SESSION['validada'] = true;
             $_SESSION['user'] = $usuario->codUsuario;
             $_SESSION['nombre'] = $usuario->nombre;
-            $_SESSION['perfil'] = $usuario ->Perfil;
+            $_SESSION['perfil'] = $usuario ->perfil;
             $_SESSION['pagina'] = 'inicio';
             header('Location: index.php');
 

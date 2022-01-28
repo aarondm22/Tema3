@@ -10,3 +10,14 @@ fieldset{
 li{
     list-style: none;
 }
+
+#slider1 .ui-slider-range { background: #db8331; }
+#slider1 .ui-slider-handle { 
+    border-color: #db8331; 
+    background: white;
+}
+#slider2 .ui-slider-range { background: #d84f3d; }
+#slider2 .ui-slider-handle { 
+    border-color: #d84f3d;; 
+    background: white;
+}

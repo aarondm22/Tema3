@@ -29,12 +29,12 @@
                     <section>
                         <a>Datos Personales</a>
                         <div>
-                            <p><label>Nombre y Apellidos: <input type="text" id="nombre"></label></p>
-                            <p><label>Fecha del examen: <input type="date" id="dia"></label></p>
-                            <p><label for="telefono">Introduce tu teléfono: <input type="tel" id="telefono"></label></p>
-                            <p><label for="email">Introduce tu correo electrónico: <input type="email" id="email"></label></p>
-                            <p><label>Nombre de usuario: <input type="text" id="usuario" placeholder="Usuario"></label></p>
-                            <p><label>Contraseña: <input type="password" id="passwd"></label></p>
+                            <p><label>Nombre y Apellidos: <input type="text" id="nombre" title="Indique su nombre y apellidos"></label></p>
+                            <p><label>Fecha del examen: <input type="text" id="dia" title="Escriba la fecha del examen en formato dd/mm/aaa o selecciónela del calendario"></label></p>
+                            <p><label for="telefono">Introduce tu teléfono: <input type="tel" id="telefono" title="Señale su número de teléfono sin espacios ni caracteres de separación"></label></p>
+                            <p><label for="email">Introduce tu correo electrónico: <input type="email" id="email" title="Introduzca su cuenta de correo"></label></p>
+                            <p><label>Nombre de usuario: <input type="text" id="usuario" placeholder="Usuario" title="Señale su identificador de usuario"></label></p>
+                            <p><label>Contraseña: <input type="password" id="passwd" title="Establezca una contraseña válida. Mínimo 8 caracteres"></label></p>
                             <button class="mostrarDatos" type="button" >Mostrar Datos</button>
                         </div>
                     </section>
@@ -123,11 +123,11 @@
                     </section>
                     <br>
                     <p>Indica el grado de dificultad que ha tenido el examen:</p>
-                    <p><label>Preguntas sobre Jugadores de futbol<input type="range" id="jugadores" min="0" max="100" step="1" value="50"></label></p>
-                    <p><label>Equipos, Ligas, Copas y Trofeos individuales<input type="range" id="jugadores" min="0" max="100" step="1" value="50"></label></p>
+                    <p><label>Preguntas sobre Jugadores de futbol<div id="slider1"></div></label></p>
+                    <p><label>Equipos, Ligas, Copas y Trofeos individuales<div id="slider2"></div></label></p>
                     <br>
                     <input type="submit" value="Finalizar el examen">
-                    <input type="reset" value="Limpiar las respuestas puestas">
+                    <input type="reset" value="Limpiar las respuestas">
                 </form>
             </fieldset>
         </article>

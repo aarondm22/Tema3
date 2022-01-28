@@ -35,7 +35,8 @@ $vistas = [
     'login' => 'vista/vLogin.php',
     'layout' => 'vista/vLayout.php',
     'registro' => 'vista/vRegistro.php',
-    'perfil' => 'vista/vPerfil.php'
+    'perfil' => 'vista/vPerfil.php',
+    'listaUsuarios' => 'vista/vListaUsuarios.php'
     //etc
 ]
 

@@ -3,11 +3,11 @@
 
 class UsuarioDAO implements DAO{
     public static function findAll(){
-        $sql = "select * from usuarios";
+        $sql = "select codUsuario,nombre,Perfil from usuario";
         $consulta = ConexionBD::ejecutaConsulta($sql,[]);
         $cont = 0;
         while($row = $consulta->fetchObject()){
-            $usuario = new Usuario($row->codUsuario, $row->nombre, $row->password, $row->Perfil);
+            $usuario = new Usuario($row->codUsuario, $row->nombre, "", $row->Perfil);
             $registros[$cont] = $usuario;
             $cont++;
         }
@@ -15,7 +15,11 @@ class UsuarioDAO implements DAO{
     }
     //busca por clave primaria
     public static function findById($id){
-        
+        $sql = "select codUsuario,nombre,Perfil from usuario where codUsuario = ?";
+        $consulta = ConexionBD::ejecutaConsulta($sql,[$id]);
+        $row = $consulta->fetchObject();
+        $user = new Usuario($row->codUsuario, $row->nombre, "", $row->Perfil);
+        return $user;
     }
     //modifica o actualiza
     public static function update($objeto){}

@@ -66,13 +66,21 @@ $(function(){
         "<p>Contraseña: "+$("#passwd").val()+"</p>");
     });
 
-    $(".mostrarPreguntas").on( "click", function() {
-        $(".mensaje").dialog("open");
-        $(".mensaje").append("<p>Exjugador: "+$(".jugadores").checked +"</p>"+
-        "<p>Imagen: "+$("#dia").val()+"</p>"+
-        "<p>Telefono: "+$("#telefono").val()+"</p>"+
-        "<p>Email: "+$("#email").val()+"</p>"+
-        "<p>Usuario: "+$("#usuario").val()+"</p>"+
-        "<p>Contraseña: "+$("#passwd").val()+"</p>");
-    });
 });
+
+//Efectos Deslizadores
+$( "#slider1, #slider2").slider({
+orientation: "horizontal",
+range: "min",
+max: 255,
+value: 127,
+});
+$( "#slider1" ).slider( "value", 130 );
+$( "#slider2" ).slider( "value", 130 );
+
+
+//Datepicker
+$( function() {
+    $( "#dia" ).datepicker();
+} );
+

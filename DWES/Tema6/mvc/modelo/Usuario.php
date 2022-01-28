@@ -13,7 +13,7 @@ class Usuario {
         $this->codUsuario = $codUsuario;
         $this->nombre = $nombre;
         $this->password = $password;
-        $this->Perfil = $perfil;
+        $this->perfil = $perfil;
     }
 
     public function __get($atributo){
@@ -23,6 +23,7 @@ class Usuario {
     public function __set($atributo, $valor){
         $this->$atributo = $valor;
     }
+    
 }
 
 
