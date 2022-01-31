@@ -1,10 +1,20 @@
 <?php
     require_once ("../funciones/validaSession.php");
+    require_once("../funciones/conexionBD.php");
+    require_once("../funciones/funciones.php");
+    require_once("../funciones/consultas.php");
     //Comprobar que hay sesion
     session_start();
     validaSession();
+
+    if(isset($_REQUEST['modificar'])&&validaModificar()){
+        actualizar();
+        header("Location: ./misdatos.php");
+    }else{
+        echo "Error";
+    }
     //Comprobar que la pagina puede verse por el usuario logueado
-   /* if(validaPagina(basename($_SERVER['PHP_SELF']))){
+    /* if(validaPagina(basename($_SERVER['PHP_SELF']))){
         header("Location: ");
     }*/
 ?>
@@ -46,20 +56,31 @@
                     <label for="nombre">User:&nbsp;</label>
                     <input type="text" name="nombre" id="nombre" value="<?php echo $_SESSION['nombre']; ?>" disabled>
                 </div>
+                <?php
+                    $consulta = selectNom();
+                    $reg = explode(":", $consulta);
+                ?>
                 <div class="mb-3">
-                    <label for="password" id="password" name="password">Contraseña:&nbsp;</label>
-                    <input type="password" name="pass" id="pass" value="<?php echo $_SESSION['pass']; ?>">
+                    <label for="pass" id="pass" name="pass">Contraseña:&nbsp;</label>
+                    <input type="text" name="pass" id="pass" value="<?php echo $reg[0] ?>">
+                    <?php validaPassMod(); ?>
                 </div>
                 <div class="mb-3">
                     <label for="email" id="email" name="email">Email:&nbsp;</label>
-                    <input type="email" name="email" id="email" value="<?php echo $_SESSION['email']; ?>">
+                    <input type="email" name="email" id="email" value="<?php echo $reg[1] ?>">
+                    <?php validaEmailMod(); ?>
                 </div>
                 <div class="mb-3">
                     <label for="fecha" id="fecha" name="fecha">Fecha Nacimiento:&nbsp;</label>
-                    <input type="date" name="fecha" id="fecha" value="<?php echo $_SESSION['fecha']; ?>">
+                    <input type="date" name="fecha" id="fecha" value="<?php echo $reg[2] ?>">
+                    <?php validaCumpleMod(); ?>
                 </div>
-                <input type="submit" value="Entrar" name="entrar" class="btn btn-danger">
-                <a href="./registro.php" class="btn btn-danger">Registrar</a>
+                <div class="mb-3">
+                    <label for="perfil" id="perfil" name="perfil">Perfil:&nbsp;</label>
+                    <input type="text" name="perfil" id="perfil" value="<?php echo $reg[3] ?>">
+                    <?php validaPerfilMod(); ?>
+                </div>
+                <input type="submit" value="Modificar" name="modificar" class="btn btn-danger">
             </form>
         </div>
     </header>

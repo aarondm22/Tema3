@@ -27,7 +27,7 @@ if(isset($_POST['logout'])){
         require_once $vistas['layout'];
         exit();
     }
-}else if(isset($_GET['usuarios'])){
+}else if(isset($_GET['mostrar'])){
     if($_SESSION['perfil'] == 'admini'){
         $codUsuario = $_GET['mostrar'];
         $usuario = UsuarioDAO::findById($codUsuario);

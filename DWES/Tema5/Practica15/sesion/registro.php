@@ -88,7 +88,7 @@
                         //validaFecha();
                     ?>
                 </div>
-                <input type="submit" value="Enviar" name="Enviado" class="btn btn-danger">
+                <input type="submit" value="Registrar" name="registrar" class="btn btn-danger">
                 <input type="reset" value="Limpiar formulario" class="btn btn-danger">
             </form>  
         </div>

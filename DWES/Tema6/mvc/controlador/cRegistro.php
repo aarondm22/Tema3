@@ -8,7 +8,7 @@ if(isset($_POST['volver'])){
 }else if(isset($_POST['registro'])){
     //usaremos libreria de validar
     //Intentar insertar usuario nuevo
-
+    
 
     //Que vaya al login
 }else if(isset($_POST['login'])){

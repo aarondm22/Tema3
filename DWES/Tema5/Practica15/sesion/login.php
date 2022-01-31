@@ -50,14 +50,14 @@
                     <label for="nombre">User:&nbsp;</label>
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre">
                     <?php                      
-                        validaUser();
+                        validaUserLogin();
                     ?>
                 </div>
                 <div class="mb-3">
                     <label for="password" id="password" name="password">Contraseña:&nbsp;</label>
                     <input type="password" name="pass" id="pass" placeholder="Contraseña">
                     <?php
-                        validaPass();
+                        validaPassLogin();
                     ?>
                 </div>
                 <input type="submit" value="Entrar" name="entrar" class="btn btn-danger">

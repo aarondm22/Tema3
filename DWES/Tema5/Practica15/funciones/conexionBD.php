@@ -1,10 +1,10 @@
 <?php
 
-//require_once("../segura/datosLoL.php");
+require_once("../segura/datosTienda.php");
 function conexionPDO(){
-    $dsn = "mysql:host=".IP.";dbname=".BD;
+    $dsn = "mysql:host=".IP.";dbname=".BBDD;
     try{
-        $con = new PDO($dsn,USUARIO,PASS);
+        $con = new PDO($dsn,USER,PASS);
         $con -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $con;
     }catch(PDOException $ex){
@@ -27,9 +27,9 @@ function conexionPDO(){
 }
 
 function conexion(){
-    $dsn = "mysql:host=".IP.";dbname=".BD;
+    $dsn = "mysql:host=".IP.";dbname=".BBDD;
     try{
-        $con = new PDO($dsn,USUARIO,PASS);
+        $con = new PDO($dsn,USER,PASS);
         $con -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $con;
     }catch(PDOException $ex){

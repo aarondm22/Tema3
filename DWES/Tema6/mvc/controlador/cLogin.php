@@ -19,7 +19,7 @@ if(isset($_POST['registro'])){
         if($usuario != null){
             //existe el usuario
             $_SESSION['validada'] = true;
-            $_SESSION['user'] = $usuario->codUsuario;
+            $_SESSION['codUsuario'] = $usuario->codUsuario;
             $_SESSION['nombre'] = $usuario->nombre;
             $_SESSION['perfil'] = $usuario ->perfil;
             $_SESSION['pagina'] = 'inicio';

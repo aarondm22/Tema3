@@ -15,6 +15,9 @@
                 
                 $row = $sql->fetch();
                 $_SESSION['validada'] = true;
+                $_SESSION['clave'] = $row['clave'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['fecha'] = $row['fecha'];
                 $_SESSION['nombre'] = $row['nombre'];
                 $_SESSION['perfil'] = $row['perfil'];
 
@@ -42,28 +45,54 @@
         }
     }
 
-    function selectId(){
+    function selectNom(){
         if(conexionPDO()!=false){
             $con = conexionPDO();
     
-            $prep = $con -> prepare("select * from jugadores where id = :id ");
-            $id = $_REQUEST["id"];
-            $id = $id+0;
+            $prep = $con -> prepare("select * from usuarios where nombre = :nombre ");
+            $nombre = $_SESSION["nombre"];
     
-            $prep->bindParam(":id", $id);
+            $prep->bindParam(":nombre", $nombre);
             $prep->execute();
     
-            $prep->bindColumn(1,$id); //Análogo al bind_result del mysqli
-            $prep->bindColumn(2,$nombre);
-            $prep->bindColumn(3,$kills);
-            $prep->bindColumn(4,$cumple);
+            $prep->bindColumn(2,$nombre); //Análogo al bind_result del mysqli
+            $prep->bindColumn(3,$clave);
+            $prep->bindColumn(4,$email);
+            $prep->bindColumn(5,$fecha);
+            $prep->bindColumn(6,$perfil);
             $seleccion = "";
             while($prep->fetch()){
-                $seleccion = $id.":".$nombre.":".$kills.":".$cumple;
+                $seleccion = $clave.":".$email.":".$fecha.":".$perfil;
             }
     
             unset($con);
             return $seleccion;
+        }
+    }
+
+    function actualizar(){
+        if(conexionPDO()!=false){
+            $con = conexionPDO();
+    
+            $prep = $con -> prepare("update usuarios set clave=?, email=?, fecha=?, perfil=? where nombre=? ");
+            
+    
+            //Recogemos cada uno de los datos introducidos en el formulario
+            $nombre = $_SESSION["nombre"];
+            $clave = $_REQUEST["pass"];
+            $email = $_REQUEST["email"];
+            $fecha = $_REQUEST["fecha"];
+            $perfil = $_REQUEST["perfil"];
+    
+            $prep->bindParam(1,$clave);
+            $prep->bindParam(2,$email);
+            $prep->bindParam(3,$fecha);
+            $prep->bindParam(4,$perfil);
+            $prep->bindParam(5,$nombre);
+            //Ejecutamos el update
+            $prep -> execute();
+    
+            unset($con);
         }
     }
 
