@@ -41,34 +41,74 @@
                 return false;
             }
         }catch(PDOException $ex){
-
+            if($ex -> getCode() != 0){
+                //Error al conectarse
+                return false;
+            }
+        }finally{
+            unset($con);
         }
     }
 
     function selectNom(){
-        if(conexionPDO()!=false){
-            $con = conexionPDO();
-    
-            $prep = $con -> prepare("select * from usuarios where nombre = :nombre ");
-            $nombre = $_SESSION["nombre"];
-    
-            $prep->bindParam(":nombre", $nombre);
-            $prep->execute();
-    
-            $prep->bindColumn(2,$nombre); //Análogo al bind_result del mysqli
-            $prep->bindColumn(3,$clave);
-            $prep->bindColumn(4,$email);
-            $prep->bindColumn(5,$fecha);
-            $prep->bindColumn(6,$perfil);
-            $seleccion = "";
-            while($prep->fetch()){
-                $seleccion = $clave.":".$email.":".$fecha.":".$perfil;
+        try{
+            if(conexionPDO()!=false){
+                $con = conexionPDO();
+        
+                $prep = $con -> prepare("select * from usuarios where nombre = :nombre ");
+                $nombre = $_SESSION["nombre"];
+        
+                $prep->bindParam(":nombre", $nombre);
+                $prep->execute();
+        
+                $prep->bindColumn(2,$nombre); //Análogo al bind_result del mysqli
+                $prep->bindColumn(3,$clave);
+                $prep->bindColumn(4,$email);
+                $prep->bindColumn(5,$fecha);
+                $prep->bindColumn(6,$perfil);
+                $seleccion = "";
+                while($prep->fetch()){
+                    $seleccion = $clave.":".$email.":".$fecha.":".$perfil;
+                }
+        
+                unset($con);
+                return $seleccion;
             }
-    
+        }catch(PDOException $ex){
+            if($ex -> getCode() != 0){
+                //Error al conectarse
+                return false;
+            }
+        }finally{
             unset($con);
-            return $seleccion;
         }
     }
+
+    //Select de productos
+    function selectProd(){
+        try{
+            if(conexionPDO()!=false){
+                $con = conexionPDO();
+                $sql = ("select * from productos ");
+    
+                $result = $con->query($sql);
+        
+                $array = $result -> fetchAll(PDO::FETCH_ASSOC);
+                
+                
+                unset($con);
+                return $array;
+            }
+        }catch(PDOException $ex){
+            if($ex -> getCode() != 0){
+                //Error al conectarse
+                return false;
+            }
+        }finally{
+            unset($con);
+        }
+    }
+
 
     function actualizar(){
         if(conexionPDO()!=false){

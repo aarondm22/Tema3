@@ -75,3 +75,21 @@ li a:hover {
     margin-left: 450px;
     font-size: 1.2em;
 }
+
+.caja{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.caratula, .productoInputs{
+    display: inline;
+}
+
+.productoInputs input{
+    display: block;
+}
+
+.producto{
+    min-width: 100px;
+    max-width: 300px;
+}

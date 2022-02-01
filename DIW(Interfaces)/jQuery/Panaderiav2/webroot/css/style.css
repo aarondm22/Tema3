@@ -1,0 +1,26 @@
+header{
+    color:#000000;
+    background-color: #C59E7A;
+    text-align: center;
+    font-size: 2em;
+}
+
+footer{
+    background-color:#C59E7A;
+    color:#000000;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: 2em;
+}
+
+body{
+    background-color: #F4E8D7;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cabecera{
+    display: grid;
+}

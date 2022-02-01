@@ -1,12 +1,16 @@
 <?php
+    require_once ("../funciones/consultas.php");
+    require_once ("../funciones/conexionBD.php");
     require_once ("../funciones/validaSession.php");
-    //Comprobar que hay sesion
+    require_once ("../funciones/config.php");
+
     session_start();
-    validaSession();
-    //Comprobar que la pagina puede verse por el usuario logueado
-   /* if(validaPagina(basename($_SERVER['PHP_SELF']))){
-        header("Location: ");
-    }*/
+
+    if(isset($_REQUEST['comprar'])&&validaSession()&&validaCompra()){
+        header("Location: ../sesionvalidada/finalizacompra.php");
+    }else{
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +33,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#"><?php echo $_SESSION['nombre'];?></a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="./sesion.php">Inicio</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="./listaproductos.php">Comprar Productos</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Comprar Productos</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="./misdatos.php">Mis datos</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="../sesion/logout.php">Logout</a></li>
                 </ul>
@@ -37,8 +41,34 @@
         </div>
     </nav>
     <header class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <img style=" height: 700px; margin: auto; display: block;" src="../media/mando.jpg">
+        <div class="caja">
+            <?php
+
+            $listaProductos = selectProd();
+            foreach ($listaProductos as $key => $value) {
+                ?>
+                <div class="producto">
+                    <div class="caratula">
+                        <picture>
+                            <img src="<?php echo RUTAIMG.$value['imagen']?>" alt="">
+                        </picture>
+                    </div>
+                    <div class="nombreProducto">
+                        <h5><?php echo $value['descripcion']?><span> <?php echo $value['precio']?>€</span></h5>
+                        
+                    </div>
+                    <div class="productoInputs">
+                        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+                            <input type="hidden" name="precio" value="<?php echo $value['precio']?>">
+                            <input type="hidden" name="codProducto" value="<?php echo $value['cod_producto']?>">
+                            <input type="number" name="numProductos" id="numProductos">
+                            <input type="submit" value="Comprar" name="comprar">
+                        </form>
+                    </div>
+                </div>
+                <?php
+            }
+           ?>
         </div>
     </header>
     <footer class="footer text-center">©Copy Aaron de Diego</footer>

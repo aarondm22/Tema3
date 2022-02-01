@@ -11515,3 +11515,35 @@ html {
   margin-left: 450px;
   font-size: 1.2em;
 }
+
+
+.caja{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.caratula, .productoInputs, .nombreProducto{
+  display: block;
+  text-align: right;
+}
+
+.productoInputs input{
+  display: inline;
+}
+
+.producto{
+  min-width: 100px;
+  max-width: 300px;
+  padding: 50px;
+  margin-left: 50px;
+}
+.caratula img{
+  min-width: 100px;
+  max-width: 300px;
+}
+
+#numProductos{
+  width: 100px;
+}
+

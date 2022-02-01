@@ -95,4 +95,45 @@ function validaModificar(){
     }
 }
 
+//COMPRA PRODUCTOS
+
+function validaCompra(){
+    if(conexionPDO()!=false){
+        try{
+            $con = conexionPDO();
+            $prep1 = $con -> prepare("insert into ventas values (null,?,current_date,?,?,?)"); 
+            $prep2 = $con -> prepare("update productos set stock = stock-? where cod_producto = ?"); 
+            //Transacción para comprobar que solo añadimos un jugador cuando el id no coincida
+            $con -> beginTransaction();
+            //Recogemos cada uno de los datos introducidos en el formulario
+            $stock = $_REQUEST["numProductos"];
+            $stock = $stock+0;
+
+            $usuario = $_SESSION['nombre'];
+            $codproducto = $_REQUEST["codProducto"];
+            
+            //Sentencia UPDATE
+            $prep2->bindParam(1,$stock);
+            $prep2->bindParam(2,$codproducto);
+
+            //Sentencia INSERT
+            $prep1->bindParam(2,$stock);
+            $prep1->bindParam(3,$codproducto);
+            
+            //Ejecutamos el UPDATE
+            
+            $prep2-> execute();
+            //Si todo ha ido bien hacemos commit y creamos al jugador
+            $con -> commit();
+            return true;
+        }catch(PDOException $ex){
+            echo "<label for='id' style='color: red'>Id duplicado</label>";
+            $con->rollBack();
+        }finally{
+            unset($con);
+        }
+    }
+}
+
+
 ?>
