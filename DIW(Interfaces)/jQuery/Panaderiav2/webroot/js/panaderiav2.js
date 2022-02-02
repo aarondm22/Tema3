@@ -4,7 +4,7 @@ $( function() {
 });
 
 $( function() {
-    $( "#ocultar" ).hover(function(){ //Al clicar en los h1 se mostrara u ocultara como sea
+    $( "#ocultar" ).hover(function(){ 
         $(this).hide(1000, callback);
     })();
 });

@@ -1,12 +1,11 @@
 <?php
-    //llamar a verifica sesion
-    require_once("../funciones/validaSession.php");
     require_once("../funciones/funciones.php");
+    require_once("../funciones/consultas.php");
     session_start();
-    if(isset($_REQUEST['entrar'])&&validaSession()&&validaLogin()){
-        header("Location: ../sesionvalidada/index.php");
-    }else{
-        echo "Error";
+    if(isset($_REQUEST['entrar'])&&validaLogin()){
+        $_SESSION["nombre"] = $_REQUEST['nombre']; 
+        $_SESSION["pass"] = $_REQUEST['pass']; 
+        header("Location: ../funciones/valida.php");
     }
 ?>
 
@@ -42,13 +41,13 @@
     <main class="masthead bg-primary text-white text-center">
         <div class="content">
             <!--Formulario que paso por post -->
-            <form style="padding-bottom: 305.5px;" action="../funciones/valida.php" method="post" name="formulario" enctype="multipart/form-data">
+            <form style="padding-bottom: 305.5px;" action="<?php echo $_SERVER['PHP_SELF']?>" method="post" name="formulario" enctype="multipart/form-data">
                 <div class="mb-3">    
                     <h1>Login</h1>
                 </div>
                 <div class="mb-3">
                     <label for="nombre">User:&nbsp;</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php echo mantenerNom()?>">
                     <?php                      
                         validaUserLogin();
                     ?>
