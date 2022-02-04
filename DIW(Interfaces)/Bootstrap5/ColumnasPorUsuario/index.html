@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit="no">
+    <!--Hoja de estilos de Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!--Mi hoja de estilos-->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Columnas definidas por el usuario</title>
+</head>
+<body>
+    <div class="container">
+
+
+        <div class="row">
+            <!--col-6 ocupa la mitad del contenedor. Va a ser un valor fijo, ya que no he puesto ningun prefijo-->
+            <div class="col-6 red">
+
+            </div>
+        </div>
+
+        <div class="row ">
+            <!--col-6 sobre 12, el prefijo sm es para pantallas mayores de 576, si cambio el tamaño de la pantalla y empieza a menor de 576 ocupara toda la pantalla-->
+            <div class="col-sm-6 yellow">
+
+            </div>
+
+            <div class="row ">
+                <!--el prefijo md es para pantallas mayores de 768, si cambio el tamaño de la pantalla al hacerla más pequeña y no tener más clases lo que hace es que me pone uno debajo de otro-->
+                <div class="col-md-6 blue"></div>
+                <div class="col-md-4 yellow"></div>
+                <div class="col-md-2 red"></div>
+            </div>
+
+            <div class="row ">
+                <!--el prefijo md es para pantallas mayores de 768, si pongo más columnas de las 12 veremos que se pasa abajo-->
+                <div class="col-md-6 blue"></div>
+                <div class="col-md-4 yellow"></div>
+                <div class="col-md-3 red"></div>
+            </div>
+
+            <div class="row ">
+                <!--cambiar el tamaño dependiendo del tipo de pantalla
+                6 para 576 a 768 ocupara 4 de 768 a 992 y 2 de  1200 en adelante. Teniendo siempre en cuenta que la fila se divide en 12-->
+                <div class="col-sm- 6 col-md-4 col-lg- 2 yellow"></div>
+            </div>
+
+
+
+    </div>
+
+    <!--Componentes de Bootstrap 5-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>
