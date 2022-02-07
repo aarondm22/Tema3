@@ -24,27 +24,26 @@ if($devuelve){
                 echo $date['Date'];
                 echo "</td>";
                 foreach ($date["Temperature"] as $minmax => $value) {
-                    foreach ($value as $temp => $valor) {
-                        echo "<td>";
-                        echo $valor;
-                        echo "</td>";
+                    if($minmax == "Minimum"){
+                        foreach ($value as $temp => $valor) {
+                            if($temp == "Value"){
+                                echo "<td>";
+                                echo $valor;
+                                echo "</td>";
+                            }
+                        }
+                    }else if($minmax == "Maximum"){
+                        foreach ($value as $temp => $valor) {
+                            if($temp == "Value"){
+                                echo "<td>";
+                                echo $valor;
+                                echo "</td>";
+                            }
+                        }
                     }
                 }
             echo "</tr>";
         }
-            
-                /*foreach ($value['DailyForecasts'] as $clave => $valor) {
-                    echo "<td>";
-                    echo $key["Date"];
-                    echo "</td>";
-                    /*foreach ($valor['Temperature'] as $key => $temp) {
-                        echo "<td>";
-                        echo ;
-                        echo "</td>";
-                    }
-                    
-                }*/
-            echo "</tr>";
     ?>
     </tbody>
     </thead>
