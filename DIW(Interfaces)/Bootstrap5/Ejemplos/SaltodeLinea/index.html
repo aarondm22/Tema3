@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit="no">
+    <!--Hoja de estilos de Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!--Mi hoja de estilos-->
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <title>Columnas definidas por el usuario</title>
+</head>
+<body>
+    <div class="container">
+        <!--he definido la clase celda para que tenga una altura determinada-->
+        <div class="row">
+            <div class="col-md-3 celda black">
+            </div>
+            <div class="col-md-2 celda red">
+            </div>
+            <!--Salto de linea con la clase w-100 ponerlo donde quiero que cambie a la siguiente línea-->
+            <div class="w-100"></div>
+            <div class="col-md-3 celda yellow">
+            </div>
+            <div class="col-md-2 celda green">
+            </div>
+        </div>
+        <!--otra forma de hacerlo es creando dos filas-->
+        <div class="row">
+            <div class="col-md-3 celda green"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 celda red">
+            </div>
+            <div class="col-md-3 celda black">
+
+            </div>
+            <div class="col-md-2 celda red">
+
+            </div>
+        </div>
+
+        <!--gutter-->
+        <!--voy a añadir a las clases .row div h3 { border: 1px solid black; }, un borde para verlo mejor-->
+        <div class="row">
+            <div class="col-md-6"><h3>Elemento con Gutter</h3></div>
+            <div class="col-md-6"><h3>Elemento con Gutter</h3></div>
+        </div>
+
+        <div class="row no-gutters">
+            <div class="col-md-6"><h3>Elemento sin gutter</h3></div>
+            <div class="col-md-6"><h3>Segundo Elemento</h3></div>
+         </div>
+
+
+    </div>
+
+    <!--Componentes de Bootstrap 5-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+.row .celda{
+    height: 150px;
+}
+.row div h3 {
+  border: 1px solid black;
+}
+
+.black{
+    background-color: black;
+}
+.red {
+    background-color: red;
+  }
+
+  .black {
+    background-color: black;
+  }
+
+  .yellow {
+    background-color: yellow;
+  }
+
+  .green {
+    background-color: green;
+  }
