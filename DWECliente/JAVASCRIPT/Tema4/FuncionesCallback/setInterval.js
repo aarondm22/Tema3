@@ -4,4 +4,4 @@ let reloj = () => {
     console.log(`${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`);
 }
 
-setInterval(reloj, 1000);
+setInterval(reloj, 4000);

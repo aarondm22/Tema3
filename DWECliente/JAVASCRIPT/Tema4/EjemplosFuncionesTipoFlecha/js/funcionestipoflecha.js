@@ -1,13 +1,20 @@
 
-const miFuncionFlecha = () => {console.log("Soy una funcion tipo flecha");}
+const miFuncionFlecha = () => {
+    console.log("Soy una funcion tipo flecha");
+}
 miFuncionFlecha();
 
 //Return da error sin llaves
-const saludar = () => {return 'saludos desde Funcion flecha breve';}
+const saludar = () => {
+    return 'saludos desde Funcion flecha breve';
+}
 console.log(saludar());
 
 //Función flecha que devuelve un objeto
-const devuelveObjeto = () => ({nombre: 'Juan', apellido: 'Alonso'});
+const devuelveObjeto = () => ({
+    nombre: 'Juan', 
+    apellido: 'Alonso'
+});
 console.log(devuelveObjeto());
 
 //Funcion con parametros, no sale en quokka

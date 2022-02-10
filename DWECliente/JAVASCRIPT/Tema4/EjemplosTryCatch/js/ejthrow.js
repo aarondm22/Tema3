@@ -1,7 +1,7 @@
 "use strict";
 
 try{
-    let variable = "hola";
+    variable = 5;
     if(variable > 0){
         throw "Numero positivo";
     }

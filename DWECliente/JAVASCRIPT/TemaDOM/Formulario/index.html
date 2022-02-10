@@ -1,46 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Eventos</h1>
- 
-    <form id="formulario">
-        <label for="idNombre">Nombre:</label>
-        <input type="text" id="idNombre">
-        <br><br>
-        <label for="idApellido">Apellido:</label>
-        <input type="text" id="idApellido">
+    <h1>Formularios en HTML</h1>
+    <form action="mi_servidor.html">
+        <fieldset>
+            <legend>Datos Persona:</legend>
+            <label for="idPersona">Id Persona:</label><br />
+            <input type="text" id="idPersona" name="idPersona" readonly="true" value="100" disabled="true" /><br />
+            <input type="hidden" id="sistema" name="sistema" value="SAP" />
+            <label for="nombre">Nombre:</label><br />
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required="true" /><br />
+            <label for="apellido">Apellido:</label><br />
+            <input type="text" id="apellido" name="apellido" placeholder="Escribe tu apellido" required="true" /><br />
+            <label for="email">Email:</label><br />
+            <input type="email" id="email" name="email" /><br />
+            <label for="edad">Edad:</label><br />
+            <input type="number" id="edad" name="edad" /><br />
+            <label>Género</label><br />
+            <input type="radio" id="femenino" name="genero" value="femenino" />
+            <label for="femenino">Femenino</label><br />
+            <input type="radio" id="masculino" name="genero" value="masculino" />
+            <label for="masculino">Masculino</label><br />
+            <label>Género Música Favorita</label><br />
+            <input type="checkbox" id="clasica" name="musica" value="clasica" />
+            <label for="clasica">Clásica</label><br />
+            <input type="checkbox" id="jazz" name="musica" value="jazz" />
+            <label for="jazz">Jazz</label><br />
+            <label for="autos">Marca Auto favorita:</label><br />
+            <select id="autos" name="autos">
+                <option value="volvo">Volvo</option>
+                <option value="bmw">BMW</option>
+                <option value="audi" selected="true">Audi</option>
+            </select><br />
+            <label for="comentario">Comentario:</label><br />
+            <textarea id="comentario" name="comentario" rows="2" cols="30">Este es mi comentario
+            </textarea><br />
+            <br />
+            <input type="submit" value="Enviar" />
+            <input type="submit" formnovalidate="formnovalidate" value="Enviar sin validar" />
+            <input type="reset" value="Restablecer" />
+        </fieldset>
     </form>
-    
     <script>
- 
+
         // DELEGACIÓN DE EVENTOS //
         const formulario = document.getElementById("formulario");
- 
-        formulario.addEventListener("focus",(evento) => evento.target.style.background = "yellow",true);
-        formulario.addEventListener("blur",(evento) => evento.target.style.background = "white",true);
- 
-        
-        document.getElementById("idNombre").addEventListener("focus",(evento) => evento.target.style.background = "yellow");
-        document.getElementById("idNombre").addEventListener("blur",(evento) => evento.target.style.background = "white");
- 
-        document.getElementById("idApellido").addEventListener("focus",(evento) => evento.target.style.background = "yellow");
-        document.getElementById("idApellido").addEventListener("blur",(evento) => evento.target.style.background = "white");
-        
-        
-        function ponerColor(evento)
-        {
+
+        formulario.addEventListener("focus", (evento) => evento.target.style.background = "yellow", true);
+        formulario.addEventListener("blur", (evento) => evento.target.style.background = "white", true);
+
+
+        document.getElementById("idNombre").addEventListener("focus", (evento) => evento.target.style.background = "yellow");
+        document.getElementById("idNombre").addEventListener("blur", (evento) => evento.target.style.background = "white");
+
+        document.getElementById("idApellido").addEventListener("focus", (evento) => evento.target.style.background = "yellow");
+        document.getElementById("idApellido").addEventListener("blur", (evento) => evento.target.style.background = "white");
+
+
+        function ponerColor(evento) {
             evento.target.style.background = "yellow";
         }
- 
-        function quitarColor(evento)
-        {
+
+        function quitarColor(evento) {
             evento.target.style.background = "white";
         }
- 
+
     </script>
 </body>
+
 </html>

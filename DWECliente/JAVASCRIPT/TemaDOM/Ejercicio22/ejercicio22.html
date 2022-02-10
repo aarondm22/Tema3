@@ -17,29 +17,27 @@
         
         <div class="contenedor">
             <div class="elemento">
-                <ul>
-                    <li>Juan Perez</li>
+                <ul id="personas">
+                    <!--<li>Juan Perez</li>
                     <li>Ana Gonzalez</li>
-                    <li>Faustino Sinverguenza</li>
+                    <li>Faustino Sinverguenza</li>-->
                 </ul>
             </div>
         </div>
         <div class="contenedor">
             <center>
-                <button onclick="añadir()">+</button>
+                <button onclick="agregarPersonas()">+</button>
             </center>
             <form id="formulario">
                 <div>
-                    <input type="text" step="any" class="form-control" placeholder="Nombre" id="nombre" />
-                    <input type="text" step="any" class="form-control" placeholder="Apellido" id="apellido" />  
+                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" />
+                    <input type="text" class="form-control" placeholder="Apellido" id="apellido" />  
                 </div>
             
             </form>
         </div>
 
-        <div class="mb-3">
-            <label for="suma" id="suma"></label>
-        </div>
-        <script src="js/localstorage.js"></script>
+        <script src="js/persona.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>
