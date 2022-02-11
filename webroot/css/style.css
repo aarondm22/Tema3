@@ -5,17 +5,17 @@ header{
     font-size: 2em;
 }
 
-footer{
-    background-color:cornsilk;
-    color:tomato;
-    text-align: center;
+
+.footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #212529;
+    color: #fff;
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
-    font-size: 2em;
 }
-
 header .subtitulo{
     font-size: 25px;
 }

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./webroot/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>GráficoElecciones</title>
+</head>
+<body>
+    <div class="container"> <!--HEADER-->
+        <div class="row justify-content-center align-items-center">
+          <div class="col-sm-12">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner" style="height: 450px;">
+                <div class="carousel-item active">
+                  <img src="./webroot/media/instituto1.jpg" class="d-block w-100"  alt="Claudio1" class="img-fluid">
+                </div>
+                <div class="carousel-item">
+                  <img src="./webroot/media/instituto2.jpg" class="d-block w-100"  alt="Claudio2" class="img-fluid">
+                </div>
+                <div class="carousel-item">
+                  <img src="./webroot/media/instituto3.jpg" class="d-block w-100"  alt="Claudio3" class="img-fluid">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--BARRA DE NAVEGACIÓN-->
+        <div class="row">
+          <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Claudio Moyano</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link active"  href="./index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./grafico.html">Gráfico Guapo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Oferta Educativa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Servicios</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Alumnos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Actividades</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Visita Virtual</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <br>
+        <h1>GRÁFICO</h1>
+        <canvas id="elecciones"></canvas>
+    </div>
+    <canvas id="elecciones"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+    <script>
+    const ctx = document.getElementById('elecciones').getContext('2d');
+    const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['PSOE', 'PP', 'Ciudadanos', 'Vox', 'Podemos', 'Teruel Existe'],
+        datasets: [{
+            label: 'Numero de Votos',
+            data: [1000, 2300, 400, 290, 890, 2000],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+    });
+</script>
+</body>
+</html>

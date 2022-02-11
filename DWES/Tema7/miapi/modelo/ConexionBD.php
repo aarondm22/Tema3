@@ -14,7 +14,7 @@ class ConexionBD{
             $consulta->execute($parametros);
         } catch (PDOException $ex) {
             $consulta = null;
-            echo "Error: " +$ex->getMessage();
+            //echo "Error: " +$ex->getMessage();
         }finally{
             unset($con);
             //Devolvemos lo que nos devuelva la consulta, caso del select

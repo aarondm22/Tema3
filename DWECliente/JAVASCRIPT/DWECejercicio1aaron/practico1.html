@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1 EXAMEN</title>
+</head>
+<body>
+    <div id="cabecero" class="contenedor">
+        <h1>a) Listado de Ciudades con Local Storage</h1>
+    </div>
+    
+    <div class="contenedor">
+        <div class="elemento">
+            <ul id="ciudades">
+                <li>Zamora</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <center>
+            <button onclick="mostrarCiudad()">Mostrar Ciudades</button>
+            <button onclick="quitarCiudad()">Eliminar Ciudades</button>
+            <button onclick="cambiarColor()">Cambiar color</button>
+            <button onclick="ordenarLista()">Ordenar/Desordenar Lista</button>
+            <button onclick="guardarLista()">Guardar Lista</button>
+            <button onclick="agregarCiudades()">Agregar Ciudad</button>
+        </center>
+        <form id="formulario">
+            <div>
+                <input type="text" class="form-control" placeholder="Nombre" id="nombre" />
+            </div>
+        </form>
+    </div>
+
+
+    <script src="js/ciudad.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
