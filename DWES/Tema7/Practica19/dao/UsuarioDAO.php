@@ -23,7 +23,7 @@ class UsuarioDAO implements DAO{
             $objeto->perfil, $objeto->codUsuario
         ]);
 
-        //Si el numero de filas afectadas es 1 busca el objeto y lo devuelve
+        //Si el numero de filas afectadas es 1 bsca el objeto y lo devuelve
         if($consulta->rowCount()==1){
             return UsuarioDAO::findById($objeto->codUsuario);
         //Sino no existe el codUsuario
