@@ -14,7 +14,8 @@ img:hover{
 }
 
 h1{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
 }
 
 .titulo{
@@ -35,7 +36,7 @@ header .subtitulo{
 }
 
 main{
-    padding: 50px;
+    padding-top: 22px;
 }
 
 a{
